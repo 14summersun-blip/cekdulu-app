@@ -764,6 +764,10 @@
       background: rgba(0, 212, 170, 0.2);
     }
 
+    .toolbar-btn.hidden {
+      display: none;
+    }
+
     /* Contact List */
     .contact-list {
       background: var(--bg-card);
@@ -1048,6 +1052,37 @@
       color: var(--text-muted);
     }
 
+    /* Avatar Upload */
+    .avatar-upload-zone {
+      border: 2px dashed var(--card-border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-bottom: 16px;
+    }
+
+    .avatar-upload-zone:hover {
+      border-color: var(--accent);
+      background: rgba(0, 212, 170, 0.03);
+    }
+
+    .avatar-preview-large {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--cream);
+      margin: 0 auto 16px;
+    }
+
+    .avatar-size-info {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+    }
+
     @media (min-width: 640px) {
       .stats-grid { grid-template-columns: repeat(4, 1fr); }
       .profile-info-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1205,7 +1240,7 @@
             </button>
             <button class="dropdown-item" onclick="openModal('editAvatar'); closeAvatarDropdown();">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              Ubah Avatar
+              Ubah Foto Profil
             </button>
             <button class="dropdown-item danger" onclick="logout()">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
@@ -1308,7 +1343,7 @@
 
         <div class="notification-box warning" id="activationNotice">
           <div class="notification-content">
-            <div class="notification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+            <div class="notification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
             <div class="notification-text">
               <div class="notification-title">Akun Belum Aktif</div>
               <div class="notification-desc">Silakan hubungi admin untuk mengaktifkan akun Anda.</div>
@@ -1335,6 +1370,10 @@
           <button class="toolbar-btn primary" onclick="openModal('addContact')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
             Tambah
+          </button>
+          <button class="toolbar-btn" id="btnPickContact" onclick="pickContactFromDevice()" style="display: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            Ambil dari Ponsel
           </button>
           <button class="toolbar-btn" onclick="openModal('importVcf')">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
@@ -1469,11 +1508,21 @@
       </div>
       <div class="modal-body">
         <div style="text-align: center;">
-          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" alt="Preview" id="avatarPreview" style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 16px; border: 3px solid var(--cream);">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" alt="Preview" id="avatarPreviewLarge" class="avatar-preview-large">
         </div>
+        
+        <div class="avatar-upload-zone" onclick="document.getElementById('avatarFileInput').click()">
+          <input type="file" id="avatarFileInput" accept="image/*" style="display: none" onchange="handleAvatarFile(event)">
+          <div style="color: var(--cream); margin-bottom: 8px;">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
+          </div>
+          <div style="font-size: 13px; color: var(--text-secondary);">Klik untuk upload foto</div>
+          <div class="avatar-size-info">Maksimal 700KB (akan dikompresi otomatis)</div>
+        </div>
+        
         <div class="form-group" style="margin-bottom: 0;">
-          <label class="form-label" for="avatarSeed">Nama Avatar</label>
-          <input type="text" class="form-input" id="avatarSeed" placeholder="Masukkan nama unik">
+          <label class="form-label" for="avatarSeed">Atau gunakan avatar default</label>
+          <input type="text" class="form-input" id="avatarSeed" placeholder="Masukkan nama untuk avatar unik" oninput="updateAvatarFromSeed()">
         </div>
       </div>
       <div class="modal-footer">
@@ -1513,14 +1562,14 @@
           <input type="text" class="form-input" id="contactName" placeholder="Nama lengkap">
         </div>
         <div class="form-group">
-          <label class="form-label" for="contactPhone">Telepon</label>
+          <label class="form-label" for="contactPhoneInput">Telepon</label>
           <div class="phone-input-group">
             <input type="text" class="form-input phone-prefix" value="+62" readonly>
             <input type="tel" class="form-input" id="contactPhoneInput" placeholder="812-xxxx-xxxx">
           </div>
         </div>
         <div class="form-group" style="margin-bottom: 0;">
-          <label class="form-label" for="contactEmail">Email (opsional)</label>
+          <label class="form-label" for="contactEmailInput">Email (opsional)</label>
           <input type="email" class="form-input" id="contactEmailInput" placeholder="email@contoh.com">
         </div>
       </div>
@@ -1545,7 +1594,7 @@
           <input type="text" class="form-input" id="editContactName" placeholder="Nama lengkap">
         </div>
         <div class="form-group">
-          <label class="form-label" for="editContactPhone">Telepon</label>
+          <label class="form-label" for="editContactPhoneInput">Telepon</label>
           <div class="phone-input-group">
             <input type="text" class="form-input phone-prefix" value="+62" readonly>
             <input type="tel" class="form-input" id="editContactPhoneInput" placeholder="812-xxxx-xxxx">
@@ -1619,6 +1668,7 @@
       email: 'demo@email.com',
       phone: '+62 812-xxxx-xxxx',
       avatarSeed: 'demo',
+      avatarUrl: null,
       isActive: false,
       balance: 0
     };
@@ -1635,6 +1685,146 @@
     var editingContactId = null;
     var deletingContactId = null;
     var contactIdCounter = 10;
+    var pendingAvatarData = null;
+
+    // =============================================
+    // DETECT ANDROID CHROME FOR CONTACT PICKER
+    // =============================================
+    function isAndroidChrome() {
+      var ua = navigator.userAgent.toLowerCase();
+      var isAndroid = ua.indexOf('android') > -1;
+      var isChrome = ua.indexOf('chrome') > -1;
+      return isAndroid && isChrome;
+    }
+
+    // Show/hide Contact Picker button based on platform
+    if (isAndroidChrome()) {
+      document.getElementById('btnPickContact').style.display = 'flex';
+    }
+
+    // =============================================
+    // CONTACT PICKER API (Android Chrome only)
+    // =============================================
+    async function pickContactFromDevice() {
+      if (!('contacts' in navigator && 'ContactsManager' in window)) {
+        alert('Browser ini tidak mendukung Contact Picker');
+        return;
+      }
+
+      try {
+        const props = ['name', 'tel', 'email'];
+        const opts = { multiple: false };
+        
+        const contacts = await navigator.contacts.select(props, opts);
+        
+        if (contacts && contacts.length > 0) {
+          const contact = contacts[0];
+          
+          // Fill the add contact form with selected contact
+          document.getElementById('contactName').value = contact.name ? contact.name.join(' ') : '';
+          document.getElementById('contactPhoneInput').value = contact.tel ? contact.tel[0].replace(/[^0-9]/g, '').substring(0, 12) : '';
+          document.getElementById('contactEmailInput').value = contact.email ? contact.email[0] : '';
+          
+          openModal('addContact');
+        }
+      } catch (err) {
+        console.error('Error picking contact:', err);
+        if (err.name !== 'AbortError') {
+          alert('Gagal mengambil kontak: ' + err.message);
+        }
+      }
+    }
+
+    // =============================================
+    // AVATAR UPLOAD HANDLING
+    // =============================================
+    function handleAvatarFile(event) {
+      var file = event.target.files[0];
+      if (!file) return;
+
+      // Check file type
+      if (!file.type.startsWith('image/')) {
+        alert('Hanya file gambar yang diperbolehkan');
+        return;
+      }
+
+      // Check file size (700KB max)
+      var maxSizeKB = 700;
+      if (file.size > maxSizeKB * 1024) {
+        // Will compress
+        compressAndPreviewImage(file, maxSizeKB);
+      } else {
+        previewImageFile(file);
+      }
+    }
+
+    function compressAndPreviewImage(file, maxSizeKB) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var img = new Image();
+        img.onload = function() {
+          var canvas = document.createElement('canvas');
+          var ctx = canvas.getContext('2d');
+          
+          // Calculate new dimensions
+          var maxDim = 300; // Max width/height for avatar
+          var width = img.width;
+          var height = img.height;
+          
+          if (width > height) {
+            if (width > maxDim) {
+              height = Math.round(height * maxDim / width);
+              width = maxDim;
+            }
+          } else {
+            if (height > maxDim) {
+              width = Math.round(width * maxDim / height);
+              height = maxDim;
+            }
+          }
+          
+          canvas.width = width;
+          canvas.height = height;
+          ctx.drawImage(img, 0, 0, width, height);
+          
+          // Reduce quality until under max size
+          var quality = 0.9;
+          var dataUrl = canvas.toDataURL('image/jpeg', quality);
+          
+          while (dataUrl.length > maxSizeKB * 1024 * 1.37 && quality > 0.1) { // Base64 overhead
+            quality -= 0.1;
+            dataUrl = canvas.toDataURL('image/jpeg', quality);
+          }
+          
+          // Store and preview
+          pendingAvatarData = dataUrl;
+          document.getElementById('avatarPreviewLarge').src = dataUrl;
+          document.getElementById('avatarSeed').value = '';
+          
+          // Show size info
+          var sizeKB = Math.round(dataUrl.length / 1.37 / 1024);
+          alert('Foto dikompresi dari ' + Math.round(file.size / 1024) + 'KB menjadi ' + sizeKB + 'KB');
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function previewImageFile(file) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        pendingAvatarData = e.target.result;
+        document.getElementById('avatarPreviewLarge').src = e.target.result;
+        document.getElementById('avatarSeed').value = '';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function updateAvatarFromSeed() {
+      var seed = document.getElementById('avatarSeed').value || 'demo';
+      pendingAvatarData = null; // Clear uploaded image
+      document.getElementById('avatarPreviewLarge').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(seed);
+    }
 
     // =============================================
     // TAB SWITCHING
@@ -1792,7 +1982,7 @@
       closeModal('logout');
       document.getElementById('appLayout').classList.remove('active');
       document.getElementById('authContainer').classList.remove('hidden');
-      currentUser = { name: 'Demo User', email: 'demo@email.com', phone: '+62 812-xxxx-xxxx', avatarSeed: 'demo', isActive: false, balance: 0 };
+      currentUser = { name: 'Demo User', email: 'demo@email.com', phone: '+62 812-xxxx-xxxx', avatarSeed: 'demo', avatarUrl: null, isActive: false, balance: 0 };
     }
 
     // =============================================
@@ -1819,7 +2009,7 @@
     }
 
     function updateDashboard() {
-      var avatarUrl = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(currentUser.avatarSeed);
+      var avatarUrl = currentUser.avatarUrl || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(currentUser.avatarSeed);
       document.getElementById('headerUserName').textContent = currentUser.name;
       document.getElementById('headerUserBalance').textContent = 'Saldo: Rp ' + formatNumber(currentUser.balance);
       document.getElementById('headerAvatar').src = avatarUrl;
@@ -2113,10 +2303,6 @@
       }
     });
 
-    document.getElementById('avatarSeed').addEventListener('input', function(e) {
-      document.getElementById('avatarPreview').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(e.target.value || 'demo');
-    });
-
     // Forgot password
     function submitForgotPassword() {
       var email = document.getElementById('forgotEmail').value.trim();
@@ -2172,20 +2358,30 @@
 
     function saveAvatar() {
       var seed = document.getElementById('avatarSeed').value.trim();
-      if (!seed) { alert('Masukkan nama avatar'); return; }
-      var btn = document.getElementById('saveAvatarBtn');
-      btn.disabled = true;
-      btn.innerHTML = '<div class="spinner"></div>Menyimpan...';
-      setTimeout(function() {
+      
+      if (pendingAvatarData) {
+        // Use uploaded image
+        currentUser.avatarUrl = pendingAvatarData;
+        currentUser.avatarSeed = seed || 'custom';
+        document.getElementById('profileAvatar').src = pendingAvatarData;
+        document.getElementById('headerAvatar').src = pendingAvatarData;
+        pendingAvatarData = null;
+        closeModal('editAvatar');
+        document.getElementById('avatarFileInput').value = '';
+        document.getElementById('avatarSeed').value = '';
+      } else if (seed) {
+        // Use seed avatar
+        currentUser.avatarUrl = null;
         currentUser.avatarSeed = seed;
         var url = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(seed);
         document.getElementById('profileAvatar').src = url;
         document.getElementById('headerAvatar').src = url;
         closeModal('editAvatar');
-        btn.disabled = false;
-        btn.innerHTML = 'Simpan';
         document.getElementById('avatarSeed').value = '';
-      }, 1000);
+      } else {
+        alert('Pilih foto atau masukkan nama avatar');
+        return;
+      }
     }
 
     // Clear errors on focus
