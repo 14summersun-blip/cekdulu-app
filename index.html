@@ -66,7 +66,6 @@
 
     .font-display { font-family: 'Space Grotesk', sans-serif; }
 
-    /* Background */
     .bg-atmosphere {
       position: fixed;
       inset: 0;
@@ -87,18 +86,14 @@
       z-index: -1;
     }
 
-    /* App Layout */
     .app-layout {
       display: none;
       min-height: 100vh;
       flex-direction: column;
     }
 
-    .app-layout.active {
-      display: flex;
-    }
+    .app-layout.active { display: flex; }
 
-    /* Auth Container */
     .auth-container {
       display: flex;
       min-height: 100vh;
@@ -107,11 +102,8 @@
       padding: 20px;
     }
 
-    .auth-container.hidden {
-      display: none;
-    }
+    .auth-container.hidden { display: none; }
 
-    /* Auth Card */
     .auth-card {
       width: 100%;
       max-width: 420px;
@@ -150,11 +142,8 @@
       color: var(--text-secondary);
     }
 
-    .auth-body {
-      padding: 24px 32px 32px;
-    }
+    .auth-body { padding: 24px 32px 32px; }
 
-    /* Tabs */
     .auth-tabs {
       display: flex;
       gap: 4px;
@@ -179,13 +168,14 @@
     }
 
     .auth-tab:hover { color: var(--text-primary); }
+
     .auth-tab.active {
       background: var(--bg-card);
       color: var(--accent);
     }
 
-    /* Form */
     .auth-form { display: none; }
+
     .auth-form.active {
       display: block;
       animation: fadeIn 0.3s ease;
@@ -225,6 +215,7 @@
     }
 
     .form-input::placeholder { color: var(--text-muted); }
+
     .form-input.error {
       border-color: var(--danger);
       box-shadow: 0 0 0 3px rgba(255, 92, 92, 0.15);
@@ -258,7 +249,6 @@
       flex-shrink: 0;
     }
 
-    /* Password Toggle */
     .password-wrapper { position: relative; }
 
     .password-toggle {
@@ -274,11 +264,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: color 0.2s ease;
     }
 
     .password-toggle:hover { color: var(--text-primary); }
 
-    /* Buttons */
     .btn {
       width: 100%;
       padding: 14px 20px;
@@ -331,17 +321,6 @@
       box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
     }
 
-    .btn-danger {
-      background: rgba(255, 92, 92, 0.15);
-      color: var(--danger);
-      border: 1px solid rgba(255, 92, 92, 0.3);
-    }
-
-    .btn-danger:hover {
-      background: rgba(255, 92, 92, 0.25);
-    }
-
-    /* Divider */
     .divider {
       display: flex;
       align-items: center;
@@ -359,7 +338,6 @@
       background: var(--card-border);
     }
 
-    /* Footer Links */
     .auth-footer {
       text-align: center;
       padding-top: 16px;
@@ -375,7 +353,6 @@
 
     .auth-link:hover { text-decoration: underline; }
 
-    /* Alert */
     .alert {
       padding: 12px 16px;
       border-radius: 10px;
@@ -408,7 +385,6 @@
       color: var(--success);
     }
 
-    /* Loading Spinner */
     .spinner {
       width: 20px;
       height: 20px;
@@ -420,7 +396,6 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Modal */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -453,9 +428,7 @@
       overflow-y: auto;
     }
 
-    .modal-overlay.active .modal-content {
-      transform: scale(1);
-    }
+    .modal-overlay.active .modal-content { transform: scale(1); }
 
     .modal-header {
       padding: 20px 24px;
@@ -489,18 +462,16 @@
     }
 
     .modal-body { padding: 20px 24px; }
+
     .modal-footer {
       padding: 16px 24px 24px;
       display: flex;
       gap: 10px;
     }
+
     .modal-footer .btn { flex: 1; }
 
-    /* ========================================== */
-    /* DASHBOARD STYLES */
-    /* ========================================== */
-
-    /* Header */
+    /* Dashboard Styles */
     .app-header {
       background: var(--bg-secondary);
       border-bottom: 1px solid var(--card-border);
@@ -516,9 +487,7 @@
       justify-content: space-between;
     }
 
-    .header-row:first-child {
-      border-bottom: 1px solid var(--card-border);
-    }
+    .header-row:first-child { border-bottom: 1px solid var(--card-border); }
 
     .header-title {
       font-size: 18px;
@@ -582,7 +551,6 @@
       background: currentColor;
     }
 
-    /* Navigation */
     .nav-menu {
       display: flex;
       gap: 4px;
@@ -615,14 +583,12 @@
       color: var(--accent);
     }
 
-    /* Main Content */
     .app-main {
       flex: 1;
       padding: 16px;
       overflow-y: auto;
     }
 
-    /* Profile Card */
     .profile-card {
       background: var(--bg-card);
       border-radius: 16px;
@@ -728,7 +694,6 @@
       color: var(--bg-primary);
     }
 
-    /* Stats Grid */
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -769,7 +734,6 @@
       color: var(--text-secondary);
     }
 
-    /* Notification Box */
     .notification-box {
       background: var(--bg-card);
       border-radius: 16px;
@@ -801,9 +765,7 @@
       flex-shrink: 0;
     }
 
-    .notification-text {
-      flex: 1;
-    }
+    .notification-text { flex: 1; }
 
     .notification-title {
       font-size: 14px;
@@ -817,7 +779,6 @@
       margin-bottom: 12px;
     }
 
-    /* Action Buttons */
     .action-buttons {
       display: grid;
       grid-template-columns: 1fr;
@@ -860,17 +821,13 @@
       transform: translateY(-2px);
     }
 
-    /* Section Container */
-    .section-container {
-      display: none;
-    }
+    .section-container { display: none; }
 
     .section-container.active {
       display: block;
       animation: fadeIn 0.3s ease;
     }
 
-    /* Responsive */
     @media (min-width: 640px) {
       .stats-grid { grid-template-columns: repeat(4, 1fr); }
       .profile-info-grid { grid-template-columns: repeat(2, 1fr); }
@@ -909,11 +866,13 @@
       </div>
 
       <div class="auth-body">
+        <!-- Tabs -->
         <div class="auth-tabs">
-          <button class="auth-tab active" data-tab="login">Masuk</button>
-          <button class="auth-tab" data-tab="register">Daftar</button>
+          <button class="auth-tab active" data-tab="login" onclick="handleTabClick('login')">Masuk</button>
+          <button class="auth-tab" data-tab="register" onclick="handleTabClick('register')">Daftar</button>
         </div>
 
+        <!-- Alert Container -->
         <div class="alert alert-error" id="alertError"></div>
         <div class="alert alert-warning" id="alertWarning"></div>
         <div class="alert alert-success" id="alertSuccess"></div>
@@ -929,8 +888,8 @@
           <div class="form-group">
             <label class="form-label" for="loginPassword">Password</label>
             <div class="password-wrapper">
-              <input type="password" class="form-input" id="loginPassword" placeholder="Masukkan password" required autocomplete="current-password">
-              <button type="button" class="password-toggle" onclick="togglePassword('loginPassword', this)">
+              <input type="password" class="form-input" id="loginPassword" placeholder="Masukkan password" required autocomplete="current-password" style="padding-right: 44px;">
+              <button type="button" class="password-toggle" onclick="handleTogglePassword('loginPassword', this)">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div>
@@ -943,7 +902,7 @@
 
           <button type="button" class="btn btn-whatsapp" onclick="contactAdmin()">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span>Hubungi Admin</span>
+            <span>Pertanyaan? Hubungi Admin disini</span>
           </button>
 
           <div class="auth-footer">
@@ -978,8 +937,8 @@
           <div class="form-group">
             <label class="form-label" for="registerPassword">Password</label>
             <div class="password-wrapper">
-              <input type="password" class="form-input" id="registerPassword" placeholder="Minimal 8 karakter" required autocomplete="new-password" minlength="8">
-              <button type="button" class="password-toggle" onclick="togglePassword('registerPassword', this)">
+              <input type="password" class="form-input" id="registerPassword" placeholder="Minimal 8 karakter" required autocomplete="new-password" minlength="8" style="padding-right: 44px;">
+              <button type="button" class="password-toggle" onclick="handleTogglePassword('registerPassword', this)">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div>
@@ -989,8 +948,8 @@
           <div class="form-group">
             <label class="form-label" for="registerPasswordConfirm">Konfirmasi Password</label>
             <div class="password-wrapper">
-              <input type="password" class="form-input" id="registerPasswordConfirm" placeholder="Ulangi password" required autocomplete="new-password">
-              <button type="button" class="password-toggle" onclick="togglePassword('registerPasswordConfirm', this)">
+              <input type="password" class="form-input" id="registerPasswordConfirm" placeholder="Ulangi password" required autocomplete="new-password" style="padding-right: 44px;">
+              <button type="button" class="password-toggle" onclick="handleTogglePassword('registerPasswordConfirm', this)">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div>
@@ -1000,7 +959,7 @@
           <button type="submit" class="btn btn-primary" id="registerBtn"><span>Daftar Sekarang</span></button>
 
           <div class="auth-footer">
-            Sudah punya akun? <a class="auth-link" onclick="switchTab('login')">Masuk</a>
+            Sudah punya akun? <a class="auth-link" onclick="handleTabClick('login')">Masuk</a>
           </div>
         </form>
       </div>
@@ -1055,7 +1014,6 @@
     <main class="app-main">
       <!-- Dashboard Section -->
       <div class="section-container active" id="sectionDashboard">
-        <!-- Profile Card -->
         <div class="profile-card">
           <div class="profile-header">
             <div class="profile-avatar-container">
@@ -1126,7 +1084,7 @@
           </div>
         </div>
 
-        <!-- Notification Box (for inactive users) -->
+        <!-- Notification Box -->
         <div class="notification-box warning" id="activationNotice">
           <div class="notification-content">
             <div class="notification-icon">
@@ -1152,7 +1110,7 @@
         </div>
       </div>
 
-      <!-- Contacts Section (Placeholder) -->
+      <!-- Placeholder Sections -->
       <div class="section-container" id="sectionContacts">
         <div class="profile-card">
           <h2 class="font-display text-xl mb-4">Kontak</h2>
@@ -1160,7 +1118,6 @@
         </div>
       </div>
 
-      <!-- Create Message Section (Placeholder) -->
       <div class="section-container" id="sectionCreate">
         <div class="profile-card">
           <h2 class="font-display text-xl mb-4">Buat Pesan Baru</h2>
@@ -1168,7 +1125,6 @@
         </div>
       </div>
 
-      <!-- History Section (Placeholder) -->
       <div class="section-container" id="sectionHistory">
         <div class="profile-card">
           <h2 class="font-display text-xl mb-4">Riwayat Pengiriman</h2>
@@ -1176,7 +1132,6 @@
         </div>
       </div>
 
-      <!-- Top Up Section (Placeholder) -->
       <div class="section-container" id="sectionTopup">
         <div class="profile-card">
           <h2 class="font-display text-xl mb-4">Top Up Saldo</h2>
@@ -1294,48 +1249,165 @@
 
   <script>
     // ==========================================
-    // SUPABASE INITIALIZATION
+    // GLOBAL VARIABLES (INITIALIZED FIRST)
     // ==========================================
     
     const SUPABASE_URL = 'https://zmyzgdkyabjupsyqjuae.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpteXpnZGt5YWJqdXBzeXFqdWFlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0MjIxNDUsImV4cCI6MjA4OTk5ODE0NX0.yNEdEMJe6BjNWelp6dVYc2mzFU3TrchTVo-UpSekmP8';
     
-    const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // ==========================================
-    // STATE MANAGEMENT
-    // ==========================================
-    
+    let supabase = null;
     let currentUser = null;
 
     // ==========================================
-    // INITIALIZATION
+    // UI FUNCTIONS (DEFINED FIRST)
     // ==========================================
-    
-    async function initApp() {
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (session && session.user) {
-        currentUser = session.user;
-        await loadUserProfile();
-        showApp();
-      } else {
-        showAuth();
-      }
 
-      // Listen for auth changes
-      supabase.auth.onAuthStateChange(async (event, session) => {
-        if (event === 'SIGNED_IN' && session) {
-          currentUser = session.user;
-          await loadUserProfile();
-          showApp();
-        } else if (event === 'SIGNED_OUT') {
-          currentUser = null;
-          showAuth();
+    // Tab Switching
+    function handleTabClick(targetTab) {
+      // Update tab buttons
+      document.querySelectorAll('.auth-tab').forEach(function(tab) {
+        if (tab.dataset.tab === targetTab) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+      
+      // Update forms
+      document.querySelectorAll('.auth-form').forEach(function(form) {
+        if (form.id === targetTab + 'Form') {
+          form.classList.add('active');
+        } else {
+          form.classList.remove('active');
+        }
+      });
+      
+      // Clear alerts
+      hideAllAlerts();
+      clearAllErrors();
+    }
+
+    // Password Toggle
+    function handleTogglePassword(inputId, button) {
+      var input = document.getElementById(inputId);
+      if (!input) return;
+      
+      var isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+      
+      if (isPassword) {
+        button.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>';
+      } else {
+        button.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+      }
+    }
+
+    // Alerts
+    function showAlert(type, message) {
+      hideAllAlerts();
+      var alertEl = document.getElementById('alert' + type.charAt(0).toUpperCase() + type.slice(1));
+      if (!alertEl) return;
+      
+      var iconSvg = '';
+      if (type === 'error') {
+        iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
+      } else if (type === 'warning') {
+        iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+      } else if (type === 'success') {
+        iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
+      }
+      
+      alertEl.innerHTML = iconSvg + '<span>' + message + '</span>';
+      alertEl.classList.add('show');
+    }
+
+    function hideAllAlerts() {
+      document.querySelectorAll('.alert').forEach(function(el) {
+        el.classList.remove('show');
+      });
+    }
+
+    // Form Errors
+    function showError(inputId, message) {
+      var input = document.getElementById(inputId);
+      var errorEl = document.getElementById(inputId + 'Error');
+      if (input) input.classList.add('error');
+      if (errorEl) {
+        errorEl.textContent = message;
+        errorEl.classList.add('show');
+      }
+    }
+
+    function clearError(inputId) {
+      var input = document.getElementById(inputId);
+      var errorEl = document.getElementById(inputId + 'Error');
+      if (input) input.classList.remove('error');
+      if (errorEl) {
+        errorEl.textContent = '';
+        errorEl.classList.remove('show');
+      }
+    }
+
+    function clearAllErrors() {
+      document.querySelectorAll('.form-input').forEach(function(input) {
+        input.classList.remove('error');
+      });
+      document.querySelectorAll('.form-error').forEach(function(el) {
+        el.textContent = '';
+        el.classList.remove('show');
+      });
+    }
+
+    // Validation Helpers
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function isValidPhone(phone) {
+      var cleanPhone = phone.replace(/[^0-9]/g, '');
+      return cleanPhone.length >= 9 && cleanPhone.length <= 13;
+    }
+
+    function formatNumber(num) {
+      return new Intl.NumberFormat('id-ID').format(num);
+    }
+
+    // Contact Admin
+    function contactAdmin() {
+      var adminPhone = '6285161990373';
+      var message = encodeURIComponent('Halo Admin, saya membutuhkan bantuan terkait akun cekdulu! Platform. Terima kasih.');
+      window.open('https://wa.me/' + adminPhone + '?text=' + message, '_blank');
+    }
+
+    function contactAdminForActivation() {
+      var adminPhone = '6285161990373';
+      var userName = document.getElementById('profileName').textContent;
+      var userEmail = document.getElementById('profileEmail').textContent;
+      var message = encodeURIComponent('Halo Admin cekdulu!\n\nSaya ingin mengaktifkan akun:\nNama: ' + userName + '\nEmail: ' + userEmail + '\n\nTerima kasih.');
+      window.open('https://wa.me/' + adminPhone + '?text=' + message, '_blank');
+    }
+
+    // Navigation
+    function navigateTo(section) {
+      document.querySelectorAll('.nav-item').forEach(function(item) {
+        if (item.dataset.section === section) {
+          item.classList.add('active');
+        } else {
+          item.classList.remove('active');
+        }
+      });
+
+      document.querySelectorAll('.section-container').forEach(function(s) {
+        var targetId = 'section' + section.charAt(0).toUpperCase() + section.slice(1);
+        if (s.id === targetId) {
+          s.classList.add('active');
+        } else {
+          s.classList.remove('active');
         }
       });
     }
 
+    // Show/Hide Auth/App
     function showAuth() {
       document.getElementById('authContainer').classList.remove('hidden');
       document.getElementById('appLayout').classList.remove('active');
@@ -1346,54 +1418,143 @@
       document.getElementById('appLayout').classList.add('active');
     }
 
+    // ==========================================
+    // MODAL FUNCTIONS
+    // ==========================================
+
+    function openForgotPassword() {
+      document.getElementById('forgotPasswordModal').classList.add('active');
+      document.getElementById('forgotEmail').focus();
+    }
+
+    function closeForgotPassword() {
+      document.getElementById('forgotPasswordModal').classList.remove('active');
+      document.getElementById('forgotEmail').value = '';
+    }
+
+    function openEditPhone() {
+      document.getElementById('editPhoneModal').classList.add('active');
+    }
+
+    function closeEditPhone() {
+      document.getElementById('editPhoneModal').classList.remove('active');
+      document.getElementById('newPhone').value = '';
+    }
+
+    function openEditPassword() {
+      document.getElementById('editPasswordModal').classList.add('active');
+    }
+
+    function closeEditPassword() {
+      document.getElementById('editPasswordModal').classList.remove('active');
+      document.getElementById('currentPassword').value = '';
+      document.getElementById('newPassword').value = '';
+      document.getElementById('confirmNewPassword').value = '';
+    }
+
+    function openEditAvatar() {
+      document.getElementById('editAvatarModal').classList.add('active');
+    }
+
+    function closeEditAvatar() {
+      document.getElementById('editAvatarModal').classList.remove('active');
+      document.getElementById('avatarSeed').value = '';
+    }
+
+    function updateAvatarPreview() {
+      var seed = document.getElementById('avatarSeed').value || 'default';
+      document.getElementById('avatarPreview').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(seed);
+    }
+
+    // ==========================================
+    // SUPABASE FUNCTIONS
+    // ==========================================
+
+    async function initSupabase() {
+      try {
+        if (typeof window.supabase !== 'undefined' && window.supabase.createClient) {
+          supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+          console.log('Supabase initialized');
+          
+          // Check session
+          var sessionResult = await supabase.auth.getSession();
+          if (sessionResult.data && sessionResult.data.session && sessionResult.data.session.user) {
+            currentUser = sessionResult.data.session.user;
+            await loadUserProfile();
+            showApp();
+          }
+
+          // Listen for auth changes
+          supabase.auth.onAuthStateChange(async function(event, session) {
+            if (event === 'SIGNED_IN' && session) {
+              currentUser = session.user;
+              await loadUserProfile();
+              showApp();
+            } else if (event === 'SIGNED_OUT') {
+              currentUser = null;
+              showAuth();
+            }
+          });
+        } else {
+          console.warn('Supabase library not loaded');
+        }
+      } catch (error) {
+        console.error('Supabase init error:', error);
+      }
+    }
+
     async function loadUserProfile() {
-      if (!currentUser) return;
+      if (!currentUser || !supabase) return;
 
-      const { data: profile, error } = await supabase
-        .from('users')
-        .select('*')
-        .eq('id', currentUser.id)
-        .single();
-
-      if (error && error.code === 'PGRST116') {
-        // Profile doesn't exist, create one
-        const newProfile = {
-          id: currentUser.id,
-          email: currentUser.email,
-          name: currentUser.user_metadata?.name || 'User',
-          phone: currentUser.user_metadata?.phone || '',
-          is_active: false,
-          balance: 0,
-          avatar_seed: currentUser.email.split('@')[0]
-        };
-
-        const { data, insertError } = await supabase
+      try {
+        var result = await supabase
           .from('users')
-          .insert([newProfile])
-          .select()
+          .select('*')
+          .eq('id', currentUser.id)
           .single();
 
-        if (!insertError) {
-          updateUIWithProfile(data);
-        }
-      } else if (profile) {
-        updateUIWithProfile(profile);
-      }
+        var profile = result.data;
+        var error = result.error;
 
-      // Load stats
-      await loadStats();
+        if (error && error.code === 'PGRST116') {
+          // Profile doesn't exist, create one
+          var newProfile = {
+            id: currentUser.id,
+            email: currentUser.email,
+            name: currentUser.user_metadata?.name || 'User',
+            phone: currentUser.user_metadata?.phone || '',
+            is_active: false,
+            balance: 0,
+            avatar_seed: currentUser.email.split('@')[0]
+          };
+
+          var insertResult = await supabase
+            .from('users')
+            .insert([newProfile])
+            .select()
+            .single();
+
+          if (!insertResult.error && insertResult.data) {
+            updateUIWithProfile(insertResult.data);
+          }
+        } else if (profile) {
+          updateUIWithProfile(profile);
+        }
+
+        await loadStats();
+      } catch (err) {
+        console.error('Load profile error:', err);
+      }
     }
 
     function updateUIWithProfile(profile) {
-      const avatarUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${profile.avatar_seed || profile.email}`;
+      var avatarUrl = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(profile.avatar_seed || profile.email);
       
-      // Update header
       document.getElementById('headerUserName').textContent = profile.name || 'User';
-      document.getElementById('headerUserBalance').textContent = `Saldo: Rp ${formatNumber(profile.balance || 0)}`;
+      document.getElementById('headerUserBalance').textContent = 'Saldo: Rp ' + formatNumber(profile.balance || 0);
       document.getElementById('headerAvatar').src = avatarUrl;
 
-      // Update status badge
-      const statusEl = document.getElementById('headerStatus');
+      var statusEl = document.getElementById('headerStatus');
       if (profile.is_active) {
         statusEl.className = 'status-badge status-active';
         statusEl.innerHTML = '<span class="status-dot"></span><span>Aktif</span>';
@@ -1402,15 +1563,13 @@
         statusEl.innerHTML = '<span class="status-dot"></span><span>Belum Aktif</span>';
       }
 
-      // Update profile section
       document.getElementById('profileAvatar').src = avatarUrl;
       document.getElementById('profileName').textContent = profile.name || 'User';
       document.getElementById('profileEmail').textContent = profile.email || '';
       document.getElementById('profilePhone').textContent = profile.phone || 'Belum diatur';
 
-      // Show/hide elements based on active status
-      const activationNotice = document.getElementById('activationNotice');
-      const btnCreateMessage = document.getElementById('btnCreateMessage');
+      var activationNotice = document.getElementById('activationNotice');
+      var btnCreateMessage = document.getElementById('btnCreateMessage');
 
       if (profile.is_active) {
         activationNotice.style.display = 'none';
@@ -1420,117 +1579,42 @@
         btnCreateMessage.style.display = 'none';
       }
 
-      // Update stats
-      document.getElementById('statBalance').textContent = `Rp ${formatNumber(profile.balance || 0)}`;
+      document.getElementById('statBalance').textContent = 'Rp ' + formatNumber(profile.balance || 0);
     }
 
     async function loadStats() {
-      if (!currentUser) return;
+      if (!currentUser || !supabase) return;
 
-      // Get SMS count
-      const { count: smsCount } = await supabase
-        .from('messages')
-        .select('*', { count: 'exact', head: true })
-        .eq('user_id', currentUser.id)
-        .eq('channel', 'sms');
+      try {
+        var smsResult = await supabase
+          .from('messages')
+          .select('*', { count: 'exact', head: true })
+          .eq('user_id', currentUser.id)
+          .eq('channel', 'sms');
 
-      // Get Telegram count
-      const { count: telegramCount } = await supabase
-        .from('messages')
-        .select('*', { count: 'exact', head: true })
-        .eq('user_id', currentUser.id)
-        .eq('channel', 'telegram');
+        var telegramResult = await supabase
+          .from('messages')
+          .select('*', { count: 'exact', head: true })
+          .eq('user_id', currentUser.id)
+          .eq('channel', 'telegram');
 
-      // Get Email count
-      const { count: emailCount } = await supabase
-        .from('messages')
-        .select('*', { count: 'exact', head: true })
-        .eq('user_id', currentUser.id)
-        .eq('channel', 'email');
+        var emailResult = await supabase
+          .from('messages')
+          .select('*', { count: 'exact', head: true })
+          .eq('user_id', currentUser.id)
+          .eq('channel', 'email');
 
-      document.getElementById('statSms').textContent = smsCount || 0;
-      document.getElementById('statTelegram').textContent = telegramCount || 0;
-      document.getElementById('statEmail').textContent = emailCount || 0;
-    }
-
-    // ==========================================
-    // AUTH FUNCTIONS
-    // ==========================================
-    
-    // Tab Switching
-    const tabs = document.querySelectorAll('.auth-tab');
-    const forms = document.querySelectorAll('.auth-form');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const targetTab = tab.dataset.tab;
-        switchTab(targetTab);
-      });
-    });
-
-    function switchTab(targetTab) {
-      tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === targetTab));
-      forms.forEach(f => f.classList.toggle('active', f.id === targetTab + 'Form'));
-      hideAllAlerts();
-    }
-
-    // Password Toggle
-    function togglePassword(inputId, button) {
-      const input = document.getElementById(inputId);
-      const isPassword = input.type === 'password';
-      input.type = isPassword ? 'text' : 'password';
-      button.innerHTML = isPassword 
-        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>'
-        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
-    }
-
-    // Alerts
-    function showAlert(type, message) {
-      hideAllAlerts();
-      const alertEl = document.getElementById('alert' + type.charAt(0).toUpperCase() + type.slice(1));
-      alertEl.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          ${type === 'error' ? '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>' : ''}
-          ${type === 'warning' ? '<path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>' : ''}
-          ${type === 'success' ? '<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>' : ''}
-        </svg>
-        <span>${message}</span>
-      `;
-      alertEl.classList.add('show');
-    }
-
-    function hideAllAlerts() {
-      document.querySelectorAll('.alert').forEach(el => el.classList.remove('show'));
-    }
-
-    // Form Validation
-    function showError(inputId, message) {
-      const input = document.getElementById(inputId);
-      const errorEl = document.getElementById(inputId + 'Error');
-      if (input) input.classList.add('error');
-      if (errorEl) {
-        errorEl.textContent = message;
-        errorEl.classList.add('show');
+        document.getElementById('statSms').textContent = smsResult.count || 0;
+        document.getElementById('statTelegram').textContent = telegramResult.count || 0;
+        document.getElementById('statEmail').textContent = emailResult.count || 0;
+      } catch (err) {
+        console.error('Load stats error:', err);
       }
     }
 
-    function clearError(inputId) {
-      const input = document.getElementById(inputId);
-      const errorEl = document.getElementById(inputId + 'Error');
-      if (input) input.classList.remove('error');
-      if (errorEl) {
-        errorEl.textContent = '';
-        errorEl.classList.remove('show');
-      }
-    }
-
-    function clearAllErrors() {
-      document.querySelectorAll('.form-input').forEach(input => input.classList.remove('error'));
-      document.querySelectorAll('.form-error').forEach(el => {
-        el.textContent = '';
-        el.classList.remove('show');
-      });
-    }
+    // ==========================================
+    // FORM SUBMISSIONS
+    // ==========================================
 
     // Login Form
     document.getElementById('loginForm').addEventListener('submit', async function(e) {
@@ -1538,31 +1622,37 @@
       clearAllErrors();
       hideAllAlerts();
 
-      const email = document.getElementById('loginEmail').value.trim();
-      const password = document.getElementById('loginPassword').value;
-      const btn = document.getElementById('loginBtn');
+      var email = document.getElementById('loginEmail').value.trim();
+      var password = document.getElementById('loginPassword').value;
+      var btn = document.getElementById('loginBtn');
 
-      let hasError = false;
+      var hasError = false;
       if (!email) { showError('loginEmail', 'Email wajib diisi'); hasError = true; }
       else if (!isValidEmail(email)) { showError('loginEmail', 'Format email tidak valid'); hasError = true; }
       if (!password) { showError('loginPassword', 'Password wajib diisi'); hasError = true; }
 
       if (hasError) return;
 
+      if (!supabase) {
+        showAlert('error', 'Sistem belum siap. Mohon refresh halaman.');
+        return;
+      }
+
       btn.disabled = true;
       btn.innerHTML = '<div class="spinner"></div><span>Memproses...</span>';
 
-      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      var result = await supabase.auth.signInWithPassword({ email: email, password: password });
 
-      if (error) {
-        showAlert('error', error.message === 'Invalid login credentials' ? 'Email atau password salah' : error.message);
+      if (result.error) {
+        var msg = result.error.message;
+        if (msg === 'Invalid login credentials') msg = 'Email atau password salah';
+        showAlert('error', msg);
         btn.disabled = false;
         btn.innerHTML = '<span>Masuk</span>';
         return;
       }
 
       showAlert('success', 'Login berhasil!');
-      // Auth state change will handle the redirect
     });
 
     // Register Form
@@ -1571,14 +1661,14 @@
       clearAllErrors();
       hideAllAlerts();
 
-      const name = document.getElementById('registerName').value.trim();
-      const email = document.getElementById('registerEmail').value.trim();
-      const phone = document.getElementById('registerPhone').value.trim();
-      const password = document.getElementById('registerPassword').value;
-      const passwordConfirm = document.getElementById('registerPasswordConfirm').value;
-      const btn = document.getElementById('registerBtn');
+      var name = document.getElementById('registerName').value.trim();
+      var email = document.getElementById('registerEmail').value.trim();
+      var phone = document.getElementById('registerPhone').value.trim();
+      var password = document.getElementById('registerPassword').value;
+      var passwordConfirm = document.getElementById('registerPasswordConfirm').value;
+      var btn = document.getElementById('registerBtn');
 
-      let hasError = false;
+      var hasError = false;
       if (!name) { showError('registerName', 'Nama lengkap wajib diisi'); hasError = true; }
       else if (name.length < 3) { showError('registerName', 'Nama minimal 3 karakter'); hasError = true; }
       if (!email) { showError('registerEmail', 'Email wajib diisi'); hasError = true; }
@@ -1592,25 +1682,30 @@
 
       if (hasError) return;
 
+      if (!supabase) {
+        showAlert('error', 'Sistem belum siap. Mohon refresh halaman.');
+        return;
+      }
+
       btn.disabled = true;
       btn.innerHTML = '<div class="spinner"></div><span>Memproses...</span>';
 
-      const fullPhone = '+62' + phone.replace(/[^0-9]/g, '');
+      var fullPhone = '+62' + phone.replace(/[^0-9]/g, '');
 
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
+      var result = await supabase.auth.signUp({
+        email: email,
+        password: password,
         options: {
-          data: { name, phone: fullPhone }
+          data: { name: name, phone: fullPhone }
         }
       });
 
-      if (error) {
-        if (error.message.includes('already registered')) {
+      if (result.error) {
+        if (result.error.message.includes('already registered')) {
           showAlert('warning', 'Email sudah terdaftar. Silakan login.');
-          setTimeout(() => switchTab('login'), 2000);
+          setTimeout(function() { handleTabClick('login'); }, 2000);
         } else {
-          showAlert('error', error.message);
+          showAlert('error', result.error.message);
         }
         btn.disabled = false;
         btn.innerHTML = '<span>Daftar Sekarang</span>';
@@ -1618,138 +1713,81 @@
       }
 
       showAlert('success', 'Pendaftaran berhasil! Silakan hubungi admin untuk aktivasi akun.');
-      this.reset();
+      document.getElementById('registerForm').reset();
       btn.disabled = false;
       btn.innerHTML = '<span>Daftar Sekarang</span>';
-      setTimeout(() => switchTab('login'), 3000);
+      setTimeout(function() { handleTabClick('login'); }, 3000);
     });
 
     // Forgot Password
-    function openForgotPassword() {
-      document.getElementById('forgotPasswordModal').classList.add('active');
-      document.getElementById('forgotEmail').focus();
-    }
-
-    function closeForgotPassword() {
-      document.getElementById('forgotPasswordModal').classList.remove('active');
-      document.getElementById('forgotEmail').value = '';
-    }
-
     async function submitForgotPassword() {
-      const email = document.getElementById('forgotEmail').value.trim();
+      var email = document.getElementById('forgotEmail').value.trim();
       if (!email || !isValidEmail(email)) {
         alert('Masukkan email yang valid');
         return;
       }
 
-      const btn = event.target;
+      var btn = event.target;
       btn.disabled = true;
       btn.innerHTML = '<div class="spinner"></div><span>Mengirim...</span>';
 
-      const { error } = await supabase.auth.resetPasswordForEmail(email);
-
-      closeForgotPassword();
-      
-      if (error) {
-        showAlert('error', error.message);
+      if (supabase) {
+        var result = await supabase.auth.resetPasswordForEmail(email);
+        closeForgotPassword();
+        
+        if (result.error) {
+          showAlert('error', result.error.message);
+        } else {
+          showAlert('success', 'Link reset password telah dikirim ke email Anda.');
+        }
       } else {
-        showAlert('success', 'Link reset password telah dikirim ke email Anda.');
+        closeForgotPassword();
+        showAlert('error', 'Sistem belum siap. Mohon refresh halaman.');
       }
 
       btn.disabled = false;
       btn.innerHTML = '<span>Kirim Link</span>';
     }
 
-    // Contact Admin
-    function contactAdmin() {
-      const adminPhone = '6285161990373';
-      const message = encodeURIComponent('Halo Admin, saya membutuhkan bantuan terkait akun cekdulu! Platform. Terima kasih.');
-      window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
-    }
-
-    function contactAdminForActivation() {
-      const adminPhone = '6285161990373';
-      const userName = currentUser?.user_metadata?.name || document.getElementById('profileName').textContent;
-      const userEmail = currentUser?.email || document.getElementById('profileEmail').textContent;
-      const message = encodeURIComponent(`Halo Admin cekdulu!\n\nSaya ingin mengaktifkan akun:\nNama: ${userName}\nEmail: ${userEmail}\n\nTerima kasih.`);
-      window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
-    }
-
-    // ==========================================
-    // NAVIGATION
-    // ==========================================
-    
-    function navigateTo(section) {
-      // Update nav items
-      document.querySelectorAll('.nav-item').forEach(item => {
-        item.classList.toggle('active', item.dataset.section === section);
-      });
-
-      // Update sections
-      document.querySelectorAll('.section-container').forEach(s => {
-        s.classList.toggle('active', s.id === 'section' + section.charAt(0).toUpperCase() + section.slice(1));
-      });
-    }
-
-    // ==========================================
-    // PROFILE EDIT MODALS
-    // ==========================================
-    
-    // Edit Phone
-    function openEditPhone() {
-      document.getElementById('editPhoneModal').classList.add('active');
-    }
-
-    function closeEditPhone() {
-      document.getElementById('editPhoneModal').classList.remove('active');
-      document.getElementById('newPhone').value = '';
-    }
-
+    // Save Phone
     async function savePhone() {
-      const phone = document.getElementById('newPhone').value.trim();
+      var phone = document.getElementById('newPhone').value.trim();
       if (!phone || !isValidPhone(phone)) {
         alert('Masukkan nomor telepon yang valid');
         return;
       }
 
-      const btn = event.target;
+      var btn = event.target;
       btn.disabled = true;
       btn.innerHTML = '<div class="spinner"></div><span>Menyimpan...</span>';
 
-      const fullPhone = '+62' + phone.replace(/[^0-9]/g, '');
+      var fullPhone = '+62' + phone.replace(/[^0-9]/g, '');
 
-      const { error } = await supabase
-        .from('users')
-        .update({ phone: fullPhone })
-        .eq('id', currentUser.id);
+      if (supabase && currentUser) {
+        var result = await supabase
+          .from('users')
+          .update({ phone: fullPhone })
+          .eq('id', currentUser.id);
 
-      if (error) {
-        alert('Gagal menyimpan: ' + error.message);
+        if (result.error) {
+          alert('Gagal menyimpan: ' + result.error.message);
+        } else {
+          document.getElementById('profilePhone').textContent = fullPhone;
+          closeEditPhone();
+        }
       } else {
-        document.getElementById('profilePhone').textContent = fullPhone;
-        closeEditPhone();
+        alert('Sistem belum siap');
       }
 
       btn.disabled = false;
       btn.innerHTML = '<span>Simpan</span>';
     }
 
-    // Edit Password
-    function openEditPassword() {
-      document.getElementById('editPasswordModal').classList.add('active');
-    }
-
-    function closeEditPassword() {
-      document.getElementById('editPasswordModal').classList.remove('active');
-      document.getElementById('currentPassword').value = '';
-      document.getElementById('newPassword').value = '';
-      document.getElementById('confirmNewPassword').value = '';
-    }
-
+    // Save Password
     async function savePassword() {
-      const currentPassword = document.getElementById('currentPassword').value;
-      const newPassword = document.getElementById('newPassword').value;
-      const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+      var currentPassword = document.getElementById('currentPassword').value;
+      var newPassword = document.getElementById('newPassword').value;
+      var confirmNewPassword = document.getElementById('confirmNewPassword').value;
 
       if (!currentPassword || !newPassword || !confirmNewPassword) {
         alert('Semua field wajib diisi');
@@ -1766,107 +1804,90 @@
         return;
       }
 
-      const btn = event.target;
+      var btn = event.target;
       btn.disabled = true;
       btn.innerHTML = '<div class="spinner"></div><span>Menyimpan...</span>';
 
-      // Re-authenticate
-      const { error: signInError } = await supabase.auth.signInWithPassword({
-        email: currentUser.email,
-        password: currentPassword
-      });
+      if (supabase && currentUser) {
+        var signInResult = await supabase.auth.signInWithPassword({
+          email: currentUser.email,
+          password: currentPassword
+        });
 
-      if (signInError) {
-        alert('Password saat ini salah');
-        btn.disabled = false;
-        btn.innerHTML = '<span>Simpan</span>';
-        return;
-      }
+        if (signInResult.error) {
+          alert('Password saat ini salah');
+          btn.disabled = false;
+          btn.innerHTML = '<span>Simpan</span>';
+          return;
+        }
 
-      // Update password
-      const { error: updateError } = await supabase.auth.updateUser({ password: newPassword });
+        var updateResult = await supabase.auth.updateUser({ password: newPassword });
 
-      if (updateError) {
-        alert('Gagal mengubah password: ' + updateError.message);
+        if (updateResult.error) {
+          alert('Gagal mengubah password: ' + updateResult.error.message);
+        } else {
+          alert('Password berhasil diubah');
+          closeEditPassword();
+        }
       } else {
-        alert('Password berhasil diubah');
-        closeEditPassword();
+        alert('Sistem belum siap');
       }
 
       btn.disabled = false;
       btn.innerHTML = '<span>Simpan</span>';
     }
 
-    // Edit Avatar
-    function openEditAvatar() {
-      document.getElementById('editAvatarModal').classList.add('active');
-    }
-
-    function closeEditAvatar() {
-      document.getElementById('editAvatarModal').classList.remove('active');
-      document.getElementById('avatarSeed').value = '';
-    }
-
-    function updateAvatarPreview() {
-      const seed = document.getElementById('avatarSeed').value || 'default';
-      document.getElementById('avatarPreview').src = `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`;
-    }
-
+    // Save Avatar
     async function saveAvatar() {
-      const seed = document.getElementById('avatarSeed').value.trim();
+      var seed = document.getElementById('avatarSeed').value.trim();
       if (!seed) {
         alert('Masukkan nama untuk avatar');
         return;
       }
 
-      const btn = event.target;
+      var btn = event.target;
       btn.disabled = true;
       btn.innerHTML = '<div class="spinner"></div><span>Menyimpan...</span>';
 
-      const { error } = await supabase
-        .from('users')
-        .update({ avatar_seed: seed })
-        .eq('id', currentUser.id);
+      if (supabase && currentUser) {
+        var result = await supabase
+          .from('users')
+          .update({ avatar_seed: seed })
+          .eq('id', currentUser.id);
 
-      if (error) {
-        alert('Gagal menyimpan: ' + error.message);
+        if (result.error) {
+          alert('Gagal menyimpan: ' + result.error.message);
+        } else {
+          var avatarUrl = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(seed);
+          document.getElementById('profileAvatar').src = avatarUrl;
+          document.getElementById('headerAvatar').src = avatarUrl;
+          closeEditAvatar();
+        }
       } else {
-        const avatarUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`;
-        document.getElementById('profileAvatar').src = avatarUrl;
-        document.getElementById('headerAvatar').src = avatarUrl;
-        closeEditAvatar();
+        alert('Sistem belum siap');
       }
 
       btn.disabled = false;
       btn.innerHTML = '<span>Simpan</span>';
     }
 
-    // ==========================================
-    // HELPER FUNCTIONS
-    // ==========================================
-    
-    function isValidEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    function isValidPhone(phone) {
-      const cleanPhone = phone.replace(/[^0-9]/g, '');
-      return cleanPhone.length >= 9 && cleanPhone.length <= 13;
-    }
-
-    function formatNumber(num) {
-      return new Intl.NumberFormat('id-ID').format(num);
+    // Logout
+    async function logout() {
+      if (supabase) {
+        await supabase.auth.signOut();
+        window.location.reload();
+      }
     }
 
     // ==========================================
     // EVENT LISTENERS
     // ==========================================
-    
+
     // Modal overlay click to close
-    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
       overlay.addEventListener('click', function(e) {
-        if (e.target === this) {
-          this.classList.remove('active');
+        if (e.target === overlay) {
+          overlay.classList.remove('active');
         }
       });
     });
@@ -1874,13 +1895,15 @@
     // Keyboard shortcuts
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
-        document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('active'));
+        document.querySelectorAll('.modal-overlay').forEach(function(m) {
+          m.classList.remove('active');
+        });
       }
     });
 
     // Phone input formatting
     document.getElementById('registerPhone').addEventListener('input', function(e) {
-      let value = e.target.value.replace(/[^0-9]/g, '');
+      var value = e.target.value.replace(/[^0-9]/g, '');
       if (value.length > 12) value = value.substring(0, 12);
       if (value.length > 6) {
         value = value.substring(0, 3) + '-' + value.substring(3, 7) + '-' + value.substring(7);
@@ -1891,7 +1914,7 @@
     });
 
     document.getElementById('newPhone').addEventListener('input', function(e) {
-      let value = e.target.value.replace(/[^0-9]/g, '');
+      var value = e.target.value.replace(/[^0-9]/g, '');
       if (value.length > 12) value = value.substring(0, 12);
       if (value.length > 6) {
         value = value.substring(0, 3) + '-' + value.substring(3, 7) + '-' + value.substring(7);
@@ -1902,20 +1925,19 @@
     });
 
     // Clear error on input focus
-    document.querySelectorAll('.form-input').forEach(input => {
+    document.querySelectorAll('.form-input').forEach(function(input) {
       input.addEventListener('focus', function() {
-        clearError(this.id);
+        clearError(input.id);
       });
     });
 
-    // Logout function (can be called from anywhere)
-    async function logout() {
-      await supabase.auth.signOut();
-      window.location.reload();
-    }
+    // ==========================================
+    // INITIALIZATION
+    // ==========================================
 
-    // Initialize app on load
-    document.addEventListener('DOMContentLoaded', initApp);
+    document.addEventListener('DOMContentLoaded', function() {
+      initSupabase();
+    });
   </script>
 </body>
 </html>
