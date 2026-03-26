@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>cekdulu!</title>
-  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYSCP8TSTK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,94 +11,70 @@
     gtag('js', new Date());
     gtag('config', 'G-GYSCP8TSTK');
   </script>
-  
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '2142872369811564');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2142872369811564&ev=PageView&noscript=1"/></noscript>
-
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-primary: #1a1a1a;
       --bg-secondary: #242424;
       --bg-card: #2d2d2d;
       --bg-input: #1f1f1f;
-      --card-border: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255,255,255,0.08);
       --accent: #00d4aa;
-      --accent-dim: #00a888;
-      --accent-glow: rgba(0, 212, 170, 0.2);
+      --accent-glow: rgba(0,212,170,0.2);
       --text-primary: #ffffff;
       --text-secondary: #b0b0b0;
       --text-muted: #707070;
       --danger: #ff5c5c;
-      --warning: #ffb84d;
       --success: #00d4aa;
       --whatsapp: #25d366;
-      --telegram: #0088cc;
-      --email: #ea4335;
-      --sms: #ff9500;
       --cream: #d4c4a8;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg-primary); min-height: 100vh; color: var(--text-primary); }
     .font-display { font-family: 'Space Grotesk', sans-serif; }
-    .bg-atmosphere { position: fixed; inset: 0; background: radial-gradient(ellipse 60% 40% at 50% 0%, rgba(212, 196, 168, 0.03) 0%, transparent 50%), radial-gradient(ellipse 40% 30% at 80% 100%, rgba(0, 212, 170, 0.02) 0%, transparent 50%), var(--bg-primary); z-index: -1; }
-    .bg-grid { position: fixed; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 40px 40px; z-index: -1; }
 
     .auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
     .auth-container.hidden { display: none; }
-    .auth-card { width: 100%; max-width: 420px; background: var(--bg-card); border-radius: 24px; border: 1px solid var(--card-border); overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.5); }
+    .auth-card { width: 100%; max-width: 420px; background: var(--bg-card); border-radius: 24px; border: 1px solid var(--card-border); overflow: hidden; }
     .auth-header { padding: 32px 32px 24px; text-align: center; border-bottom: 1px solid var(--card-border); }
-    .auth-logo { width: 56px; height: 56px; margin: 0 auto 16px; background: linear-gradient(135deg, var(--accent), var(--accent-dim)); border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+    .auth-logo { width: 56px; height: 56px; margin: 0 auto 16px; background: linear-gradient(135deg, var(--accent), #00a888); border-radius: 16px; display: flex; align-items: center; justify-content: center; }
     .auth-title { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
     .auth-subtitle { font-size: 14px; color: var(--text-secondary); }
     .auth-body { padding: 24px 32px 32px; }
     .auth-tabs { display: flex; gap: 4px; padding: 4px; background: var(--bg-secondary); border-radius: 12px; margin-bottom: 24px; }
-    .auth-tab { flex: 1; padding: 12px; border: none; background: transparent; color: var(--text-secondary); font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 8px; transition: all 0.2s ease; font-family: inherit; }
+    .auth-tab { flex: 1; padding: 12px; border: none; background: transparent; color: var(--text-secondary); font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 8px; font-family: inherit; }
     .auth-tab:hover { color: var(--text-primary); }
     .auth-tab.active { background: var(--bg-card); color: var(--accent); }
     .auth-form { display: none; }
-    .auth-form.active { display: block; animation: fadeIn 0.3s ease; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .auth-form.active { display: block; }
 
     .form-group { margin-bottom: 16px; }
     .form-label { display: block; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 6px; }
-    .form-input { width: 100%; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; font-family: inherit; transition: all 0.2s ease; }
-    .form-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
+    .form-input { width: 100%; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; font-family: inherit; }
+    .form-input:focus { outline: none; border-color: var(--accent); }
     .form-input::placeholder { color: var(--text-muted); }
-    .form-input.error { border-color: var(--danger); }
-    .form-hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
     .form-error { font-size: 12px; color: var(--danger); margin-top: 4px; display: none; }
     .form-error.show { display: block; }
     .phone-input-group { display: flex; gap: 8px; }
-    .phone-prefix { width: 70px; text-align: center; background: var(--bg-secondary); color: var(--text-secondary); flex-shrink: 0; }
+    .phone-prefix { width: 70px; text-align: center; background: var(--bg-secondary); color: var(--text-secondary); }
 
     .password-wrapper { position: relative; }
     .password-input { padding-right: 44px !important; }
-    .password-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px; display: flex; align-items: center; justify-content: center; }
+    .password-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px; }
     .password-toggle:hover { color: var(--text-primary); }
 
-    .btn { width: 100%; padding: 14px 20px; border-radius: 10px; border: none; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; }
-    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-dim)); color: var(--bg-primary); }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--accent-glow); }
-    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+    .btn { width: 100%; padding: 14px 20px; border-radius: 10px; border: none; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), #00a888); color: var(--bg-primary); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
     .btn-secondary { background: rgba(255,255,255,0.05); color: var(--text-primary); border: 1px solid var(--card-border); }
-    .btn-secondary:hover { background: rgba(255,255,255,0.08); }
     .btn-whatsapp { background: var(--whatsapp); color: white; }
-    .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); }
-    .btn-danger { background: rgba(255, 92, 92, 0.1); color: var(--danger); border: 1px solid rgba(255, 92, 92, 0.3); }
 
     .divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; color: var(--text-muted); font-size: 12px; }
     .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--card-border); }
@@ -109,217 +84,157 @@
 
     .alert { padding: 12px 16px; border-radius: 10px; font-size: 13px; margin-bottom: 16px; display: none; }
     .alert.show { display: flex; align-items: center; gap: 10px; }
-    .alert-error { background: rgba(255, 92, 92, 0.1); border: 1px solid rgba(255, 92, 92, 0.2); color: var(--danger); }
-    .alert-warning { background: rgba(255, 184, 77, 0.1); border: 1px solid rgba(255, 184, 77, 0.2); color: var(--warning); }
-    .alert-success { background: rgba(0, 212, 170, 0.1); border: 1px solid rgba(0, 212, 170, 0.2); color: var(--success); }
+    .alert-success { background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.2); color: var(--success); }
+    .alert-error { background: rgba(255,92,92,0.1); border: 1px solid rgba(255,92,92,0.2); color: var(--danger); }
     .spinner { width: 20px; height: 20px; border: 2px solid transparent; border-top-color: currentColor; border-radius: 50%; animation: spin 0.8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .app-layout { display: none; min-height: 100vh; flex-direction: column; }
     .app-layout.active { display: flex; }
-    .app-header { background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); position: sticky; top: 0; z-index: 100; }
-    .header-row { padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
-    .header-row:first-child { border-bottom: 1px solid var(--card-border); }
+    .app-header { background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
     .header-title { font-size: 18px; font-weight: 700; color: var(--cream); }
-    .header-user { display: flex; align-items: center; gap: 12px; position: relative; }
-    .user-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid var(--cream); cursor: pointer; }
-    .user-avatar:hover { border-color: var(--accent); transform: scale(1.05); }
-    .user-info { text-align: right; }
-    .user-name { font-size: 14px; font-weight: 600; }
-    .user-balance { font-size: 12px; color: var(--cream); }
-    .avatar-dropdown { position: absolute; top: calc(100% + 8px); right: 0; min-width: 180px; background: var(--bg-card); border: 1px solid var(--card-border); border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.2s ease; z-index: 200; overflow: hidden; }
-    .avatar-dropdown.active { opacity: 1; visibility: visible; transform: translateY(0); }
-    .dropdown-item { display: flex; align-items: center; gap: 10px; padding: 12px 16px; color: var(--text-secondary); font-size: 14px; cursor: pointer; transition: all 0.15s ease; border: none; background: none; width: 100%; text-align: left; font-family: inherit; }
-    .dropdown-item:hover { background: rgba(255,255,255,0.05); color: var(--text-primary); }
+    .user-avatar { width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
+    .avatar-dropdown { position: absolute; top: 60px; right: 16px; min-width: 150px; background: var(--bg-card); border: 1px solid var(--card-border); border-radius: 12px; display: none; overflow: hidden; }
+    .avatar-dropdown.active { display: block; }
+    .dropdown-item { padding: 12px 16px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    .dropdown-item:hover { background: rgba(255,255,255,0.05); }
     .dropdown-item.danger { color: var(--danger); border-top: 1px solid var(--card-border); }
-    .dropdown-item.danger:hover { background: rgba(255, 92, 92, 0.1); }
-    .status-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid; }
-    .status-active { background: rgba(0, 212, 170, 0.1); border-color: var(--success); color: var(--success); }
-    .status-inactive { background: rgba(212, 196, 168, 0.1); border-color: var(--cream); color: var(--cream); }
-    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-    .nav-menu { display: flex; gap: 4px; overflow-x: auto; padding: 8px 16px; background: var(--bg-primary); }
-    .nav-item { padding: 8px 16px; border-radius: 8px; background: transparent; border: 1px solid transparent; color: var(--text-secondary); font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; transition: all 0.2s ease; font-family: inherit; display: flex; align-items: center; gap: 6px; }
-    .nav-item:hover { color: var(--text-primary); border-color: var(--cream); }
-    .nav-item.active { background: rgba(212, 196, 168, 0.1); border-color: var(--cream); color: var(--cream); }
-    .app-main { flex: 1; padding: 16px; overflow-y: auto; }
+    .nav-menu { display: flex; gap: 4px; padding: 8px 16px; background: var(--bg-primary); border-bottom: 1px solid var(--card-border); overflow-x: auto; }
+    .nav-item { padding: 8px 16px; border-radius: 8px; background: transparent; border: 1px solid transparent; color: var(--text-secondary); font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+    .nav-item.active { background: rgba(212,196,168,0.1); border-color: var(--cream); color: var(--cream); }
+    .app-main { flex: 1; padding: 16px; }
     .section-container { display: none; }
-    .section-container.active { display: block; animation: fadeIn 0.3s ease; }
-
+    .section-container.active { display: block; }
     .profile-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); padding: 24px; margin-bottom: 16px; }
-    .profile-header { display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 24px; }
-    .profile-avatar-container { position: relative; margin-bottom: 12px; }
-    .profile-avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cream); }
-    .profile-avatar-edit { position: absolute; bottom: 0; right: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg-card); color: var(--bg-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .profile-avatar-edit:hover { transform: scale(1.1); }
+    .profile-header { text-align: center; margin-bottom: 24px; }
+    .profile-avatar { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 12px; }
     .profile-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
     .profile-email { font-size: 14px; color: var(--text-secondary); }
-    .profile-info-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .profile-info-item { background: var(--bg-secondary); border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between; }
-    .profile-info-label { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
-    .profile-info-value { font-size: 14px; font-weight: 500; }
-    .profile-edit-btn { width: 32px; height: 32px; border-radius: 8px; background: transparent; border: 1px solid var(--cream); color: var(--cream); cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .profile-edit-btn:hover { background: var(--accent); border-color: var(--accent); color: var(--bg-primary); }
-    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
-    .stat-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); padding: 16px; }
-    .stat-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-    .stat-icon.sms { background: rgba(255, 149, 0, 0.15); color: var(--sms); }
-    .stat-icon.telegram { background: rgba(0, 136, 204, 0.15); color: var(--telegram); }
-    .stat-icon.email { background: rgba(234, 67, 53, 0.15); color: var(--email); }
-    .stat-icon.balance { background: rgba(0, 212, 170, 0.15); color: var(--accent); }
-    .stat-value { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-    .stat-label { font-size: 12px; color: var(--text-secondary); }
-    .notification-box { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); padding: 16px; margin-bottom: 16px; }
-    .notification-box.warning { border-color: var(--cream); background: rgba(212, 196, 168, 0.05); }
-    .notification-content { display: flex; align-items: flex-start; gap: 12px; }
-    .notification-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(212, 196, 168, 0.15); color: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .status-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid; }
+    .status-active { background: rgba(0,212,170,0.1); border-color: var(--success); color: var(--success); }
+    .status-inactive { background: rgba(212,196,168,0.1); border-color: var(--cream); color: var(--cream); }
+    .notification-box { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--cream); padding: 16px; margin-bottom: 16px; }
+    .notification-content { display: flex; align-items: center; gap: 12px; }
+    .notification-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(212,196,168,0.15); color: var(--cream); display: flex; align-items: center; justify-content: center; }
     .notification-text { flex: 1; }
     .notification-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--cream); }
     .notification-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
-    .notification-box .btn-whatsapp { width: auto; padding: 12px 20px; }
-    .action-buttons { display: grid; grid-template-columns: 1fr; gap: 12px; }
-    .action-btn { padding: 16px; border-radius: 12px; border: 1px solid var(--cream); background: transparent; cursor: pointer; transition: all 0.2s ease; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; color: var(--cream); }
-    .action-btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent-dim)); border-color: var(--accent); color: var(--bg-primary); font-size: 16px; }
-    .action-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px var(--accent-glow); }
-
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+    .modal-overlay.active { display: flex; }
+    .modal-content { width: 100%; max-width: 400px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--card-border); max-height: 90vh; overflow-y: auto; }
+    .modal-header { padding: 20px 24px; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; }
+    .modal-title { font-size: 18px; font-weight: 600; color: var(--cream); }
+    .modal-close { width: 32px; height: 32px; border-radius: 50%; background: transparent; border: 1px solid var(--cream); color: var(--cream); cursor: pointer; font-size: 20px; }
+    .modal-body { padding: 20px 24px; }
+    .modal-footer { padding: 16px 24px 24px; display: flex; gap: 10px; }
+    .modal-footer .btn { flex: 1; }
+    .avatar-upload-zone { border: 2px dashed var(--card-border); border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; margin-bottom: 16px; }
+    .avatar-upload-zone:hover { border-color: var(--accent); }
+    .avatar-preview-large { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cream); margin: 0 auto 16px; display: block; }
     .contacts-toolbar { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
-    .search-box { flex: 1; min-width: 200px; position: relative; }
-    .search-input { width: 100%; padding: 12px 16px 12px 44px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; font-family: inherit; }
-    .search-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
-    .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
-    .toolbar-btn { padding: 12px 16px; border-radius: 10px; border: 1px solid var(--cream); background: transparent; color: var(--cream); font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; font-family: inherit; display: flex; align-items: center; gap: 6px; white-space: nowrap; }
-    .toolbar-btn:hover { background: rgba(212, 196, 168, 0.1); }
-    .toolbar-btn.primary { background: rgba(0, 212, 170, 0.1); border-color: var(--accent); color: var(--accent); }
+    .search-box { flex: 1; min-width: 150px; position: relative; }
+    .search-input { width: 100%; padding: 12px 16px 12px 40px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; }
+    .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+    .toolbar-btn { padding: 10px 14px; border-radius: 8px; border: 1px solid var(--cream); background: transparent; color: var(--cream); font-size: 12px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
+    .toolbar-btn.primary { border-color: var(--accent); color: var(--accent); }
     .toolbar-btn.hidden { display: none; }
     .contact-list { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); overflow: hidden; }
-    .contact-list-header { padding: 12px 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; }
+    .contact-list-header { padding: 12px 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; }
     .contact-count { font-size: 12px; color: var(--text-muted); }
-    .contact-list-body { max-height: 400px; overflow-y: auto; }
-    .contact-item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--card-border); cursor: pointer; }
-    .contact-item:last-child { border-bottom: none; }
+    .contact-list-body { max-height: 350px; overflow-y: auto; }
+    .contact-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--card-border); cursor: pointer; }
     .contact-item:hover { background: rgba(255,255,255,0.02); }
-    .contact-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--card-border); flex-shrink: 0; }
+    .contact-avatar { width: 40px; height: 40px; border-radius: 50%; }
     .contact-info { flex: 1; min-width: 0; }
-    .contact-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .contact-detail { font-size: 12px; color: var(--text-muted); display: flex; gap: 12px; }
-    .contact-detail span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .contact-name { font-size: 14px; font-weight: 600; }
+    .contact-detail { font-size: 12px; color: var(--text-muted); }
     .contact-actions { display: flex; gap: 4px; opacity: 0; }
     .contact-item:hover .contact-actions { opacity: 1; }
-    .contact-action-btn { width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--card-border); background: transparent; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .contact-action-btn:hover { background: var(--accent); border-color: var(--accent); color: var(--bg-primary); }
-    .contact-action-btn.danger:hover { background: var(--danger); border-color: var(--danger); }
-    .empty-state { padding: 48px 24px; text-align: center; color: var(--text-muted); }
-    .empty-icon { width: 64px; height: 64px; margin: 0 auto 16px; border-radius: 50%; background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; }
-    .empty-title { font-size: 15px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; }
-    .empty-desc { font-size: 13px; }
-
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index: 1000; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; padding: 20px; }
-    .modal-overlay.active { opacity: 1; pointer-events: auto; }
-    .modal-content { width: 100%; max-width: 480px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--card-border); transform: scale(0.95); transition: transform 0.25s ease; max-height: 90vh; display: flex; flex-direction: column; }
-    .modal-overlay.active .modal-content { transform: scale(1); }
-    .modal-header { padding: 20px 24px; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; }
-    .modal-title { font-size: 18px; font-weight: 600; color: var(--cream); }
-    .modal-close { width: 32px; height: 32px; border-radius: 50%; background: transparent; border: 1px solid var(--cream); color: var(--cream); cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .modal-close:hover { background: var(--danger); border-color: var(--danger); color: white; }
-    .modal-body { padding: 20px 24px; overflow-y: auto; }
-    .modal-footer { padding: 16px 24px 24px; display: flex; gap: 10px; flex-shrink: 0; }
-    .modal-footer .btn { flex: 1; }
-
-    .vcf-upload-zone { border: 2px dashed var(--card-border); border-radius: 12px; padding: 32px; text-align: center; cursor: pointer; margin-bottom: 16px; }
-    .vcf-upload-zone:hover { border-color: var(--accent); background: rgba(0, 212, 170, 0.03); }
-    .vcf-preview-list { max-height: 200px; overflow-y: auto; margin-bottom: 16px; }
+    .contact-action-btn { width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--card-border); background: transparent; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .contact-action-btn:hover { background: var(--accent); color: var(--bg-primary); }
+    .contact-action-btn.danger:hover { background: var(--danger); color: white; }
+    .empty-state { padding: 40px 20px; text-align: center; color: var(--text-muted); }
+    .vcf-upload-zone { border: 2px dashed var(--card-border); border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; margin-bottom: 16px; }
+    .vcf-upload-zone:hover { border-color: var(--accent); }
+    .vcf-preview-list { max-height: 200px; overflow-y: auto; }
     .vcf-preview-item { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 6px; }
-    .vcf-checkbox { width: 18px; height: 18px; border-radius: 4px; border: 1px solid var(--card-border); background: transparent; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .vcf-checkbox { width: 18px; height: 18px; border-radius: 4px; border: 1px solid var(--card-border); display: flex; align-items: center; justify-content: center; cursor: pointer; }
     .vcf-checkbox.checked { background: var(--accent); border-color: var(--accent); }
-    .vcf-preview-info { flex: 1; min-width: 0; }
+    .vcf-preview-info { flex: 1; }
     .vcf-preview-name { font-size: 13px; font-weight: 500; }
     .vcf-preview-detail { font-size: 11px; color: var(--text-muted); }
-
-    .avatar-upload-zone { border: 2px dashed var(--card-border); border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; margin-bottom: 16px; }
-    .avatar-upload-zone:hover { border-color: var(--accent); background: rgba(0, 212, 170, 0.03); }
-    .avatar-preview-large { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cream); margin: 0 auto 16px; }
-    .avatar-size-info { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
-
     .steps-indicator { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 8px; }
-    .step-item { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-    .step-number { width: 28px; height: 28px; border-radius: 50%; background: var(--bg-secondary); border: 2px solid var(--card-border); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; color: var(--text-muted); }
+    .step-item { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+    .step-number { width: 24px; height: 24px; border-radius: 50%; background: var(--bg-secondary); border: 2px solid var(--card-border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: var(--text-muted); }
     .step-item.active .step-number { background: var(--accent); border-color: var(--accent); color: var(--bg-primary); }
     .step-item.completed .step-number { background: var(--success); border-color: var(--success); color: var(--bg-primary); }
-    .step-label { font-size: 12px; color: var(--text-muted); white-space: nowrap; }
+    .step-label { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
     .step-item.active .step-label { color: var(--accent); font-weight: 600; }
-    .step-connector { width: 20px; height: 2px; background: var(--card-border); }
-    .source-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    .source-card { background: var(--bg-secondary); border-radius: 12px; border: 2px solid var(--card-border); padding: 20px; cursor: pointer; transition: all 0.2s ease; text-align: center; }
-    .source-card:hover { border-color: var(--accent); background: rgba(0, 212, 170, 0.05); }
-    .source-card.selected { border-color: var(--accent); background: rgba(0, 212, 170, 0.1); }
+    .step-connector { width: 16px; height: 2px; background: var(--card-border); }
+    .source-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .source-card { background: var(--bg-secondary); border-radius: 12px; border: 2px solid var(--card-border); padding: 16px; cursor: pointer; text-align: center; }
+    .source-card:hover { border-color: var(--accent); }
+    .source-card.selected { border-color: var(--accent); background: rgba(0,212,170,0.1); }
     .source-card.disabled { opacity: 0.4; cursor: not-allowed; }
-    .source-icon { width: 48px; height: 48px; border-radius: 12px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; }
-    .source-icon.manual { background: rgba(0, 212, 170, 0.15); color: var(--accent); }
-    .source-icon.contact { background: rgba(212, 196, 168, 0.15); color: var(--cream); }
-    .source-icon.vcf { background: rgba(0, 136, 204, 0.15); color: var(--telegram); }
-    .source-icon.phone { background: rgba(255, 149, 0, 0.15); color: var(--sms); }
-    .source-name { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-    .source-desc { font-size: 11px; color: var(--text-muted); }
-    .recipient-section { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); overflow: hidden; margin-top: 16px; }
-    .recipient-header { padding: 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; }
-    .recipient-title { font-size: 14px; font-weight: 600; color: var(--cream); }
-    .recipient-count { font-size: 12px; color: var(--text-muted); }
-    .recipient-body { max-height: 300px; overflow-y: auto; }
-    .recipient-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--card-border); }
+    .source-icon { width: 40px; height: 40px; border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; }
+    .source-icon.manual { background: rgba(0,212,170,0.15); color: var(--accent); }
+    .source-icon.contact { background: rgba(212,196,168,0.15); color: var(--cream); }
+    .source-icon.vcf { background: rgba(0,136,204,0.15); color: var(--telegram); }
+    .source-icon.phone { background: rgba(255,149,0,0.15); color: var(--sms); }
+    .source-name { font-size: 13px; font-weight: 600; }
+    .recipient-section { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); overflow: hidden; margin-top: 12px; }
+    .recipient-header { padding: 12px 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; }
+    .recipient-title { font-size: 13px; font-weight: 600; color: var(--cream); }
+    .recipient-count { font-size: 11px; color: var(--text-muted); }
+    .recipient-body { max-height: 250px; overflow-y: auto; }
+    .recipient-item { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--card-border); }
     .recipient-item:last-child { border-bottom: none; }
-    .recipient-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--card-border); }
+    .recipient-avatar { width: 32px; height: 32px; border-radius: 50%; }
     .recipient-info { flex: 1; min-width: 0; }
-    .recipient-name { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .recipient-detail { font-size: 11px; color: var(--text-muted); }
-    .recipient-remove { width: 28px; height: 28px; border-radius: 6px; background: rgba(255, 92, 92, 0.1); border: none; color: var(--danger); cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .recipient-remove:hover { background: rgba(255, 92, 92, 0.2); }
-    .channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-    .channel-card { background: var(--bg-secondary); border-radius: 12px; border: 2px solid var(--card-border); padding: 16px; cursor: pointer; transition: all 0.2s ease; text-align: center; }
+    .recipient-name { font-size: 12px; font-weight: 500; }
+    .recipient-detail { font-size: 10px; color: var(--text-muted); }
+    .recipient-remove { width: 24px; height: 24px; border-radius: 6px; background: rgba(255,92,92,0.1); border: none; color: var(--danger); cursor: pointer; font-size: 14px; }
+    .channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .channel-card { background: var(--bg-secondary); border-radius: 12px; border: 2px solid var(--card-border); padding: 14px; cursor: pointer; text-align: center; }
     .channel-card:hover { border-color: var(--accent); }
-    .channel-card.selected { border-color: var(--accent); background: rgba(0, 212, 170, 0.1); }
-    .channel-icon { width: 40px; height: 40px; border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; }
-    .channel-icon.sms { background: rgba(255, 149, 0, 0.15); color: var(--sms); }
-    .channel-icon.telegram { background: rgba(0, 136, 204, 0.15); color: var(--telegram); }
-    .channel-icon.email { background: rgba(234, 67, 53, 0.15); color: var(--email); }
-    .channel-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
-    .channel-cost { font-size: 11px; color: var(--text-muted); }
-    .message-textarea { width: 100%; min-height: 150px; padding: 16px; border-radius: 12px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; font-family: inherit; resize: vertical; }
-    .message-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
-    .message-textarea::placeholder { color: var(--text-muted); }
-    .char-count { font-size: 12px; color: var(--text-muted); text-align: right; margin-top: 8px; }
-    .media-upload-zone { border: 2px dashed var(--card-border); border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; margin-top: 16px; }
-    .media-upload-zone:hover { border-color: var(--accent); background: rgba(0, 212, 170, 0.03); }
-    .media-preview { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-    .media-preview-item { position: relative; width: 80px; height: 80px; border-radius: 10px; overflow: hidden; border: 2px solid var(--card-border); }
-    .media-preview-item img, .media-preview-item video { width: 100%; height: 100%; object-fit: cover; }
-    .media-remove { position: absolute; top: 4px; right: 4px; width: 20px; height: 20px; border-radius: 50%; background: var(--danger); border: none; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .channel-card.selected { border-color: var(--accent); background: rgba(0,212,170,0.1); }
+    .channel-icon { width: 36px; height: 36px; border-radius: 10px; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; }
+    .channel-icon.sms { background: rgba(255,149,0,0.15); color: var(--sms); }
+    .channel-icon.telegram { background: rgba(0,136,204,0.15); color: var(--telegram); }
+    .channel-icon.email { background: rgba(234,67,53,0.15); color: var(--email); }
+    .channel-name { font-size: 12px; font-weight: 600; }
+    .channel-cost { font-size: 10px; color: var(--text-muted); }
+    .message-textarea { width: 100%; min-height: 120px; padding: 14px; border-radius: 12px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; font-family: inherit; resize: vertical; }
+    .message-textarea:focus { outline: none; border-color: var(--accent); }
+    .char-count { font-size: 11px; color: var(--text-muted); text-align: right; margin-top: 6px; }
+    .media-upload-zone { border: 2px dashed var(--card-border); border-radius: 12px; padding: 20px; text-align: center; cursor: pointer; margin-top: 12px; }
+    .media-upload-zone:hover { border-color: var(--accent); }
+    .media-preview { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .media-preview-item { position: relative; width: 70px; height: 70px; border-radius: 8px; overflow: hidden; border: 2px solid var(--card-border); }
+    .media-preview-item img { width: 100%; height: 100%; object-fit: cover; }
+    .media-remove { position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--danger); border: none; color: white; cursor: pointer; font-size: 10px; }
     .preview-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); overflow: hidden; }
-    .preview-header { padding: 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); }
-    .preview-title { font-size: 14px; font-weight: 600; color: var(--cream); }
-    .preview-body { padding: 16px; }
-    .preview-recipient { display: flex; align-items: center; gap: 10px; padding: 12px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 12px; }
-    .preview-message { padding: 16px; background: var(--bg-secondary); border-radius: 12px; margin-bottom: 12px; }
-    .preview-message-text { font-size: 14px; line-height: 1.6; color: var(--text-primary); white-space: pre-wrap; }
-    .summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 16px; }
-    .summary-item { background: var(--bg-secondary); border-radius: 10px; padding: 12px 16px; }
-    .summary-label { font-size: 11px; color: var(--text-muted); margin-bottom: 4px; }
-    .summary-value { font-size: 14px; font-weight: 600; }
+    .preview-header { padding: 14px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); }
+    .preview-title { font-size: 13px; font-weight: 600; color: var(--cream); }
+    .preview-body { padding: 14px; }
+    .preview-recipient { display: flex; align-items: center; gap: 10px; padding: 10px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 10px; }
+    .preview-message { padding: 14px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 10px; }
+    .preview-message-text { font-size: 13px; line-height: 1.6; white-space: pre-wrap; }
+    .summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 12px; }
+    .summary-item { background: var(--bg-secondary); border-radius: 8px; padding: 10px 12px; }
+    .summary-label { font-size: 10px; color: var(--text-muted); margin-bottom: 2px; }
+    .summary-value { font-size: 13px; font-weight: 600; }
     .summary-value.accent { color: var(--accent); }
     .result-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); padding: 32px; text-align: center; }
-    .result-icon { width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; }
-    .result-icon.success { background: rgba(0, 212, 170, 0.15); color: var(--success); }
-    .result-icon.error { background: rgba(255, 92, 92, 0.15); color: var(--danger); }
-    .result-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
-    .result-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 24px; }
-
-    @media (min-width: 640px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } .profile-info-grid { grid-template-columns: repeat(2, 1fr); } .source-grid { grid-template-columns: repeat(4, 1fr); } }
-    @media (max-width: 480px) { .auth-card { border-radius: 16px; } .auth-header { padding: 24px 24px 20px; } .auth-body { padding: 20px 24px 24px; } .auth-title { font-size: 20px; } .contacts-toolbar { flex-direction: column; } .search-box { min-width: 100%; } .channel-grid { grid-template-columns: 1fr; } }
-    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    .result-icon { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; }
+    .result-icon.success { background: rgba(0,212,170,0.15); color: var(--success); }
+    .result-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .result-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 20px; }
+    @media (min-width: 500px) { .source-grid { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 400px) { .auth-header { padding: 24px; } .auth-body { padding: 20px; } .channel-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <div class="bg-atmosphere"></div>
-  <div class="bg-grid"></div>
-
   <!-- AUTH -->
   <div class="auth-container" id="authContainer">
     <div class="auth-card">
@@ -334,25 +249,64 @@
           <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Daftar</button>
         </div>
         <div class="alert alert-error" id="alertError"></div>
-        <div class="alert alert-warning" id="alertWarning"></div>
         <div class="alert alert-success" id="alertSuccess"></div>
 
         <form class="auth-form active" id="loginForm">
-          <div class="form-group"><label class="form-label" for="loginEmail">Email</label><input type="email" class="form-input" id="loginEmail" placeholder="nama@email.com" required><div class="form-error" id="loginEmailError"></div></div>
-          <div class="form-group"><label class="form-label" for="loginPassword">Password</label><div class="password-wrapper"><input type="password" class="form-input password-input" id="loginPassword" placeholder="Password" required><button type="button" class="password-toggle" id="toggleLoginPassword"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div><div class="form-error" id="loginPasswordError"></div></div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" id="loginEmail" placeholder="nama@email.com" required>
+            <div class="form-error" id="loginEmailError"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="password-wrapper">
+              <input type="password" class="form-input password-input" id="loginPassword" placeholder="Password" required>
+              <button type="button" class="password-toggle" id="toggleLoginPw">👁</button>
+            </div>
+            <div class="form-error" id="loginPasswordError"></div>
+          </div>
           <button type="submit" class="btn btn-primary" id="loginBtn"><span>Masuk</span></button>
           <div class="divider">atau</div>
-          <button type="button" class="btn btn-whatsapp" onclick="contactAdmin()"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>Hubungi Admin</span></button>
+          <button type="button" class="btn btn-whatsapp" onclick="contactAdmin()">📞 Hubungi Admin</button>
           <div class="auth-footer"><a class="auth-link" onclick="openModal('forgotPassword')">Lupa Password?</a></div>
         </form>
 
         <form class="auth-form" id="registerForm">
-          <div class="form-group"><label class="form-label" for="registerName">Nama Lengkap</label><input type="text" class="form-input" id="registerName" placeholder="Nama lengkap" required><div class="form-error" id="registerNameError"></div></div>
-          <div class="form-group"><label class="form-label" for="registerEmail">Email</label><input type="email" class="form-input" id="registerEmail" placeholder="nama@email.com" required><div class="form-error" id="registerEmailError"></div></div>
-          <div class="form-group"><label class="form-label" for="registerPhone">Nomor Telepon</label><div class="phone-input-group"><input type="text" class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="registerPhone" placeholder="812-xxxx-xxxx" required></div><div class="form-hint">Format: 812-3456-7890</div><div class="form-error" id="registerPhoneError"></div></div>
-          <div class="form-group"><label class="form-label" for="registerPassword">Password</label><div class="password-wrapper"><input type="password" class="form-input password-input" id="registerPassword" placeholder="Minimal 8 karakter" required><button type="button" class="password-toggle" id="toggleRegisterPassword"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div><div class="form-error" id="registerPasswordError"></div></div>
-          <div class="form-group"><label class="form-label" for="registerPasswordConfirm">Konfirmasi Password</label><div class="password-wrapper"><input type="password" class="form-input password-input" id="registerPasswordConfirm" placeholder="Ulangi password" required><button type="button" class="password-toggle" id="toggleRegisterPasswordConfirm"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div><div class="form-error" id="registerPasswordConfirmError"></div></div>
-          <button type="submit" class="btn btn-primary" id="registerBtn"><span>Daftar Sekarang</span></button>
+          <div class="form-group">
+            <label class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-input" id="regName" placeholder="Nama lengkap" required>
+            <div class="form-error" id="regNameError"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-input" id="regEmail" placeholder="nama@email.com" required>
+            <div class="form-error" id="regEmailError"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nomor Telepon</label>
+            <div class="phone-input-group">
+              <input type="text" class="form-input phone-prefix" value="+62" readonly>
+              <input type="tel" class="form-input" id="regPhone" placeholder="812-xxxx-xxxx" required>
+            </div>
+            <div class="form-error" id="regPhoneError"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Password</label>
+            <div class="password-wrapper">
+              <input type="password" class="form-input password-input" id="regPassword" placeholder="Min 8 karakter" required>
+              <button type="button" class="password-toggle" id="toggleRegPw">👁</button>
+            </div>
+            <div class="form-error" id="regPasswordError"></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Konfirmasi Password</label>
+            <div class="password-wrapper">
+              <input type="password" class="form-input password-input" id="regPassword2" placeholder="Ulangi password" required>
+              <button type="button" class="password-toggle" id="toggleRegPw2">👁</button>
+            </div>
+            <div class="form-error" id="regPassword2Error"></div>
+          </div>
+          <button type="submit" class="btn btn-primary" id="regBtn"><span>Daftar Sekarang</span></button>
           <div class="auth-footer">Sudah punya akun? <a class="auth-link" onclick="switchTab('login')">Masuk</a></div>
         </form>
       </div>
@@ -362,93 +316,169 @@
   <!-- APP -->
   <div class="app-layout" id="appLayout">
     <header class="app-header">
-      <div class="header-row">
-        <div class="header-title font-display">cekdulu!</div>
-        <div class="header-user">
-          <div class="user-info"><div class="user-name" id="headerUserName">Demo User</div><div class="user-balance" id="headerUserBalance">Saldo: Rp 0</div></div>
-          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" class="user-avatar" id="headerAvatar" onclick="toggleAvatarDropdown()">
-          <div class="avatar-dropdown" id="avatarDropdown">
-            <button class="dropdown-item" onclick="navigateTo('dashboard'); closeAvatarDropdown();"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Profil</button>
-            <button class="dropdown-item" onclick="openModal('editAvatar'); closeAvatarDropdown();"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>Ubah Foto</button>
-            <button class="dropdown-item danger" onclick="logout()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>Logout</button>
-          </div>
-        </div>
-      </div>
-      <div class="header-row">
-        <span class="status-badge status-inactive" id="headerStatus"><span class="status-dot"></span><span id="statusText">Belum Aktif</span></span>
-        <nav class="nav-menu">
-          <button class="nav-item active" id="navDashboard" onclick="navigateTo('dashboard')">Dashboard</button>
-          <button class="nav-item" id="navContacts" onclick="navigateTo('contacts')">Kontak</button>
-          <button class="nav-item" id="navCreate" onclick="navigateTo('create')">Buat Pesan</button>
-          <button class="nav-item" id="navHistory" onclick="navigateTo('history')">Riwayat</button>
-          <button class="nav-item" id="navTopup" onclick="navigateTo('topup')">Top Up</button>
-        </nav>
+      <div class="header-title font-display">cekdulu!</div>
+      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" class="user-avatar" id="headerAvatar" onclick="toggleDropdown()">
+      <div class="avatar-dropdown" id="dropdown">
+        <div class="dropdown-item" onclick="openModal('editAvatar')">📷 Ubah Foto</div>
+        <div class="dropdown-item danger" onclick="logout()">🚪 Logout</div>
       </div>
     </header>
-
+    <nav class="nav-menu">
+      <button class="nav-item active" onclick="nav('dashboard')">Dashboard</button>
+      <button class="nav-item" onclick="nav('contacts')">Kontak</button>
+      <button class="nav-item" onclick="nav('create')">Buat Pesan</button>
+      <button class="nav-item" onclick="nav('history')">Riwayat</button>
+      <button class="nav-item" onclick="nav('topup')">Top Up</button>
+    </nav>
     <main class="app-main">
-      <!-- Dashboard -->
-      <div class="section-container active" id="sectionDashboard">
+      <div class="section-container active" id="secDashboard">
         <div class="profile-card">
           <div class="profile-header">
-            <div class="profile-avatar-container">
-              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" class="profile-avatar" id="profileAvatar">
-              <button class="profile-avatar-edit" onclick="openModal('editAvatar')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg></button>
-            </div>
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" class="profile-avatar" id="profileAvatar">
             <h2 class="profile-name font-display" id="profileName">Demo User</h2>
             <p class="profile-email" id="profileEmail">demo@email.com</p>
           </div>
-          <div class="profile-info-grid">
-            <div class="profile-info-item"><div><div class="profile-info-label">Telepon</div><div class="profile-info-value" id="profilePhone">+62 812-xxxx-xxxx</div></div><button class="profile-edit-btn" onclick="openModal('editPhone')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button></div>
-            <div class="profile-info-item"><div><div class="profile-info-label">Password</div><div class="profile-info-value">********</div></div><button class="profile-edit-btn" onclick="openModal('editPassword')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button></div>
+        </div>
+        <div class="notification-box" id="activationNotice">
+          <div class="notification-content">
+            <div class="notification-icon">⚠️</div>
+            <div class="notification-text">
+              <div class="notification-title">Akun Belum Aktif</div>
+              <div class="notification-desc">Hubungi admin untuk aktivasi.</div>
+              <button class="btn btn-whatsapp" onclick="contactAdmin()">Hubungi Admin</button>
+            </div>
           </div>
         </div>
-        <div class="stats-grid">
-          <div class="stat-card"><div class="stat-icon sms"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="stat-value" id="statSms">0</div><div class="stat-label">SMS Terkirim</div></div>
-          <div class="stat-card"><div class="stat-icon telegram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div><div class="stat-value" id="statTelegram">0</div><div class="stat-label">Telegram</div></div>
-          <div class="stat-card"><div class="stat-icon email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="stat-value" id="statEmail">0</div><div class="stat-label">Email</div></div>
-          <div class="stat-card"><div class="stat-icon balance"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="stat-value" id="statBalance">Rp 0</div><div class="stat-label">Saldo</div></div>
-        </div>
-        <div class="notification-box warning" id="activationNotice"><div class="notification-content"><div class="notification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="notification-text"><div class="notification-title">Akun Belum Aktif</div><div class="notification-desc">Hubungi admin untuk aktivasi.</div><button class="btn btn-whatsapp" onclick="contactAdminForActivation()">Hubungi Admin</button></div></div></div>
-        <div class="action-buttons"><button class="action-btn action-btn-primary" id="btnCreateMessage" onclick="navigateTo('create')" style="display:none">Buat Pesan Baru</button></div>
       </div>
-
-      <!-- Contacts -->
-      <div class="section-container" id="sectionContacts">
+      <div class="section-container" id="secContacts">
         <div class="contacts-toolbar">
-          <div class="search-box"><svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg><input type="text" class="search-input" id="contactSearch" placeholder="Cari..." oninput="filterContacts()"></div>
-          <button class="toolbar-btn primary" onclick="openModal('addContact')">Tambah</button>
-          <button class="toolbar-btn hidden" id="btnPickContact" onclick="pickContactFromDevice()">Ponsel</button>
-          <button class="toolbar-btn" onclick="openModal('importVcf')">Import</button>
+          <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Cari..." oninput="filterContacts()">
+          </div>
+          <button class="toolbar-btn primary" onclick="openModal('addContact')">+ Tambah</button>
+          <button class="toolbar-btn hidden" id="btnPickContact" onclick="pickContact()">📱 Ponsel</button>
+          <button class="toolbar-btn" onclick="openModal('importVcf')">📁 Import</button>
         </div>
-        <div class="contact-list"><div class="contact-list-header"><span class="font-display" style="font-size:14px;color:var(--cream)">Kontak</span><span class="contact-count" id="contactCount">0</span></div><div class="contact-list-body" id="contactListBody"></div></div>
+        <div class="contact-list">
+          <div class="contact-list-header">
+            <span style="font-size:13px;color:var(--cream)">Kontak</span>
+            <span class="contact-count" id="contactCount">0</span>
+          </div>
+          <div class="contact-list-body" id="contactBody"></div>
+        </div>
       </div>
-
-      <!-- Create Message -->
-      <div class="section-container" id="sectionCreate"><div class="steps-indicator" id="stepsIndicator"></div><div id="createStepContent"></div></div>
-
-      <!-- History -->
-      <div class="section-container" id="sectionHistory"><div class="profile-card"><h2 class="font-display" style="font-size:20px;color:var(--cream)">Riwayat</h2><p style="color:var(--text-secondary)">Section ini akan dibuat...</p></div></div>
-
-      <!-- Topup -->
-      <div class="section-container" id="sectionTopup"><div class="profile-card"><h2 class="font-display" style="font-size:20px;color:var(--cream)">Top Up</h2><p style="color:var(--text-secondary)">Section ini akan dibuat...</p></div></div>
+      <div class="section-container" id="secCreate"><div class="steps-indicator" id="steps"></div><div id="createContent"></div></div>
+      <div class="section-container" id="secHistory"><div class="profile-card"><h2 style="color:var(--cream)">Riwayat</h2><p style="color:var(--text-secondary);margin-top:8px">Coming soon...</p></div></div>
+      <div class="section-container" id="secTopup"><div class="profile-card"><h2 style="color:var(--cream)">Top Up</h2><p style="color:var(--text-secondary);margin-top:8px">Coming soon...</p></div></div>
     </main>
   </div>
 
   <!-- MODALS -->
-  <div class="modal-overlay" id="modalForgotPassword"><div class="modal-content"><div class="modal-header"><h3 class="modal-title font-display">Lupa Password</h3><button class="modal-close" onclick="closeModal('forgotPassword')">×</button></div><div class="modal-body"><p style="font-size:14px;color:var(--text-secondary);margin-bottom:16px">Masukkan email terdaftar.</p><div class="form-group" style="margin-bottom:0"><label class="form-label" for="forgotEmail">Email</label><input type="email" class="form-input" id="forgotEmail" placeholder="nama@email.com"></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('forgotPassword')">Batal</button><button class="btn btn-primary" onclick="submitForgotPassword()">Kirim</button></div></div></div>
-  <div class="modal-overlay" id="modalEditPhone"><div class="modal-content"><div class="modal-header"><h3 class="modal-title font-display">Ubah Telepon</h3><button class="modal-close" onclick="closeModal('editPhone')">×</button></div><div class="modal-body"><div class="form-group"><label class="form-label" for="newPhone">Nomor Baru</label><div class="phone-input-group"><input type="text" class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="newPhone" placeholder="812-xxxx-xxxx"></div></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('editPhone')">Batal</button><button class="btn btn-primary" onclick="savePhone()">Simpan</button></div></div></div>
-  <div class="modal-overlay" id="modalEditPassword"><div class="modal-content"><div class="modal-header"><h3 class="modal-title font-display">Ubah Password</h3><button class="modal-close" onclick="closeModal('editPassword')">×</button></div><div class="modal-body"><div class="form-group"><label class="form-label" for="currentPassword">Password Saat Ini</label><div class="password-wrapper"><input type="password" class="form-input password-input" id="currentPassword" placeholder="Password saat ini"><button type="button" class="password-toggle" id="toggleCurrentPassword"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div><div class="form-group"><label class="form-label" for="newPassword">Password Baru</label><div class="password-wrapper"><input type="password" class="form-input password-input" id="newPassword" placeholder="Min 8 karakter"><button type="button" class="password-toggle" id="toggleNewPassword"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div><div class="form-group" style="margin-bottom:0"><label class="form-label" for="confirmNewPassword">Konfirmasi</label><div class="password-wrapper"><input type="password" class="form-input password-input" id="confirmNewPassword" placeholder="Ulangi password"><button type="button" class="password-toggle" id="toggleConfirmNewPassword"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('editPassword')">Batal</button><button class="btn btn-primary" onclick="savePassword()">Simpan</button></div></div></div>
-  <div class="modal-overlay" id="modalEditAvatar"><div class="modal-content"><div class="modal-header"><h3 class="modal-title font-display">Ubah Foto</h3><button class="modal-close" onclick="closeModal('editAvatar')">×</button></div><div class="modal-body"><div style="text-align:center"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" class="avatar-preview-large" id="avatarPreviewLarge"></div><div class="avatar-upload-zone" onclick="document.getElementById('avatarFileInput').click()"><input type="file" id="avatarFileInput" accept="image/*" style="display:none" onchange="handleAvatarFile(event)"><div style="color:var(--cream)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div><div style="font-size:13px;color:var(--text-secondary)">Klik upload</div><div class="avatar-size-info">Max 700KB</div></div><div class="form-group" style="margin-bottom:0"><label class="form-label" for="avatarSeed">Atau avatar default</label><input type="text" class="form-input" id="avatarSeed" placeholder="Nama avatar" oninput="updateAvatarFromSeed()"></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('editAvatar')">Batal</button><button class="btn btn-primary" onclick="saveAvatar()">Simpan</button></div></div></div>
-  <div class="modal-overlay" id="modalLogout"><div class="modal-content"><div class="modal-header"><h3 class="modal-title font-display">Logout</h3><button class="modal-close" onclick="closeModal('logout')">×</button></div><div class="modal-body"><p style="font-size:14px;color:var(--text-secondary)">Yakin ingin keluar?</p></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('logout')">Batal</button><button class="btn btn-danger" onclick="confirmLogout()">Logout</button></div></div></div>
-  <div class="modal-overlay" id="modalAddContact"><div class="modal-content"><div class="modal-header"><h3 class="modal-title font-display">Tambah Kontak</h3><button class="modal-close" onclick="closeModal('addContact')">×</button></div><div class="modal-body"><div class="form-group"><label class="form-label" for="contactName">Nama</label><input type="text" class="form-input" id="contactName" placeholder="Nama"></div><div class="form-group"><label class="form-label" for="contactPhoneInput">Telepon</label><div class="phone-input-group"><input type="text" class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="contactPhoneInput" placeholder="812-xxxx-xxxx"></div></div><div class="form-group" style="margin-bottom:0"><label class="form-label" for="contactEmailInput">Email</label><input type="email" class="form-input" id="contactEmailInput" placeholder="email@contoh.com"></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('addContact')">Batal</button><button class="btn btn-primary" onclick="saveContact()">Simpan</button></div></div></div>
-  <div class="modal-overlay" id="modalEditContact"><div class="modal-content"><div class="modal-header"><h3 class="modal-title font-display">Edit Kontak</h3><button class="modal-close" onclick="closeModal('editContact')">×</button></div><div class="modal-body"><input type="hidden" id="editContactId"><div class="form-group"><label class="form-label" for="editContactName">Nama</label><input type="text" class="form-input" id="editContactName" placeholder="Nama"></div><div class="form-group"><label class="form-label" for="editContactPhoneInput">Telepon</label><div class="phone-input-group"><input type="text" class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="editContactPhoneInput" placeholder="812-xxxx-xxxx"></div></div><div class="form-group" style="margin-bottom:0"><label class="form-label" for="editContactEmailInput">Email</label><input type="email" class="form-input" id="editContactEmailInput" placeholder="email"></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('editContact')">Batal</button><button class="btn btn-primary" onclick="updateContact()">Simpan</button></div></div></div>
-  <div class="modal-overlay" id="modalImportVcf"><div class="modal-content" style="max-height:85vh"><div class="modal-header"><h3 class="modal-title font-display">Import VCF</h3><button class="modal-close" onclick="closeModal('importVcf')">×</button></div><div class="modal-body" style="flex:1;overflow-y:auto"><div class="vcf-upload-zone" id="vcfUploadZone" onclick="document.getElementById('vcfFileInput').click()"><input type="file" id="vcfFileInput" accept=".vcf,.vcard" style="display:none" onchange="handleVcfFile(event)"><div style="color:var(--cream)"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div><div style="font-size:14px;color:var(--text-secondary)">Klik atau drag VCF</div></div><div id="vcfPreviewContainer" style="display:none"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:13px;color:var(--text-secondary)"><span id="vcfCount">0</span> kontak</span><button class="toolbar-btn" onclick="toggleAllVcf()" style="padding:6px 12px;font-size:12px">Pilih Semua</button></div><div class="vcf-preview-list" id="vcfPreviewList"></div></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('importVcf')">Batal</button><button class="btn btn-primary" id="importVcfBtn" onclick="importSelectedVcf()" disabled>Import</button></div></div></div>
-  <div class="modal-overlay" id="modalDeleteContact"><div class="modal-content"><div class="modal-header"><h3 class="modal-title font-display">Hapus</h3><button class="modal-close" onclick="closeModal('deleteContact')">×</button></div><div class="modal-body"><p style="font-size:14px;color:var(--text-secondary)">Hapus <strong id="deleteContactName"></strong>?</p></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('deleteContact')">Batal</button><button class="btn btn-danger" onclick="confirmDeleteContact()">Hapus</button></div></div></div>
+  <div class="modal-overlay" id="modalForgotPassword">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title">Lupa Password</h3><button class="modal-close" onclick="closeModal('forgotPassword')">×</button></div>
+      <div class="modal-body">
+        <p style="margin-bottom:12px;font-size:14px;color:var(--text-secondary)">Masukkan email terdaftar.</p>
+        <div class="form-group" style="margin:0"><label class="form-label">Email</label><input type="email" class="form-input" id="forgotEmail" placeholder="nama@email.com"></div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('forgotPassword')">Batal</button><button class="btn btn-primary" onclick="submitForgot()">Kirim</button></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalEditAvatar">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title">Ubah Foto</h3><button class="modal-close" onclick="closeModal('editAvatar')">×</button></div>
+      <div class="modal-body">
+        <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" class="avatar-preview-large" id="avatarPreview">
+        <div class="avatar-upload-zone" onclick="document.getElementById('avatarFile').click()">
+          <input type="file" id="avatarFile" accept="image/*" style="display:none" onchange="handleAvatar(event)">
+          <div style="color:var(--cream);margin-bottom:4px">📷</div>
+          <div style="font-size:12px;color:var(--text-secondary)">Klik untuk upload</div>
+        </div>
+        <div class="form-group" style="margin:0"><label class="form-label">Atau gunakan avatar default</label><input type="text" class="form-input" id="avatarSeed" placeholder="Nama untuk avatar" oninput="updateAvatarPreview()"></div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('editAvatar')">Batal</button><button class="btn btn-primary" onclick="saveAvatar()">Simpan</button></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalLogout">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title">Logout</h3><button class="modal-close" onclick="closeModal('logout')">×</button></div>
+      <div class="modal-body"><p style="font-size:14px;color:var(--text-secondary)">Yakin ingin keluar?</p></div>
+      <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('logout')">Batal</button><button class="btn btn-primary" style="background:var(--danger);border-color:var(--danger)" onclick="doLogout()">Logout</button></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalAddContact">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title">Tambah Kontak</h3><button class="modal-close" onclick="closeModal('addContact')">×</button></div>
+      <div class="modal-body">
+        <div class="form-group"><label class="form-label">Nama</label><input type="text" class="form-input" id="cName" placeholder="Nama"></div>
+        <div class="form-group">
+          <label class="form-label">Telepon</label>
+          <div class="phone-input-group">
+            <input type="text" class="form-input phone-prefix" value="+62" readonly>
+            <input type="tel" class="form-input" id="cPhone" placeholder="812-xxxx-xxxx">
+          </div>
+        </div>
+        <div class="form-group" style="margin:0"><label class="form-label">Email</label><input type="email" class="form-input" id="cEmail" placeholder="email@contoh.com"></div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('addContact')">Batal</button><button class="btn btn-primary" onclick="saveContact()">Simpan</button></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalEditContact">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title">Edit Kontak</h3><button class="modal-close" onclick="closeModal('editContact')">×</button></div>
+      <div class="modal-body">
+        <input type="hidden" id="editCId">
+        <div class="form-group"><label class="form-label">Nama</label><input type="text" class="form-input" id="editCName"></div>
+        <div class="form-group">
+          <label class="form-label">Telepon</label>
+          <div class="phone-input-group">
+            <input type="text" class="form-input phone-prefix" value="+62" readonly>
+            <input type="tel" class="form-input" id="editCPhone">
+          </div>
+        </div>
+        <div class="form-group" style="margin:0"><label class="form-label">Email</label><input type="email" class="form-input" id="editCEmail"></div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('editContact')">Batal</button><button class="btn btn-primary" onclick="updateContact()">Simpan</button></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalDelete">
+    <div class="modal-content">
+      <div class="modal-header"><h3 class="modal-title">Hapus</h3><button class="modal-close" onclick="closeModal('delete')">×</button></div>
+      <div class="modal-body"><p style="font-size:14px;color:var(--text-secondary)">Hapus <strong id="delName"></strong>?</p></div>
+      <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('delete')">Batal</button><button class="btn btn-primary" style="background:var(--danger);border-color:var(--danger)" onclick="confirmDelete()">Hapus</button></div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalVcf">
+    <div class="modal-content" style="max-height:80vh">
+      <div class="modal-header"><h3 class="modal-title">Import VCF</h3><button class="modal-close" onclick="closeModal('vcf')">×</button></div>
+      <div class="modal-body" style="flex:1;overflow-y:auto">
+        <div class="vcf-upload-zone" onclick="document.getElementById('vcfFile').click()">
+          <input type="file" id="vcfFile" accept=".vcf" style="display:none" onchange="handleVcf(event)">
+          <div style="color:var(--cream)">📁</div>
+          <div style="font-size:12px;color:var(--text-secondary)">Klik atau drag VCF</div>
+        </div>
+        <div id="vcfPreview" style="display:none">
+          <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+            <span style="font-size:12px;color:var(--text-secondary)"><span id="vcfCount">0</span> kontak</span>
+            <button class="toolbar-btn" onclick="toggleAllVcf()" style="padding:4px 8px;font-size:11px">Pilih Semua</button>
+          </div>
+          <div class="vcf-preview-list" id="vcfList"></div>
+        </div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('vcf')">Batal</button><button class="btn btn-primary" id="btnImport" onclick="importVcf()" disabled>Import</button></div>
+    </div>
+  </div>
 
   <script>
     // STATE
-    var currentUser = { name: 'Demo User', email: 'demo@email.com', phone: '+62 812-xxxx-xxxx', avatarSeed: 'demo', avatarUrl: null, isActive: false, balance: 0 };
+    var user = { name: 'Demo User', email: 'demo@email.com', phone: '+62 812-xxxx-xxxx', seed: 'demo', avatar: null, active: false, balance: 0 };
     var contacts = [
       { id: 1, name: 'Budi Santoso', phone: '+62 812-3456-7890', email: 'budi@email.com' },
       { id: 2, name: 'Siti Rahayu', phone: '+62 813-4567-8901', email: 'siti@email.com' },
@@ -456,111 +486,86 @@
       { id: 4, name: 'Dewi Lestari', phone: '+62 815-6789-0123', email: 'dewi@email.com' },
       { id: 5, name: 'Rudi Hartono', phone: '+62 816-7890-1234', email: '' }
     ];
-    var vcfParsed = [];
-    var deletingId = null;
-    var contactIdCounter = 10;
-    var pendingAvatar = null;
-    var msgState = { step: 1, source: null, recipients: [], channel: null, subject: '', body: '', result: null };
-    var pendingMedia = null;
+    var vcfData = [];
+    var delId = null;
+    var cId = 10;
+    var pAvatar = null;
+    var msg = { step: 1, src: null, rec: [], ch: null, subj: '', body: '', result: null };
+    var pMedia = null;
 
-    // ANDROID CHROME
-    function isAndroidChrome() { var ua = navigator.userAgent.toLowerCase(); return ua.indexOf('android') > -1 && ua.indexOf('chrome') > -1; }
-    if (isAndroidChrome()) document.getElementById('btnPickContact').style.display = 'flex';
+    // DETECT ANDROID CHROME
+    function isAndroid() { var u = navigator.userAgent.toLowerCase(); return u.indexOf('android') > -1 && u.indexOf('chrome') > -1; }
+    if (isAndroid()) document.getElementById('btnPickContact').style.display = 'flex';
 
     // CONTACT PICKER
-    async function pickContactFromDevice() {
+    async function pickContact() {
       if (!('contacts' in navigator)) return;
       try {
-        var sel = await navigator.contacts.select(['name', 'tel', 'email'], { multiple: false });
-        if (sel && sel[0]) {
-          document.getElementById('contactName').value = sel[0].name ? sel[0].name.join(' ') : '';
-          document.getElementById('contactPhoneInput').value = sel[0].tel ? sel[0].tel[0].replace(/[^0-9]/g, '').substring(0, 12) : '';
-          document.getElementById('contactEmailInput').value = sel[0].email ? sel[0].email[0] : '';
+        var s = await navigator.contacts.select(['name', 'tel', 'email'], { multiple: false });
+        if (s && s[0]) {
+          document.getElementById('cName').value = s[0].name ? s[0].name.join(' ') : '';
+          document.getElementById('cPhone').value = s[0].tel ? s[0].tel[0].replace(/[^0-9]/g, '').substring(0, 12) : '';
+          document.getElementById('cEmail').value = s[0].email ? s[0].email[0] : '';
           openModal('addContact');
         }
       } catch (e) {}
     }
 
-    // AVATAR
-    function handleAvatarFile(e) {
-      var f = e.target.files[0]; if (!f || !f.type.startsWith('image/')) return;
-      if (f.size > 700000) compressAvatar(f); else previewAvatar(f);
-    }
-    function compressAvatar(f) {
-      var r = new FileReader();
-      r.onload = function(e) {
-        var img = new Image();
-        img.onload = function() {
-          var c = document.createElement('canvas'), ctx = c.getContext('2d'), max = 300, w = img.width, h = img.height;
-          if (w > h) { if (w > max) { h = h * max / w; w = max; } } else { if (h > max) { w = w * max / h; h = max; } }
-          c.width = w; c.height = h; ctx.drawImage(img, 0, 0, w, h);
-          var q = 0.9, u = c.toDataURL('image/jpeg', q);
-          while (u.length > 700000 * 1.37 && q > 0.1) { q -= 0.1; u = c.toDataURL('image/jpeg', q); }
-          pendingAvatar = u;
-          document.getElementById('avatarPreviewLarge').src = u;
-          document.getElementById('avatarSeed').value = '';
-        };
-        img.src = e.target.result;
-      };
-      r.readAsDataURL(f);
-    }
-    function previewAvatar(f) {
-      var r = new FileReader();
-      r.onload = function(e) { pendingAvatar = e.target.result; document.getElementById('avatarPreviewLarge').src = e.target.result; document.getElementById('avatarSeed').value = ''; };
-      r.readAsDataURL(f);
-    }
-    function updateAvatarFromSeed() { pendingAvatar = null; document.getElementById('avatarPreviewLarge').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(document.getElementById('avatarSeed').value || 'demo'); }
-
-    // TAB
+    // TABS
     function switchTab(t) {
       document.getElementById('tabLogin').classList.toggle('active', t === 'login');
       document.getElementById('tabRegister').classList.toggle('active', t === 'register');
       document.getElementById('loginForm').classList.toggle('active', t === 'login');
       document.getElementById('registerForm').classList.toggle('active', t === 'register');
-      hideAllAlerts(); clearAllErrors();
+      hideAlerts();
     }
 
     // PASSWORD TOGGLE
-    function setupPwToggle(b, i) {
-      var btn = document.getElementById(b), inp = document.getElementById(i);
-      if (!btn || !inp) return;
-      btn.onclick = function(e) { e.preventDefault(); inp.type = inp.type === 'password' ? 'text' : 'password'; };
+    function setupPw(btnId, inpId) {
+      var b = document.getElementById(btnId);
+      var i = document.getElementById(inpId);
+      if (!b || !i) return;
+      b.onclick = function(e) { e.preventDefault(); i.type = i.type === 'password' ? 'text' : 'password'; b.textContent = i.type === 'password' ? '👁' : '🙈'; };
     }
-    setupPwToggle('toggleLoginPassword', 'loginPassword');
-    setupPwToggle('toggleRegisterPassword', 'registerPassword');
-    setupPwToggle('toggleRegisterPasswordConfirm', 'registerPasswordConfirm');
-    setupPwToggle('toggleCurrentPassword', 'currentPassword');
-    setupPwToggle('toggleNewPassword', 'newPassword');
-    setupPwToggle('toggleConfirmNewPassword', 'confirmNewPassword');
+    setupPw('toggleLoginPw', 'loginPassword');
+    setupPw('toggleRegPw', 'regPassword');
+    setupPw('toggleRegPw2', 'regPassword2');
 
     // DROPDOWN
-    function toggleAvatarDropdown() { document.getElementById('avatarDropdown').classList.toggle('active'); }
-    function closeAvatarDropdown() { document.getElementById('avatarDropdown').classList.remove('active'); }
-    document.addEventListener('click', function(e) { var d = document.getElementById('avatarDropdown'); if (!d.contains(e.target) && e.target.id !== 'headerAvatar') d.classList.remove('active'); });
+    function toggleDropdown() { document.getElementById('dropdown').classList.toggle('active'); }
+    document.addEventListener('click', function(e) { var d = document.getElementById('dropdown'); if (!d.contains(e.target) && e.target.id !== 'headerAvatar') d.classList.remove('active'); });
 
     // ALERTS
     function showAlert(t, m) {
-      hideAllAlerts();
-      var el = document.getElementById('alert' + t.charAt(0).toUpperCase() + t.slice(1));
+      hideAlerts();
+      var el = document.getElementById('alert' + (t === 'error' ? 'Error' : 'Success'));
       if (!el) return;
-      el.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + (t === 'error' ? '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>' : t === 'warning' ? '<path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>' : '<path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>') + '</svg><span>' + m + '</span>';
+      el.innerHTML = (t === 'error' ? '❌ ' : '✅ ') + m;
       el.classList.add('show');
     }
-    function hideAllAlerts() { document.querySelectorAll('.alert').forEach(function(e) { e.classList.remove('show'); }); }
+    function hideAlerts() { document.querySelectorAll('.alert').forEach(function(e) { e.classList.remove('show'); }); }
 
-    // FORM ERRORS
-    function showError(i, m) { var el = document.getElementById(i); if (el) el.classList.add('error'); var e = document.getElementById(i + 'Error'); if (e) { e.textContent = m; e.classList.add('show'); } }
-    function clearError(i) { var el = document.getElementById(i); if (el) el.classList.remove('error'); var e = document.getElementById(i + 'Error'); if (e) { e.textContent = ''; e.classList.remove('show'); } }
-    function clearAllErrors() { document.querySelectorAll('.form-input').forEach(function(i) { i.classList.remove('error'); }); document.querySelectorAll('.form-error').forEach(function(e) { e.textContent = ''; e.classList.remove('show'); }); }
+    // ERRORS
+    function showErr(id, m) {
+      var i = document.getElementById(id);
+      var e = document.getElementById(id + 'Error');
+      if (i) i.style.borderColor = 'var(--danger)';
+      if (e) { e.textContent = m; e.classList.add('show'); }
+    }
+    function clearErr(id) {
+      var i = document.getElementById(id);
+      var e = document.getElementById(id + 'Error');
+      if (i) i.style.borderColor = '';
+      if (e) { e.textContent = ''; e.classList.remove('show'); }
+    }
 
     // VALIDATION
-    function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
-    function isValidPhone(p) { var c = p.replace(/[^0-9]/g, ''); return c.length >= 9 && c.length <= 13; }
-    function formatNumber(n) { return new Intl.NumberFormat('id-ID').format(n); }
+    function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+    function validPhone(p) { var d = p.replace(/[^0-9]/g, ''); return d.length >= 9 && d.length <= 13; }
+    function fmtNum(n) { return new Intl.NumberFormat('id-ID').format(n); }
 
     // ADMIN
     function contactAdmin() { window.open('https://wa.me/6285161990373?text=' + encodeURIComponent('Halo Admin, butuh bantuan cekdulu!'), '_blank'); }
-    function contactAdminForActivation() { window.open('https://wa.me/6285161990373?text=' + encodeURIComponent('Aktifkan akun:\nNama: ' + currentUser.name + '\nEmail: ' + currentUser.email), '_blank'); }
 
     // MODALS
     function openModal(n) { var m = document.getElementById('modal' + n.charAt(0).toUpperCase() + n.slice(1)); if (m) m.classList.add('active'); }
@@ -568,181 +573,382 @@
     document.querySelectorAll('.modal-overlay').forEach(function(m) { m.onclick = function(e) { if (e.target === this) this.classList.remove('active'); }; });
 
     // LOGOUT
-    function logout() { closeAvatarDropdown(); openModal('logout'); }
-    function confirmLogout() { closeModal('logout'); document.getElementById('appLayout').classList.remove('active'); document.getElementById('authContainer').classList.remove('hidden'); currentUser = { name: 'Demo User', email: 'demo@email.com', phone: '+62 812-xxxx-xxxx', avatarSeed: 'demo', avatarUrl: null, isActive: false, balance: 0 }; msgState = { step: 1, source: null, recipients: [], channel: null, subject: '', body: '', result: null }; }
+    function logout() { closeModal('editAvatar'); openModal('logout'); }
+    function doLogout() { closeModal('logout'); document.getElementById('appLayout').classList.remove('active'); document.getElementById('authContainer').classList.remove('hidden'); user = { name: 'Demo User', email: 'demo@email.com', phone: '+62 812-xxxx-xxxx', seed: 'demo', avatar: null, active: false, balance: 0 }; msg = { step: 1, src: null, rec: [], ch: null, subj: '', body: '', result: null }; }
 
     // NAV
-    function navigateTo(s) {
-      ['Dashboard', 'Contacts', 'Create', 'History', 'Topup'].forEach(function(n) { var b = document.getElementById('nav' + n), se = document.getElementById('section' + n); if (b) b.classList.toggle('active', n.toLowerCase() === s); if (se) se.classList.toggle('active', n.toLowerCase() === s); });
+    function nav(s) {
+      ['Dashboard', 'Contacts', 'Create', 'History', 'Topup'].forEach(function(n) {
+        var sec = document.getElementById('sec' + n);
+        var btn = document.querySelector('.nav-item:nth-child(' + (['dashboard','contacts','create','history','topup'].indexOf(s) + 1) + ')');
+        if (sec) sec.classList.toggle('active', n.toLowerCase() === s);
+      });
+      document.querySelectorAll('.nav-item').forEach(function(b, i) { b.classList.toggle('active', ['dashboard','contacts','create','history','topup'][i] === s); });
       if (s === 'contacts') renderContacts();
       if (s === 'create') renderCreate();
     }
 
-    // APP
-    function showApp() { document.getElementById('authContainer').classList.add('hidden'); document.getElementById('appLayout').classList.add('active'); updateDashboard(); }
-    function updateDashboard() {
-      var u = currentUser.avatarUrl || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(currentUser.avatarSeed);
-      document.getElementById('headerUserName').textContent = currentUser.name;
-      document.getElementById('headerUserBalance').textContent = 'Saldo: Rp ' + formatNumber(currentUser.balance);
+    // SHOW APP
+    function showApp() { document.getElementById('authContainer').classList.add('hidden'); document.getElementById('appLayout').classList.add('active'); updateDash(); }
+    function updateDash() {
+      var u = user.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(user.seed);
       document.getElementById('headerAvatar').src = u;
-      var st = document.getElementById('headerStatus'), txt = document.getElementById('statusText');
-      if (currentUser.isActive) { st.className = 'status-badge status-active'; txt.textContent = 'Aktif'; } else { st.className = 'status-badge status-inactive'; txt.textContent = 'Belum Aktif'; }
       document.getElementById('profileAvatar').src = u;
-      document.getElementById('profileName').textContent = currentUser.name;
-      document.getElementById('profileEmail').textContent = currentUser.email;
-      document.getElementById('profilePhone').textContent = currentUser.phone;
-      document.getElementById('statBalance').textContent = 'Rp ' + formatNumber(currentUser.balance);
-      var no = document.getElementById('activationNotice'), bc = document.getElementById('btnCreateMessage');
-      if (currentUser.isActive) { no.style.display = 'none'; bc.style.display = 'flex'; } else { no.style.display = 'block'; bc.style.display = 'none'; }
+      document.getElementById('profileName').textContent = user.name;
+      document.getElementById('profileEmail').textContent = user.email;
+      var no = document.getElementById('activationNotice');
+      if (user.active) no.style.display = 'none';
     }
 
     // CONTACTS
     function renderContacts() {
-      var b = document.getElementById('contactListBody'), s = document.getElementById('contactSearch').value.toLowerCase();
-      var f = contacts.filter(function(c) { return c.name.toLowerCase().indexOf(s) !== -1 || c.phone.indexOf(s) !== -1 || (c.email && c.email.toLowerCase().indexOf(s) !== -1); });
-      document.getElementById('contactCount').textContent = f.length + ' kontak';
-      if (!f.length) { b.innerHTML = '<div class="empty-state"><div class="empty-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="empty-title">Tidak ada kontak</div></div>'; return; }
-      b.innerHTML = f.map(function(c) { return '<div class="contact-item" onclick="openEditContact(' + c.id + ')"><img class="contact-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(c.name) + '"><div class="contact-info"><div class="contact-name">' + c.name + '</div><div class="contact-detail"><span>' + c.phone + '</span>' + (c.email ? '<span>' + c.email + '</span>' : '') + '</div></div><div class="contact-actions" onclick="event.stopPropagation()"><button class="contact-action-btn" onclick="openEditContact(' + c.id + ')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button><button class="contact-action-btn danger" onclick="openDeleteContact(' + c.id + ')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button></div></div>'; }).join('');
+      var b = document.getElementById('contactBody');
+      var q = document.getElementById('searchInput').value.toLowerCase();
+      var f = contacts.filter(function(c) { return c.name.toLowerCase().indexOf(q) !== -1 || c.phone.indexOf(q) !== -1 || (c.email && c.email.toLowerCase().indexOf(q) !== -1); });
+      document.getElementById('contactCount').textContent = f.length;
+      if (!f.length) { b.innerHTML = '<div class="empty-state"><p>Tidak ada kontak</p></div>'; return; }
+      b.innerHTML = f.map(function(c) {
+        return '<div class="contact-item" onclick="openEdit(' + c.id + ')"><img class="contact-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(c.name) + '"><div class="contact-info"><div class="contact-name">' + c.name + '</div><div class="contact-detail">' + c.phone + '</div></div><div class="contact-actions" onclick="event.stopPropagation()"><button class="contact-action-btn" onclick="openEdit(' + c.id + ')">✏️</button><button class="contact-action-btn danger" onclick="openDel(' + c.id + ')">🗑</button></div></div>';
+      }).join('');
     }
     function filterContacts() { renderContacts(); }
-    function saveContact() { var n = document.getElementById('contactName').value.trim(), p = document.getElementById('contactPhoneInput').value.trim(), e = document.getElementById('contactEmailInput').value.trim(); if (!n || !p) { alert('Nama dan telepon wajib'); return; } contacts.push({ id: contactIdCounter++, name: n, phone: '+62 ' + p.replace(/[^0-9]/g, ''), email: e }); closeModal('addContact'); document.getElementById('contactName').value = ''; document.getElementById('contactPhoneInput').value = ''; document.getElementById('contactEmailInput').value = ''; renderContacts(); }
-    function openEditContact(id) { var c = contacts.find(function(x) { return x.id === id; }); if (!c) return; document.getElementById('editContactId').value = id; document.getElementById('editContactName').value = c.name; document.getElementById('editContactPhoneInput').value = c.phone.replace('+62 ', ''); document.getElementById('editContactEmailInput').value = c.email || ''; openModal('editContact'); }
-    function updateContact() { var id = parseInt(document.getElementById('editContactId').value), c = contacts.find(function(x) { return x.id === id; }); if (!c) return; c.name = document.getElementById('editContactName').value.trim(); c.phone = '+62 ' + document.getElementById('editContactPhoneInput').value.replace(/[^0-9]/g, ''); c.email = document.getElementById('editContactEmailInput').value.trim(); closeModal('editContact'); renderContacts(); }
-    function openDeleteContact(id) { var c = contacts.find(function(x) { return x.id === id; }); if (!c) return; deletingId = id; document.getElementById('deleteContactName').textContent = c.name; openModal('deleteContact'); }
-    function confirmDeleteContact() { if (deletingId) contacts = contacts.filter(function(x) { return x.id !== deletingId; }); deletingId = null; closeModal('deleteContact'); renderContacts(); }
+    function saveContact() {
+      var n = document.getElementById('cName').value.trim();
+      var p = document.getElementById('cPhone').value.trim();
+      var e = document.getElementById('cEmail').value.trim();
+      if (!n || !p) { alert('Nama dan telepon wajib'); return; }
+      contacts.push({ id: cId++, name: n, phone: '+62 ' + p.replace(/[^0-9]/g, ''), email: e });
+      closeModal('addContact');
+      document.getElementById('cName').value = '';
+      document.getElementById('cPhone').value = '';
+      document.getElementById('cEmail').value = '';
+      renderContacts();
+    }
+    function openEdit(id) {
+      var c = contacts.find(function(x) { return x.id === id; });
+      if (!c) return;
+      document.getElementById('editCId').value = id;
+      document.getElementById('editCName').value = c.name;
+      document.getElementById('editCPhone').value = c.phone.replace('+62 ', '');
+      document.getElementById('editCEmail').value = c.email || '';
+      openModal('editContact');
+    }
+    function updateContact() {
+      var id = parseInt(document.getElementById('editCId').value);
+      var c = contacts.find(function(x) { return x.id === id; });
+      if (!c) return;
+      c.name = document.getElementById('editCName').value.trim();
+      c.phone = '+62 ' + document.getElementById('editCPhone').value.replace(/[^0-9]/g, '');
+      c.email = document.getElementById('editCEmail').value.trim();
+      closeModal('editContact');
+      renderContacts();
+    }
+    function openDel(id) {
+      var c = contacts.find(function(x) { return x.id === id; });
+      if (!c) return;
+      delId = id;
+      document.getElementById('delName').textContent = c.name;
+      openModal('delete');
+    }
+    function confirmDelete() {
+      if (delId) contacts = contacts.filter(function(x) { return x.id !== delId; });
+      delId = null;
+      closeModal('delete');
+      renderContacts();
+    }
 
     // VCF
-    function handleVcfFile(e) { var f = e.target.files[0]; if (!f) return; var r = new FileReader(); r.onload = function(e) { parseVcf(e.target.result); }; r.readAsText(f); }
-    function parseVcf(c) {
-      vcfParsed = []; var ls = c.split('\n'), cur = null;
-      for (var i = 0; i < ls.length; i++) {
-        var l = ls[i].trim();
-        if (l === 'BEGIN:VCARD') cur = { name: '', phone: '', email: '' };
-        else if (l === 'END:VCARD' && cur) { if (cur.name || cur.phone) vcfParsed.push(cur); cur = null; }
-        else if (cur) { if (l.indexOf('FN:') === 0) cur.name = l.substring(3); else if (l.indexOf('TEL') === 0) { var p = l.split(':'); cur.phone = p.length > 1 ? p[p.length - 1].replace(/[^0-9+]/g, '') : ''; } else if (l.indexOf('EMAIL') === 0) { var em = l.split(':'); cur.email = em.length > 1 ? em[em.length - 1] : ''; } }
-      }
-      renderVcfPreview();
+    function handleVcf(ev) {
+      var f = ev.target.files[0];
+      if (!f) return;
+      var r = new FileReader();
+      r.onload = function(e) {
+        vcfData = [];
+        var ls = e.target.result.split('\n');
+        var cur = null;
+        for (var i = 0; i < ls.length; i++) {
+          var l = ls[i].trim();
+          if (l === 'BEGIN:VCARD') cur = { name: '', phone: '', email: '' };
+          else if (l === 'END:VCARD' && cur) { if (cur.name || cur.phone) vcfData.push(cur); cur = null; }
+          else if (cur) {
+            if (l.indexOf('FN:') === 0) cur.name = l.substring(3);
+            else if (l.indexOf('TEL') === 0) { var p = l.split(':'); cur.phone = p.length > 1 ? p[p.length - 1].replace(/[^0-9+]/g, '') : ''; }
+            else if (l.indexOf('EMAIL') === 0) { var em = l.split(':'); cur.email = em.length > 1 ? em[em.length - 1] : ''; }
+          }
+        }
+        renderVcfPreview();
+      };
+      r.readAsText(f);
     }
     function renderVcfPreview() {
-      var c = document.getElementById('vcfPreviewContainer'), l = document.getElementById('vcfPreviewList');
-      document.getElementById('vcfCount').textContent = vcfParsed.length;
-      if (!vcfParsed.length) { c.style.display = 'none'; document.getElementById('importVcfBtn').disabled = true; return; }
-      c.style.display = 'block'; document.getElementById('importVcfBtn').disabled = false;
-      l.innerHTML = vcfParsed.map(function(v, i) { return '<div class="vcf-preview-item"><div class="vcf-checkbox checked" id="vcf' + i + '" onclick="this.classList.toggle(\'checked\')"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div><div class="vcf-preview-info"><div class="vcf-preview-name">' + (v.name || 'Unknown') + '</div><div class="vcf-preview-detail">' + (v.phone || '-') + (v.email ? ' | ' + v.email : '') + '</div></div></div>'; }).join('');
+      var c = document.getElementById('vcfPreview');
+      var l = document.getElementById('vcfList');
+      document.getElementById('vcfCount').textContent = vcfData.length;
+      if (!vcfData.length) { c.style.display = 'none'; document.getElementById('btnImport').disabled = true; return; }
+      c.style.display = 'block';
+      document.getElementById('btnImport').disabled = false;
+      l.innerHTML = vcfData.map(function(v, i) {
+        return '<div class="vcf-preview-item"><div class="vcf-checkbox checked" id="vcf' + i + '" onclick="this.classList.toggle(\'checked\')">✓</div><div class="vcf-preview-info"><div class="vcf-preview-name">' + (v.name || 'Unknown') + '</div><div class="vcf-preview-detail">' + (v.phone || '-') + '</div></div></div>';
+      }).join('');
     }
-    function toggleAllVcf() { var all = document.querySelectorAll('[id^="vcf"]'), chk = Array.from(all).every(function(c) { return c.classList.contains('checked'); }); all.forEach(function(c) { c.classList.toggle('checked', !chk); }); }
-    function importSelectedVcf() {
-      var sel = []; document.querySelectorAll('[id^="vcf"]').forEach(function(ch, i) { if (ch.classList.contains('checked') && vcfParsed[i]) sel.push({ id: contactIdCounter++, name: vcfParsed[i].name || 'Unknown', phone: vcfParsed[i].phone || '', email: vcfParsed[i].email || '' }); });
-      contacts = contacts.concat(sel); closeModal('importVcf'); vcfParsed = []; document.getElementById('vcfPreviewContainer').style.display = 'none'; document.getElementById('vcfFileInput').value = ''; renderContacts();
+    function toggleAllVcf() {
+      var all = document.querySelectorAll('[id^="vcf"]');
+      var allChk = Array.from(all).every(function(c) { return c.classList.contains('checked'); });
+      all.forEach(function(c) { c.classList.toggle('checked', !allChk); });
     }
-    var dz = document.getElementById('vcfUploadZone');
-    if (dz) { dz.ondragover = function(e) { e.preventDefault(); this.classList.add('dragover'); }; dz.ondragleave = function() { this.classList.remove('dragover'); }; dz.ondrop = function(e) { e.preventDefault(); this.classList.remove('dragover'); if (e.dataTransfer.files.length) handleVcfFile({ target: { files: e.dataTransfer.files } }); }; }
+    function importVcf() {
+      var sel = [];
+      document.querySelectorAll('[id^="vcf"]').forEach(function(ch, i) {
+        if (ch.classList.contains('checked') && vcfData[i]) sel.push({ id: cId++, name: vcfData[i].name || 'Unknown', phone: vcfData[i].phone || '', email: vcfData[i].email || '' });
+      });
+      contacts = contacts.concat(sel);
+      closeModal('vcf');
+      vcfData = [];
+      document.getElementById('vcfPreview').style.display = 'none';
+      document.getElementById('vcfFile').value = '';
+      renderContacts();
+    }
+
+    // AVATAR
+    function handleAvatar(ev) {
+      var f = ev.target.files[0];
+      if (!f) return;
+      if (f.size > 700000) {
+        var r = new FileReader();
+        r.onload = function(e) {
+          var img = new Image();
+          img.onload = function() {
+            var cv = document.createElement('canvas');
+            var ctx = cv.getContext('2d');
+            var max = 300, w = img.width, h = img.height;
+            if (w > h) { if (w > max) { h = h * max / w; w = max; } } else { if (h > max) { w = w * max / h; h = max; } }
+            cv.width = w; cv.height = h;
+            ctx.drawImage(img, 0, 0, w, h);
+            var q = 0.9, u = cv.toDataURL('image/jpeg', q);
+            while (u.length > 700000 * 1.37 && q > 0.1) { q -= 0.1; u = cv.toDataURL('image/jpeg', q); }
+            pAvatar = u;
+            document.getElementById('avatarPreview').src = u;
+            document.getElementById('avatarSeed').value = '';
+          };
+          img.src = e.target.result;
+        };
+        r.readAsDataURL(f);
+      } else {
+        var r2 = new FileReader();
+        r2.onload = function(e) { pAvatar = e.target.result; document.getElementById('avatarPreview').src = e.target.result; document.getElementById('avatarSeed').value = ''; };
+        r2.readAsDataURL(f);
+      }
+    }
+    function updateAvatarPreview() {
+      pAvatar = null;
+      document.getElementById('avatarPreview').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(document.getElementById('avatarSeed').value || 'demo');
+    }
+    function saveAvatar() {
+      var s = document.getElementById('avatarSeed').value.trim();
+      if (pAvatar) { user.avatar = pAvatar; user.seed = s || 'custom'; }
+      else if (s) { user.avatar = null; user.seed = s; }
+      else { alert('Pilih foto atau nama'); return; }
+      updateDash();
+      closeModal('editAvatar');
+      pAvatar = null;
+      document.getElementById('avatarSeed').value = '';
+    }
 
     // CREATE MESSAGE
     function renderCreate() {
-      if (!currentUser.isActive) { document.getElementById('stepsIndicator').innerHTML = ''; document.getElementById('createStepContent').innerHTML = '<div class="notification-box warning"><div class="notification-content"><div class="notification-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg></div><div class="notification-text"><div class="notification-title">Akun Belum Aktif</div><div class="notification-desc">Aktifkan akun untuk kirim pesan.</div><button class="btn btn-whatsapp" onclick="contactAdminForActivation()">Hubungi Admin</button></div></div></div>'; return; }
-      renderSteps(); renderStep();
+      if (!user.active) {
+        document.getElementById('steps').innerHTML = '';
+        document.getElementById('createContent').innerHTML = '<div class="notification-box"><div class="notification-content"><div class="notification-icon">⚠️</div><div class="notification-text"><div class="notification-title">Akun Belum Aktif</div><div class="notification-desc">Aktifkan akun untuk kirim pesan.</div><button class="btn btn-whatsapp" onclick="contactAdmin()">Hubungi Admin</button></div></div></div>';
+        return;
+      }
+      renderSteps();
+      renderStep();
     }
     function renderSteps() {
       var st = [{ n: 1, l: 'Sumber' }, { n: 2, l: 'Penerima' }, { n: 3, l: 'Pesan' }, { n: 4, l: 'Preview' }, { n: 5, l: 'Kirim' }];
-      document.getElementById('stepsIndicator').innerHTML = st.map(function(s, i) { var a = msgState.step === s.n, c = msgState.step > s.n; return '<div class="step-item' + (a ? ' active' : '') + (c ? ' completed' : '') + '"><div class="step-number">' + (c ? '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>' : s.n) + '</div><span class="step-label">' + s.l + '</span></div>' + (i < 4 ? '<div class="step-connector"></div>' : ''); }).join('');
+      document.getElementById('steps').innerHTML = st.map(function(s, i) {
+        var a = msg.step === s.n, c = msg.step > s.n;
+        return '<div class="step-item' + (a ? ' active' : '') + (c ? ' completed' : '') + '"><div class="step-number">' + (c ? '✓' : s.n) + '</div><span class="step-label">' + s.l + '</span></div>' + (i < 4 ? '<div class="step-connector"></div>' : '');
+      }).join('');
     }
     function renderStep() {
       var h = '';
-      if (msgState.step === 1) h = renderSource();
-      else if (msgState.step === 2) h = renderRecipients();
-      else if (msgState.step === 3) h = renderCompose();
-      else if (msgState.step === 4) h = renderPreview();
-      else if (msgState.step === 5) h = renderResult();
-      document.getElementById('createStepContent').innerHTML = h;
+      if (msg.step === 1) h = renderSrc();
+      else if (msg.step === 2) h = renderRec();
+      else if (msg.step === 3) h = renderComp();
+      else if (msg.step === 4) h = renderPrev();
+      else if (msg.step === 5) h = renderRes();
+      document.getElementById('createContent').innerHTML = h;
     }
-    function renderSource() {
-      return '<div class="profile-card"><h3 class="font-display" style="font-size:16px;margin-bottom:16px;color:var(--cream)">Pilih Sumber</h3><div class="source-grid"><div class="source-card' + (msgState.source === 'manual' ? ' selected' : '') + '" onclick="setSource(\'manual\')"><div class="source-icon manual"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div><div class="source-name">Manual</div></div><div class="source-card' + (msgState.source === 'contacts' ? ' selected' : '') + '" onclick="setSource(\'contacts\')"><div class="source-icon contact"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="source-name">Kontak</div></div><div class="source-card' + (msgState.source === 'vcf' ? ' selected' : '') + '" onclick="setSource(\'vcf\')"><div class="source-icon vcf"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div><div class="source-name">Import</div></div><div class="source-card ' + (isAndroidChrome() ? '' : 'disabled') + (msgState.source === 'phone' ? ' selected' : '') + '" onclick="' + (isAndroidChrome() ? 'setSource(\'phone\')' : '') + '"><div class="source-icon phone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.912.196 1.848.305 2.81.7A2 2 0 0122 16.92z"/></svg></div><div class="source-name">Ponsel</div></div></div><div style="text-align:right;margin-top:20px"><button class="btn btn-primary" style="width:auto;padding:12px 32px" onclick="nextStep()" ' + (!msgState.source ? 'disabled' : '') + '>Lanjut</button></div></div>';
+    function renderSrc() {
+      return '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">Pilih Sumber</h3><div class="source-grid"><div class="source-card' + (msg.src === 'manual' ? ' selected' : '') + '" onclick="setSrc(\'manual\')"><div class="source-icon manual">✏️</div><div class="source-name">Manual</div></div><div class="source-card' + (msg.src === 'contacts' ? ' selected' : '') + '" onclick="setSrc(\'contacts\')"><div class="source-icon contact">👥</div><div class="source-name">Kontak</div></div><div class="source-card' + (msg.src === 'vcf' ? ' selected' : '') + '" onclick="setSrc(\'vcf\')"><div class="source-icon vcf">📁</div><div class="source-name">Import</div></div><div class="source-card ' + (isAndroid() ? '' : 'disabled') + (msg.src === 'phone' ? ' selected' : '') + '" onclick="' + (isAndroid() ? 'setSrc(\'phone\')' : '') + '"><div class="source-icon phone">📱</div><div class="source-name">Ponsel</div></div></div><div style="text-align:right;margin-top:16px"><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="nextStep()" ' + (!msg.src ? 'disabled' : '') + '>Lanjut</button></div></div>';
     }
-    function setSource(s) { msgState.source = s; msgState.recipients = []; renderSteps(); renderStep(); }
+    function setSrc(s) { msg.src = s; msg.rec = []; renderSteps(); renderStep(); }
     function nextStep() {
-      if (msgState.step === 2 && !msgState.recipients.length) { alert('Tambah penerima'); return; }
-      if (msgState.step === 3 && (!msgState.channel || !msgState.body.trim())) { alert('Pilih channel dan tulis pesan'); return; }
-      msgState.step++; renderSteps(); renderStep();
+      if (msg.step === 2 && !msg.rec.length) { alert('Tambah penerima'); return; }
+      if (msg.step === 3 && (!msg.ch || !msg.body.trim())) { alert('Pilih channel dan tulis pesan'); return; }
+      msg.step++; renderSteps(); renderStep();
     }
-    function prevStep() { msgState.step--; renderSteps(); renderStep(); }
-    function renderRecipients() {
+    function prevStep() { msg.step--; renderSteps(); renderStep(); }
+    function renderRec() {
       var add = '';
-      if (msgState.source === 'manual') add = '<div style="display:grid;gap:12px;margin-bottom:16px"><input type="text" class="form-input" id="mn" placeholder="Nama"><div class="phone-input-group"><input class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="mp" placeholder="812-xxxx-xxxx"></div><input type="email" class="form-input" id="me" placeholder="Email"></div><button class="btn btn-secondary" onclick="addManual()">Tambah</button>';
-      else if (msgState.source === 'contacts') add = '<div style="max-height:150px;overflow-y:auto;margin-bottom:16px">' + contacts.map(function(c) { var sel = msgState.recipients.some(function(r) { return r.id === c.id; }); return '<div class="contact-item" onclick="toggleRec(' + c.id + ')" style="background:' + (sel ? 'rgba(0,212,170,0.1)' : '') + '"><img class="contact-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(c.name) + '"><div class="contact-info"><div class="contact-name">' + c.name + '</div><div class="contact-detail">' + c.phone + '</div></div><div class="vcf-checkbox ' + (sel ? 'checked' : '') + '"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg></div></div>'; }).join('') + '</div>';
-      else if (msgState.source === 'phone') add = '<div style="text-align:center;padding:20px"><button class="btn btn-primary" style="width:auto;padding:14px 28px" onclick="pickForMsg()">Ambil dari Ponsel</button></div>';
-      else if (msgState.source === 'vcf') add = '<div class="vcf-upload-zone" onclick="document.getElementById(\'mv\').click()"><input type="file" id="mv" accept=".vcf" style="display:none" onchange="handleMsgVcf(event)"><div style="color:var(--cream)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg></div><div style="font-size:13px;color:var(--text-secondary)">Upload VCF</div></div><div id="ml"></div>';
-      return '<div class="profile-card"><h3 class="font-display" style="font-size:16px;margin-bottom:16px;color:var(--cream)">Penerima</h3>' + add + '<div class="recipient-section"><div class="recipient-header"><span class="recipient-title">Daftar</span><span class="recipient-count">' + msgState.recipients.length + '</span></div><div class="recipient-body">' + (msgState.recipients.length ? msgState.recipients.map(function(r) { return '<div class="recipient-item"><img class="recipient-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(r.name) + '"><div class="recipient-info"><div class="recipient-name">' + r.name + '</div><div class="recipient-detail">' + r.phone + '</div></div><button class="recipient-remove" onclick="rmRec(' + r.id + ')">×</button></div>'; }).join('') : '<div class="empty-state"><div class="empty-desc">Belum ada</div></div>') + '</div></div><div style="display:flex;justify-content:space-between;margin-top:20px"><button class="btn btn-secondary" style="width:auto;padding:12px 24px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:12px 32px" onclick="nextStep()">Lanjut</button></div></div>';
+      if (msg.src === 'manual') add = '<div style="display:grid;gap:10px;margin-bottom:12px"><input type="text" class="form-input" id="mn" placeholder="Nama"><div class="phone-input-group"><input class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="mp" placeholder="812-xxxx-xxxx"></div><input type="email" class="form-input" id="me" placeholder="Email"></div><button class="btn btn-secondary" onclick="addMan()">Tambah</button>';
+      else if (msg.src === 'contacts') add = '<div style="max-height:120px;overflow-y:auto;margin-bottom:12px">' + contacts.map(function(c) { var sel = msg.rec.some(function(r) { return r.id === c.id; }); return '<div class="contact-item" onclick="togRec(' + c.id + ')" style="background:' + (sel ? 'rgba(0,212,170,0.1)' : '') + '"><img class="contact-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(c.name) + '"><div class="contact-info"><div class="contact-name">' + c.name + '</div><div class="contact-detail">' + c.phone + '</div></div><div class="vcf-checkbox ' + (sel ? 'checked' : '') + '">✓</div></div>'; }).join('') + '</div>';
+      else if (msg.src === 'phone') add = '<div style="text-align:center;padding:16px"><button class="btn btn-primary" style="width:auto;padding:12px 24px" onclick="pickForMsg()">Ambil dari Ponsel</button></div>';
+      else if (msg.src === 'vcf') add = '<div class="vcf-upload-zone" onclick="document.getElementById(\'mv\').click()"><input type="file" id="mv" accept=".vcf" style="display:none" onchange="handleMsgVcf(event)"><div style="color:var(--cream)">📁</div><div style="font-size:11px;color:var(--text-secondary)">Upload VCF</div></div><div id="ml"></div>';
+      return '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">Penerima</h3>' + add + '<div class="recipient-section"><div class="recipient-header"><span class="recipient-title">Daftar</span><span class="recipient-count">' + msg.rec.length + '</span></div><div class="recipient-body">' + (msg.rec.length ? msg.rec.map(function(r) { return '<div class="recipient-item"><img class="recipient-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(r.name) + '"><div class="recipient-info"><div class="recipient-name">' + r.name + '</div><div class="recipient-detail">' + r.phone + '</div></div><button class="recipient-remove" onclick="rmRec(' + r.id + ')">×</button></div>'; }).join('') : '<div class="empty-state" style="padding:20px">Belum ada</div>') + '</div></div><div style="display:flex;justify-content:space-between;margin-top:16px"><button class="btn btn-secondary" style="width:auto;padding:10px 20px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="nextStep()">Lanjut</button></div></div>';
     }
-    function addManual() { var n = document.getElementById('mn').value.trim(), p = document.getElementById('mp').value.trim(), e = document.getElementById('me').value.trim(); if (!n || !p) { alert('Nama dan telepon wajib'); return; } msgState.recipients.push({ id: Date.now(), name: n, phone: '+62' + p.replace(/[^0-9]/g, ''), email: e }); renderStep(); }
-    function toggleRec(id) { var c = contacts.find(function(x) { return x.id === id; }); if (!c) return; var idx = msgState.recipients.findIndex(function(r) { return r.id === id; }); if (idx >= 0) msgState.recipients.splice(idx, 1); else msgState.recipients.push({ id: c.id, name: c.name, phone: c.phone, email: c.email }); renderStep(); }
-    async function pickForMsg() { if (!('contacts' in navigator)) return; try { var sel = await navigator.contacts.select(['name', 'tel', 'email'], { multiple: true }); sel.forEach(function(c) { msgState.recipients.push({ id: Date.now() + Math.random(), name: c.name ? c.name.join(' ') : 'Unknown', phone: c.tel ? c.tel[0] : '', email: c.email ? c.email[0] : '' }); }); renderStep(); } catch (e) {} }
-    function handleMsgVcf(e) { var f = e.target.files[0]; if (!f) return; var r = new FileReader(); r.onload = function(e) { var ls = e.target.result.split('\n'), cur = null, psd = []; for (var i = 0; i < ls.length; i++) { var l = ls[i].trim(); if (l === 'BEGIN:VCARD') cur = { name: '', phone: '' }; else if (l === 'END:VCARD' && cur) { if (cur.name || cur.phone) psd.push(cur); cur = null; } else if (cur) { if (l.indexOf('FN:') === 0) cur.name = l.substring(3); else if (l.indexOf('TEL') === 0) { var p = l.split(':'); cur.phone = p.length > 1 ? p[p.length - 1].replace(/[^0-9+]/g, '') : ''; } } document.getElementById('ml').innerHTML = '<div style="margin-top:12px">' + psd.map(function(c) { return '<div class="contact-item" onclick="addVcf(\'' + encodeURIComponent(c.name || '') + '\',\'' + c.phone + '\')"><img class="contact-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(c.name || 'x') + '"><div class="contact-info"><div class="contact-name">' + (c.name || 'Unknown') + '</div><div class="contact-detail">' + c.phone + '</div></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></div>'; }).join('') + '</div>'; }; r.readAsText(f); }
-    function addVcf(n, p) { msgState.recipients.push({ id: Date.now(), name: decodeURIComponent(n), phone: p, email: '' }); renderStep(); }
-    function rmRec(id) { msgState.recipients = msgState.recipients.filter(function(r) { return r.id !== id; }); renderStep(); }
-    function renderCompose() {
-      return '<div class="profile-card"><h3 class="font-display" style="font-size:16px;margin-bottom:16px;color:var(--cream)">Tulis Pesan</h3><div class="channel-grid"><div class="channel-card' + (msgState.channel === 'sms' ? ' selected' : '') + '" onclick="setCh(\'sms\')"><div class="channel-icon sms"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="channel-name">SMS</div><div class="channel-cost">Rp 500</div></div><div class="channel-card' + (msgState.channel === 'telegram' ? ' selected' : '') + '" onclick="setCh(\'telegram\')"><div class="channel-icon telegram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg></div><div class="channel-name">Telegram</div><div class="channel-cost">Rp 200</div></div><div class="channel-card' + (msgState.channel === 'email' ? ' selected' : '') + '" onclick="setCh(\'email\')"><div class="channel-icon email"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div class="channel-name">Email</div><div class="channel-cost">Rp 100</div></div></div>' + (msgState.channel === 'email' ? '<div class="form-group" style="margin-top:16px"><label class="form-label">Subjek</label><input type="text" class="form-input" id="sbj" value="' + (msgState.subject || '') + '"></div>' : '') + '<div class="form-group" style="margin-top:16px"><label class="form-label">Pesan</label><textarea class="message-textarea" id="bdy" placeholder="Tulis pesan..." oninput="msgState.body=this.value">' + (msgState.body || '') + '</textarea><div class="char-count">' + (msgState.body ? msgState.body.length : 0) + ' karakter</div></div><div class="media-upload-zone" onclick="document.getElementById(\'mi\').click()"><input type="file" id="mi" accept="image/*,video/*" style="display:none" onchange="handleMedia(event)"><div style="color:var(--cream)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div><div style="font-size:12px;color:var(--text-secondary)">Tambah media (gambar 1MB, video 5MB)</div></div><div class="media-preview" id="mpv"></div><div style="display:flex;justify-content:space-between;margin-top:20px"><button class="btn btn-secondary" style="width:auto;padding:12px 24px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:12px 32px" onclick="nextStep()">Lanjut</button></div></div>';
+    function addMan() { var n = document.getElementById('mn').value.trim(), p = document.getElementById('mp').value.trim(), e = document.getElementById('me').value.trim(); if (!n || !p) { alert('Nama dan telepon wajib'); return; } msg.rec.push({ id: Date.now(), name: n, phone: '+62' + p.replace(/[^0-9]/g, ''), email: e }); renderStep(); }
+    function togRec(id) { var c = contacts.find(function(x) { return x.id === id; }); if (!c) return; var idx = msg.rec.findIndex(function(r) { return r.id === id; }); if (idx >= 0) msg.rec.splice(idx, 1); else msg.rec.push({ id: c.id, name: c.name, phone: c.phone, email: c.email }); renderStep(); }
+    async function pickForMsg() { if (!('contacts' in navigator)) return; try { var s = await navigator.contacts.select(['name', 'tel', 'email'], { multiple: true }); s.forEach(function(c) { msg.rec.push({ id: Date.now() + Math.random(), name: c.name ? c.name.join(' ') : 'Unknown', phone: c.tel ? c.tel[0] : '', email: c.email ? c.email[0] : '' }); }); renderStep(); } catch (e) {} }
+    function handleMsgVcf(ev) {
+      var f = ev.target.files[0]; if (!f) return;
+      var r = new FileReader();
+      r.onload = function(e) {
+        var ls = e.target.result.split('\n'), cur = null, psd = [];
+        for (var i = 0; i < ls.length; i++) {
+          var l = ls[i].trim();
+          if (l === 'BEGIN:VCARD') cur = { name: '', phone: '' };
+          else if (l === 'END:VCARD' && cur) { if (cur.name || cur.phone) psd.push(cur); cur = null; }
+          else if (cur) { if (l.indexOf('FN:') === 0) cur.name = l.substring(3); else if (l.indexOf('TEL') === 0) { var p = l.split(':'); cur.phone = p.length > 1 ? p[p.length - 1].replace(/[^0-9+]/g, '') : ''; } }
+        }
+        document.getElementById('ml').innerHTML = '<div style="margin-top:10px">' + psd.map(function(c) { return '<div class="contact-item" onclick="addV(\'' + encodeURIComponent(c.name || '') + '\',\'' + c.phone + '\')"><img class="contact-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(c.name || 'x') + '"><div class="contact-info"><div class="contact-name">' + (c.name || 'Unknown') + '</div><div class="contact-detail">' + c.phone + '</div></div><span style="color:var(--accent)">+</span></div>'; }).join('') + '</div>';
+      };
+      r.readAsText(f);
     }
-    function setCh(c) { msgState.channel = c; renderStep(); }
-    function handleMedia(e) { var f = e.target.files[0]; if (!f) return; var isImg = f.type.startsWith('image/'), max = isImg ? 1000000 : 5000000; if (f.size > max) { if (isImg) { compressMedia(f); return; } alert('Terlalu besar'); return; } previewMedia(f); }
-    function compressMedia(f) {
-      var r = new FileReader(); r.onload = function(e) { var img = new Image(); img.onload = function() { var c = document.createElement('canvas'), ctx = c.getContext('2d'), max = 1280, w = img.width, h = img.height; if (w > h) { if (w > max) { h = h * max / w; w = max; } } else { if (h > max) { w = w * max / h; h = max; } } c.width = w; c.height = h; ctx.drawImage(img, 0, 0, w, h); var q = 0.9, u = c.toDataURL('image/jpeg', q); while (u.length > 1000000 * 1.37 && q > 0.1) { q -= 0.1; u = c.toDataURL('image/jpeg', q); } pendingMedia = u; document.getElementById('mpv').innerHTML = '<div class="media-preview-item"><img src="' + u + '"><button class="media-remove" onclick="rmMedia()">×</button></div>'; }; img.src = e.target.result; }; r.readAsDataURL(f);
+    function addV(n, p) { msg.rec.push({ id: Date.now(), name: decodeURIComponent(n), phone: p, email: '' }); renderStep(); }
+    function rmRec(id) { msg.rec = msg.rec.filter(function(r) { return r.id !== id; }); renderStep(); }
+    function renderComp() {
+      return '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">Tulis Pesan</h3><div class="channel-grid"><div class="channel-card' + (msg.ch === 'sms' ? ' selected' : '') + '" onclick="setCh(\'sms\')"><div class="channel-icon sms">💬</div><div class="channel-name">SMS</div><div class="channel-cost">Rp 500</div></div><div class="channel-card' + (msg.ch === 'telegram' ? ' selected' : '') + '" onclick="setCh(\'telegram\')"><div class="channel-icon telegram">✈️</div><div class="channel-name">Telegram</div><div class="channel-cost">Rp 200</div></div><div class="channel-card' + (msg.ch === 'email' ? ' selected' : '') + '" onclick="setCh(\'email\')"><div class="channel-icon email">📧</div><div class="channel-name">Email</div><div class="channel-cost">Rp 100</div></div></div>' + (msg.ch === 'email' ? '<div class="form-group" style="margin-top:12px"><label class="form-label">Subjek</label><input type="text" class="form-input" id="subj" value="' + (msg.subj || '') + '"></div>' : '') + '<div class="form-group" style="margin-top:12px"><label class="form-label">Pesan</label><textarea class="message-textarea" id="body" placeholder="Tulis pesan..." oninput="msg.body=this.value">' + (msg.body || '') + '</textarea><div class="char-count">' + (msg.body ? msg.body.length : 0) + ' karakter</div></div><div class="media-upload-zone" onclick="document.getElementById(\'mf\').click()"><input type="file" id="mf" accept="image/*,video/*" style="display:none" onchange="handleMed(event)"><div style="color:var(--cream)">🖼️</div><div style="font-size:10px;color:var(--text-secondary)">Gambar 1MB, Video 5MB</div></div><div class="media-preview" id="mp"></div><div style="display:flex;justify-content:space-between;margin-top:16px"><button class="btn btn-secondary" style="width:auto;padding:10px 20px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="nextStep()">Lanjut</button></div></div>';
     }
-    function previewMedia(f) { var r = new FileReader(); r.onload = function(e) { pendingMedia = e.target.result; var t = f.type.startsWith('video/') ? 'video' : 'img'; document.getElementById('mpv').innerHTML = '<div class="media-preview-item">' + (t === 'video' ? '<video src="' + pendingMedia + '"></video>' : '<img src="' + pendingMedia + '">') + '<button class="media-remove" onclick="rmMedia()">×</button></div>'; }; r.readAsDataURL(f); }
-    function rmMedia() { pendingMedia = null; document.getElementById('mpv').innerHTML = ''; }
-    function renderPreview() {
-      if (msgState.channel === 'email') msgState.subject = document.getElementById('sbj').value;
-      var cost = msgState.channel === 'sms' ? 500 : msgState.channel === 'telegram' ? 200 : 100;
-      return '<div class="preview-card"><div class="preview-header"><span class="preview-title">Preview</span></div><div class="preview-body">' + msgState.recipients.map(function(r) { return '<div class="preview-recipient"><img class="recipient-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(r.name) + '"><div class="recipient-info"><div class="recipient-name">' + r.name + '</div><div class="recipient-detail">' + r.phone + '</div></div></div>'; }).join('') + '<div class="preview-message"><div class="preview-message-text">' + (msgState.channel === 'email' ? '<strong>Subjek:</strong> ' + (msgState.subject || '-') + '<br><br>' : '') + msgState.body + '</div></div>' + (pendingMedia ? '<div><img src="' + pendingMedia + '" style="max-width:100%;border-radius:8px"></div>' : '') + '<div class="summary-grid"><div class="summary-item"><div class="summary-label">Channel</div><div class="summary-value accent">' + (msgState.channel === 'sms' ? 'SMS' : msgState.channel === 'telegram' ? 'Telegram' : 'Email') + '</div></div><div class="summary-item"><div class="summary-label">Penerima</div><div class="summary-value">' + msgState.recipients.length + '</div></div><div class="summary-item"><div class="summary-label">Biaya</div><div class="summary-value accent">Rp ' + formatNumber(cost * msgState.recipients.length) + '</div></div><div class="summary-item"><div class="summary-label">Estimasi</div><div class="summary-value">Segera</div></div></div></div></div><div style="display:flex;justify-content:space-between;margin-top:16px"><button class="btn btn-secondary" style="width:auto;padding:12px 24px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:12px 32px" onclick="sendMsg()">Kirim</button></div>';
+    function setCh(c) { msg.ch = c; renderStep(); }
+    function handleMed(ev) {
+      var f = ev.target.files[0]; if (!f) return;
+      var isImg = f.type.startsWith('image/'), max = isImg ? 1000000 : 5000000;
+      if (f.size > max) {
+        if (isImg) {
+          var r = new FileReader();
+          r.onload = function(e) {
+            var img = new Image();
+            img.onload = function() {
+              var cv = document.createElement('canvas'), ctx = cv.getContext('2d'), m = 1280, w = img.width, h = img.height;
+              if (w > h) { if (w > m) { h = h * m / w; w = m; } } else { if (h > m) { w = w * m / h; h = m; } }
+              cv.width = w; cv.height = h; ctx.drawImage(img, 0, 0, w, h);
+              var q = 0.9, u = cv.toDataURL('image/jpeg', q);
+              while (u.length > 1000000 * 1.37 && q > 0.1) { q -= 0.1; u = cv.toDataURL('image/jpeg', q); }
+              pMedia = u;
+              document.getElementById('mp').innerHTML = '<div class="media-preview-item"><img src="' + u + '"><button class="media-remove" onclick="rmMed()">×</button></div>';
+            };
+            img.src = e.target.result;
+          };
+          r.readAsDataURL(f);
+        } else { alert('Video maksimal 5MB'); return; }
+      } else {
+        var r2 = new FileReader();
+        r2.onload = function(e) {
+          pMedia = e.target.result;
+          var t = f.type.startsWith('video/') ? 'video' : 'img';
+          document.getElementById('mp').innerHTML = '<div class="media-preview-item">' + (t === 'video' ? '<video src="' + pMedia + '" style="width:100%;height:100%;object-fit:cover"></video>' : '<img src="' + pMedia + '">') + '<button class="media-remove" onclick="rmMed()">×</button></div>';
+        };
+        r2.readAsDataURL(f);
+      }
+    }
+    function rmMed() { pMedia = null; document.getElementById('mp').innerHTML = ''; }
+    function renderPrev() {
+      if (msg.ch === 'email') msg.subj = document.getElementById('subj').value;
+      var cost = msg.ch === 'sms' ? 500 : msg.ch === 'telegram' ? 200 : 100;
+      return '<div class="preview-card"><div class="preview-header"><span class="preview-title">Preview</span></div><div class="preview-body">' + msg.rec.map(function(r) { return '<div class="preview-recipient"><img class="recipient-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(r.name) + '"><div class="recipient-info"><div class="recipient-name">' + r.name + '</div><div class="recipient-detail">' + r.phone + '</div></div></div>'; }).join('') + '<div class="preview-message"><div class="preview-message-text">' + (msg.ch === 'email' ? '<strong>Subjek:</strong> ' + (msg.subj || '-') + '<br><br>' : '') + msg.body + '</div></div>' + (pMedia ? '<div><img src="' + pMedia + '" style="max-width:100%;border-radius:8px"></div>' : '') + '<div class="summary-grid"><div class="summary-item"><div class="summary-label">Channel</div><div class="summary-value accent">' + (msg.ch === 'sms' ? 'SMS' : msg.ch === 'telegram' ? 'Telegram' : 'Email') + '</div></div><div class="summary-item"><div class="summary-label">Penerima</div><div class="summary-value">' + msg.rec.length + '</div></div><div class="summary-item"><div class="summary-label">Biaya</div><div class="summary-value accent">Rp ' + fmtNum(cost * msg.rec.length) + '</div></div><div class="summary-item"><div class="summary-label">Estimasi</div><div class="summary-value">Segera</div></div></div></div></div><div style="display:flex;justify-content:space-between;margin-top:12px"><button class="btn btn-secondary" style="width:auto;padding:10px 20px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="sendMsg()">Kirim</button></div>';
     }
     function sendMsg() {
-      msgState.step = 5; renderSteps();
-      document.getElementById('createStepContent').innerHTML = '<div class="result-card"><div class="result-icon" style="background:rgba(0,212,170,0.15);color:var(--success)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 class="result-title font-display">Mengirim...</h3></div>';
-      setTimeout(function() { msgState.result = { ok: true }; renderStep(); }, 2000);
+      msg.step = 5; renderSteps();
+      document.getElementById('createContent').innerHTML = '<div class="result-card"><div class="result-icon success">✓</div><h3 class="result-title">Mengirim...</h3></div>';
+      setTimeout(function() { msg.result = { ok: true }; renderStep(); }, 2000);
     }
-    function renderResult() {
-      if (!msgState.result) return '<div class="result-card"><div class="result-icon success"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 class="result-title font-display">Mengirim...</h3></div>';
-      return '<div class="result-card"><div class="result-icon success"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 class="result-title font-display">Terkirim!</h3><p style="font-size:14px;color:var(--text-secondary);margin-bottom:24px">Pesan berhasil dikirim ke ' + msgState.recipients.length + ' penerima via ' + (msgState.channel === 'sms' ? 'SMS' : msgState.channel === 'telegram' ? 'Telegram' : 'Email') + '</p><button class="btn btn-primary" onclick="resetMsg()" style="width:auto;padding:14px 32px">Buat Pesan Baru</button></div>';
+    function renderRes() {
+      if (!msg.result) return '<div class="result-card"><div class="result-icon success">✓</div><h3 class="result-title">Mengirim...</h3></div>';
+      return '<div class="result-card"><div class="result-icon success">✓</div><h3 class="result-title">Terkirim!</h3><p class="result-desc">Pesan berhasil dikirim ke ' + msg.rec.length + ' penerima via ' + (msg.ch === 'sms' ? 'SMS' : msg.ch === 'telegram' ? 'Telegram' : 'Email') + '</p><button class="btn btn-primary" style="width:auto;padding:12px 24px" onclick="resetMsg()">Buat Pesan Baru</button></div>';
     }
-    function resetMsg() { msgState = { step: 1, source: null, recipients: [], channel: null, subject: '', body: '', result: null }; pendingMedia = null; renderSteps(); renderStep(); }
+    function resetMsg() { msg = { step: 1, src: null, rec: [], ch: null, subj: '', body: '', result: null }; pMedia = null; renderSteps(); renderStep(); }
 
-    // FORM SUBMISSIONS
+    // FORM SUBMISSION
     document.getElementById('loginForm').onsubmit = function(e) {
-      e.preventDefault(); clearAllErrors(); hideAllAlerts();
-      var em = document.getElementById('loginEmail').value.trim(), pw = document.getElementById('loginPassword').value, btn = document.getElementById('loginBtn');
-      if (!em) { showError('loginEmail', 'Wajib'); return; } if (!isValidEmail(em)) { showError('loginEmail', 'Format salah'); return; } if (!pw) { showError('loginPassword', 'Wajib'); return; }
-      btn.disabled = true; btn.innerHTML = '<div class="spinner"></div>Proses...';
-      setTimeout(function() { currentUser.email = em; currentUser.name = em.split('@')[0]; currentUser.avatarSeed = em.split('@')[0]; showAlert('success', 'Login berhasil'); setTimeout(showApp, 500); btn.disabled = false; btn.innerHTML = '<span>Masuk</span>'; }, 1000);
-    };
-    document.getElementById('registerForm').onsubmit = function(e) {
-      e.preventDefault(); clearAllErrors(); hideAllAlerts();
-      var n = document.getElementById('registerName').value.trim(), em = document.getElementById('registerEmail').value.trim(), ph = document.getElementById('registerPhone').value.trim(), pw = document.getElementById('registerPassword').value, pwc = document.getElementById('registerPasswordConfirm').value, btn = document.getElementById('registerBtn');
-      if (!n || n.length < 3) { showError('registerName', 'Min 3 karakter'); return; } if (!em || !isValidEmail(em)) { showError('registerEmail', 'Email tidak valid'); return; } if (!ph || !isValidPhone(ph)) { showError('registerPhone', 'Tidak valid'); return; } if (!pw || pw.length < 8) { showError('registerPassword', 'Min 8 karakter'); return; } if (pw !== pwc) { showError('registerPasswordConfirm', 'Tidak cocok'); return; }
-      btn.disabled = true; btn.innerHTML = '<div class="spinner"></div>Proses...';
-      setTimeout(function() { currentUser.name = n; currentUser.email = em; currentUser.phone = '+62 ' + ph.replace(/[^0-9]/g, ''); currentUser.avatarSeed = n; showAlert('success', 'Daftar berhasil! Hubungi admin'); document.getElementById('registerForm').reset(); btn.disabled = false; btn.innerHTML = '<span>Daftar</span>'; setTimeout(switchTab, 2000, 'login'); }, 1500);
+      e.preventDefault();
+      hideAlerts();
+      var em = document.getElementById('loginEmail').value.trim();
+      var pw = document.getElementById('loginPassword').value;
+      var btn = document.getElementById('loginBtn');
+      if (!em) { showErr('loginEmail', 'Wajib'); return; }
+      if (!validEmail(em)) { showErr('loginEmail', 'Format salah'); return; }
+      if (!pw) { showErr('loginPassword', 'Wajib'); return; }
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>';
+      setTimeout(function() {
+        user.email = em;
+        user.name = em.split('@')[0];
+        user.seed = em.split('@')[0];
+        showAlert('success', 'Login berhasil!');
+        setTimeout(showApp, 500);
+        btn.disabled = false;
+        btn.innerHTML = '<span>Masuk</span>';
+      }, 1000);
     };
 
-    // PHONE FORMATTING - FIXED
-    function formatPhoneInput(e) {
+    document.getElementById('registerForm').onsubmit = function(e) {
+      e.preventDefault();
+      hideAlerts();
+      var n = document.getElementById('regName').value.trim();
+      var em = document.getElementById('regEmail').value.trim();
+      var ph = document.getElementById('regPhone').value.trim();
+      var pw = document.getElementById('regPassword').value;
+      var pw2 = document.getElementById('regPassword2').value;
+      var btn = document.getElementById('regBtn');
+      if (!n || n.length < 3) { showErr('regName', 'Min 3 karakter'); return; }
+      if (!em || !validEmail(em)) { showErr('regEmail', 'Email tidak valid'); return; }
+      if (!ph || !validPhone(ph)) { showErr('regPhone', 'Tidak valid'); return; }
+      if (!pw || pw.length < 8) { showErr('regPassword', 'Min 8 karakter'); return; }
+      if (pw !== pw2) { showErr('regPassword2', 'Tidak cocok'); return; }
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>';
+      setTimeout(function() {
+        user.name = n;
+        user.email = em;
+        user.phone = '+62 ' + ph.replace(/[^0-9]/g, '');
+        user.seed = n;
+        showAlert('success', 'Daftar berhasil! Hubungi admin untuk aktivasi.');
+        document.getElementById('registerForm').reset();
+        btn.disabled = false;
+        btn.innerHTML = '<span>Daftar</span>';
+        setTimeout(switchTab, 2000, 'login');
+      }, 1500);
+    };
+
+    // PHONE FORMATTING
+    function fmtPh(e) {
       var v = e.target.value.replace(/[^0-9]/g, '');
       if (v.length > 12) v = v.substring(0, 12);
       if (v.length > 6) v = v.substring(0, 3) + '-' + v.substring(3, 7) + '-' + v.substring(7);
       else if (v.length > 3) v = v.substring(0, 3) + '-' + v.substring(3);
       e.target.value = v;
     }
-    document.getElementById('registerPhone').oninput = formatPhoneInput;
-    document.getElementById('newPhone').oninput = formatPhoneInput;
-    document.getElementById('contactPhoneInput').oninput = formatPhoneInput;
-    document.getElementById('editContactPhoneInput').oninput = formatPhoneInput;
+    document.getElementById('regPhone').oninput = fmtPh;
+    document.getElementById('cPhone').oninput = fmtPh;
+    document.getElementById('editCPhone').oninput = fmtPh;
 
-    function submitForgotPassword() { var em = document.getElementById('forgotEmail').value.trim(); if (!em || !isValidEmail(em)) { alert('Email valid wajib'); return; } var btn = document.getElementById('forgotSubmitBtn'); btn.disabled = true; setTimeout(function() { closeModal('forgotPassword'); showAlert('success', 'Link terkirim'); btn.disabled = false; document.getElementById('forgotEmail').value = ''; }, 1500); }
-    function savePhone() { var ph = document.getElementById('newPhone').value.trim(); if (!ph || !isValidPhone(ph)) { alert('Nomor valid wajib'); return; } currentUser.phone = '+62 ' + ph; document.getElementById('profilePhone').textContent = currentUser.phone; closeModal('editPhone'); document.getElementById('newPhone').value = ''; }
-    function savePassword() { var c = document.getElementById('currentPassword').value, n = document.getElementById('newPassword').value, cn = document.getElementById('confirmNewPassword').value; if (!c || !n || !cn) { alert('Semua wajib'); return; } if (n.length < 8) { alert('Min 8 karakter'); return; } if (n !== cn) { alert('Tidak cocok'); return; } alert('Password diubah'); closeModal('editPassword'); }
-    function saveAvatar() { var s = document.getElementById('avatarSeed').value.trim(); if (pendingAvatar) { currentUser.avatarUrl = pendingAvatar; currentUser.avatarSeed = s || 'custom'; } else if (s) { currentUser.avatarUrl = null; currentUser.avatarSeed = s; } else { alert('Pilih foto atau nama'); return; } updateDashboard(); closeModal('editAvatar'); pendingAvatar = null; document.getElementById('avatarSeed').value = ''; }
+    function submitForgot() {
+      var em = document.getElementById('forgotEmail').value.trim();
+      if (!em || !validEmail(em)) { alert('Email valid wajib'); return; }
+      closeModal('forgotPassword');
+      showAlert('success', 'Link reset terkirim');
+      document.getElementById('forgotEmail').value = '';
+    }
 
-    document.querySelectorAll('.form-input').forEach(function(i) { i.onfocus = function() { clearError(this.id); }; });
-    document.onkeydown = function(e) { if (e.key === 'Escape') { document.querySelectorAll('.modal-overlay').forEach(function(m) { m.classList.remove('active'); }); closeAvatarDropdown(); } };
-    console.log('Loaded OK');
+    // FOCUS CLEAR
+    document.querySelectorAll('.form-input').forEach(function(i) { i.onfocus = function() { this.style.borderColor = ''; var e = document.getElementById(this.id + 'Error'); if (e) { e.textContent = ''; e.classList.remove('show'); } }; });
+
+    // KEYBOARD
+    document.onkeydown = function(e) { if (e.key === 'Escape') { document.querySelectorAll('.modal-overlay').forEach(function(m) { m.classList.remove('active'); }); document.getElementById('dropdown').classList.remove('active'); } };
+
+    console.log('App loaded successfully');
   </script>
 </body>
 </html>
