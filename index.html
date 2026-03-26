@@ -48,6 +48,9 @@
       --warning: #ffb84d;
       --success: #00d4aa;
       --whatsapp: #25d366;
+      --telegram: #0088cc;
+      --email: #ea4335;
+      --sms: #ff9500;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -81,6 +84,7 @@
       z-index: -1;
     }
 
+    /* ==================== AUTH CONTAINER ==================== */
     .auth-container {
       min-height: 100vh;
       display: flex;
@@ -88,6 +92,8 @@
       justify-content: center;
       padding: 20px;
     }
+
+    .auth-container.hidden { display: none; }
 
     .auth-card {
       width: 100%;
@@ -116,20 +122,9 @@
       justify-content: center;
     }
 
-    .auth-title {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .auth-subtitle {
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    .auth-body {
-      padding: 24px 32px 32px;
-    }
+    .auth-title { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+    .auth-subtitle { font-size: 14px; color: var(--text-secondary); }
+    .auth-body { padding: 24px 32px 32px; }
 
     .auth-tabs {
       display: flex;
@@ -154,32 +149,18 @@
       font-family: inherit;
     }
 
-    .auth-tab:hover {
-      color: var(--text-primary);
-    }
+    .auth-tab:hover { color: var(--text-primary); }
+    .auth-tab.active { background: var(--bg-card); color: var(--accent); }
 
-    .auth-tab.active {
-      background: var(--bg-card);
-      color: var(--accent);
-    }
-
-    .auth-form {
-      display: none;
-    }
-
-    .auth-form.active {
-      display: block;
-      animation: fadeIn 0.3s ease;
-    }
+    .auth-form { display: none; }
+    .auth-form.active { display: block; animation: fadeIn 0.3s ease; }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .form-group {
-      margin-bottom: 16px;
-    }
+    .form-group { margin-bottom: 16px; }
 
     .form-label {
       display: block;
@@ -207,37 +188,14 @@
       box-shadow: 0 0 0 3px var(--accent-glow);
     }
 
-    .form-input::placeholder {
-      color: var(--text-muted);
-    }
+    .form-input::placeholder { color: var(--text-muted); }
+    .form-input.error { border-color: var(--danger); }
 
-    .form-input.error {
-      border-color: var(--danger);
-      box-shadow: 0 0 0 3px rgba(255, 92, 92, 0.15);
-    }
+    .form-hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .form-error { font-size: 12px; color: var(--danger); margin-top: 4px; display: none; }
+    .form-error.show { display: block; }
 
-    .form-hint {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    .form-error {
-      font-size: 12px;
-      color: var(--danger);
-      margin-top: 4px;
-      display: none;
-    }
-
-    .form-error.show {
-      display: block;
-    }
-
-    .phone-input-group {
-      display: flex;
-      gap: 8px;
-    }
-
+    .phone-input-group { display: flex; gap: 8px; }
     .phone-prefix {
       width: 70px;
       text-align: center;
@@ -246,13 +204,8 @@
       flex-shrink: 0;
     }
 
-    .password-wrapper {
-      position: relative;
-    }
-
-    .password-input {
-      padding-right: 44px !important;
-    }
+    .password-wrapper { position: relative; }
+    .password-input { padding-right: 44px !important; }
 
     .password-toggle {
       position: absolute;
@@ -270,9 +223,7 @@
       transition: color 0.2s ease;
     }
 
-    .password-toggle:hover {
-      color: var(--text-primary);
-    }
+    .password-toggle:hover { color: var(--text-primary); }
 
     .btn {
       width: 100%;
@@ -313,20 +264,10 @@
       border: 1px solid var(--card-border);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
-    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.08); }
 
-    .btn-whatsapp {
-      background: var(--whatsapp);
-      color: white;
-    }
-
-    .btn-whatsapp:hover {
-      background: #20bd5a;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
-    }
+    .btn-whatsapp { background: var(--whatsapp); color: white; }
+    .btn-whatsapp:hover { background: #20bd5a; transform: translateY(-2px); }
 
     .divider {
       display: flex;
@@ -337,30 +278,16 @@
       font-size: 12px;
     }
 
-    .divider::before,
-    .divider::after {
+    .divider::before, .divider::after {
       content: '';
       flex: 1;
       height: 1px;
       background: var(--card-border);
     }
 
-    .auth-footer {
-      text-align: center;
-      padding-top: 16px;
-    }
-
-    .auth-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-    }
-
-    .auth-link:hover {
-      text-decoration: underline;
-    }
+    .auth-footer { text-align: center; padding-top: 16px; }
+    .auth-link { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; cursor: pointer; }
+    .auth-link:hover { text-decoration: underline; }
 
     .alert {
       padding: 12px 16px;
@@ -370,29 +297,10 @@
       display: none;
     }
 
-    .alert.show {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .alert-error {
-      background: rgba(255, 92, 92, 0.1);
-      border: 1px solid rgba(255, 92, 92, 0.2);
-      color: var(--danger);
-    }
-
-    .alert-warning {
-      background: rgba(255, 184, 77, 0.1);
-      border: 1px solid rgba(255, 184, 77, 0.2);
-      color: var(--warning);
-    }
-
-    .alert-success {
-      background: rgba(0, 212, 170, 0.1);
-      border: 1px solid rgba(0, 212, 170, 0.2);
-      color: var(--success);
-    }
+    .alert.show { display: flex; align-items: center; gap: 10px; }
+    .alert-error { background: rgba(255, 92, 92, 0.1); border: 1px solid rgba(255, 92, 92, 0.2); color: var(--danger); }
+    .alert-warning { background: rgba(255, 184, 77, 0.1); border: 1px solid rgba(255, 184, 77, 0.2); color: var(--warning); }
+    .alert-success { background: rgba(0, 212, 170, 0.1); border: 1px solid rgba(0, 212, 170, 0.2); color: var(--success); }
 
     .spinner {
       width: 20px;
@@ -403,10 +311,298 @@
       animation: spin 0.8s linear infinite;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ==================== APP LAYOUT ==================== */
+    .app-layout {
+      display: none;
+      min-height: 100vh;
+      flex-direction: column;
     }
 
+    .app-layout.active { display: flex; }
+
+    /* Header */
+    .app-header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-row {
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-row:first-child { border-bottom: 1px solid var(--card-border); }
+
+    .header-title { font-size: 18px; font-weight: 600; }
+
+    .header-user { display: flex; align-items: center; gap: 12px; }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--card-border);
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+    }
+
+    .user-avatar:hover { border-color: var(--accent); }
+
+    .user-info { text-align: right; }
+    .user-name { font-size: 14px; font-weight: 600; }
+    .user-balance { font-size: 12px; color: var(--accent); }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .status-active { background: rgba(0, 212, 170, 0.15); color: var(--success); }
+    .status-inactive { background: rgba(255, 184, 77, 0.15); color: var(--warning); }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* Navigation */
+    .nav-menu {
+      display: flex;
+      gap: 4px;
+      overflow-x: auto;
+      padding: 8px 16px;
+      background: var(--bg-primary);
+    }
+
+    .nav-item {
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-item:hover { color: var(--text-primary); }
+    .nav-item.active { background: var(--bg-card); color: var(--accent); }
+
+    /* Main Content */
+    .app-main {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+    }
+
+    /* Section Container */
+    .section-container { display: none; }
+    .section-container.active { display: block; animation: fadeIn 0.3s ease; }
+
+    /* Profile Card */
+    .profile-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .profile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .profile-avatar-container { position: relative; margin-bottom: 12px; }
+
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--card-border);
+    }
+
+    .profile-avatar-edit {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg-card);
+      color: var(--bg-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease;
+    }
+
+    .profile-avatar-edit:hover { transform: scale(1.1); }
+
+    .profile-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .profile-email { font-size: 14px; color: var(--text-secondary); }
+
+    .profile-info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .profile-info-item {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .profile-info-label { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
+    .profile-info-value { font-size: 14px; font-weight: 500; }
+
+    .profile-edit-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .profile-edit-btn:hover { background: var(--accent); color: var(--bg-primary); }
+
+    /* Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      padding: 16px;
+    }
+
+    .stat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .stat-icon.sms { background: rgba(255, 149, 0, 0.15); color: var(--sms); }
+    .stat-icon.telegram { background: rgba(0, 136, 204, 0.15); color: var(--telegram); }
+    .stat-icon.email { background: rgba(234, 67, 53, 0.15); color: var(--email); }
+    .stat-icon.balance { background: rgba(0, 212, 170, 0.15); color: var(--accent); }
+
+    .stat-value { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+    .stat-label { font-size: 12px; color: var(--text-secondary); }
+
+    /* Notification Box */
+    .notification-box {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--card-border);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .notification-box.warning {
+      border-color: rgba(255, 184, 77, 0.3);
+      background: rgba(255, 184, 77, 0.05);
+    }
+
+    .notification-content { display: flex; align-items: flex-start; gap: 12px; }
+
+    .notification-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 184, 77, 0.15);
+      color: var(--warning);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .notification-text { flex: 1; }
+    .notification-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .notification-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
+
+    .notification-box .btn-whatsapp { width: auto; padding: 12px 20px; }
+
+    /* Action Buttons */
+    .action-buttons {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .action-btn {
+      padding: 16px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 600;
+    }
+
+    .action-btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+      color: var(--bg-primary);
+      font-size: 16px;
+    }
+
+    .action-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    /* Modal */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -422,65 +618,62 @@
       padding: 20px;
     }
 
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
 
     .modal-content {
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       background: var(--bg-card);
       border-radius: 20px;
       border: 1px solid var(--card-border);
       transform: scale(0.95);
       transition: transform 0.25s ease;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
-    .modal-overlay.active .modal-content {
-      transform: scale(1);
-    }
+    .modal-overlay.active .modal-content { transform: scale(1); }
 
     .modal-header {
       padding: 20px 24px;
       border-bottom: 1px solid var(--card-border);
-    }
-
-    .modal-title {
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .modal-body {
-      padding: 20px 24px;
-    }
-
-    .modal-footer {
-      padding: 16px 24px 24px;
       display: flex;
-      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .modal-footer .btn {
-      flex: 1;
+    .modal-title { font-size: 18px; font-weight: 600; }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+
+    .modal-close:hover { background: rgba(255,255,255,0.1); color: var(--text-primary); }
+
+    .modal-body { padding: 20px 24px; }
+    .modal-footer { padding: 16px 24px 24px; display: flex; gap: 10px; }
+    .modal-footer .btn { flex: 1; }
+
+    @media (min-width: 640px) {
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .profile-info-grid { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 480px) {
-      .auth-card {
-        border-radius: 16px;
-      }
-      
-      .auth-header {
-        padding: 24px 24px 20px;
-      }
-      
-      .auth-body {
-        padding: 20px 24px 24px;
-      }
-      
-      .auth-title {
-        font-size: 20px;
-      }
+      .auth-card { border-radius: 16px; }
+      .auth-header { padding: 24px 24px 20px; }
+      .auth-body { padding: 20px 24px 24px; }
+      .auth-title { font-size: 20px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -495,7 +688,8 @@
   <div class="bg-atmosphere"></div>
   <div class="bg-grid"></div>
 
-  <div class="auth-container">
+  <!-- ==================== AUTH CONTAINER ==================== -->
+  <div class="auth-container" id="authContainer">
     <div class="auth-card">
       <div class="auth-header">
         <div class="auth-logo">
@@ -508,13 +702,11 @@
       </div>
 
       <div class="auth-body">
-        <!-- Tabs -->
         <div class="auth-tabs">
           <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Masuk</button>
           <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Daftar</button>
         </div>
 
-        <!-- Alerts -->
         <div class="alert alert-error" id="alertError"></div>
         <div class="alert alert-warning" id="alertWarning"></div>
         <div class="alert alert-success" id="alertSuccess"></div>
@@ -532,30 +724,23 @@
             <div class="password-wrapper">
               <input type="password" class="form-input password-input" id="loginPassword" placeholder="Masukkan password" required>
               <button type="button" class="password-toggle" id="toggleLoginPassword">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div>
             <div class="form-error" id="loginPasswordError"></div>
           </div>
 
-          <button type="submit" class="btn btn-primary" id="loginBtn">
-            <span>Masuk</span>
-          </button>
+          <button type="submit" class="btn btn-primary" id="loginBtn"><span>Masuk</span></button>
 
           <div class="divider">atau</div>
 
           <button type="button" class="btn btn-whatsapp" onclick="contactAdmin()">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             <span>Pertanyaan? Hubungi Admin disini</span>
           </button>
 
           <div class="auth-footer">
-            <a class="auth-link" onclick="openForgotPassword()">Lupa Password?</a>
+            <a class="auth-link" onclick="openModal('forgotPassword')">Lupa Password?</a>
           </div>
         </form>
 
@@ -588,10 +773,7 @@
             <div class="password-wrapper">
               <input type="password" class="form-input password-input" id="registerPassword" placeholder="Minimal 8 karakter" required minlength="8">
               <button type="button" class="password-toggle" id="toggleRegisterPassword">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div>
             <div class="form-error" id="registerPasswordError"></div>
@@ -602,18 +784,13 @@
             <div class="password-wrapper">
               <input type="password" class="form-input password-input" id="registerPasswordConfirm" placeholder="Ulangi password" required>
               <button type="button" class="password-toggle" id="toggleRegisterPasswordConfirm">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                  <circle cx="12" cy="12" r="3"/>
-                </svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div>
             <div class="form-error" id="registerPasswordConfirmError"></div>
           </div>
 
-          <button type="submit" class="btn btn-primary" id="registerBtn">
-            <span>Daftar Sekarang</span>
-          </button>
+          <button type="submit" class="btn btn-primary" id="registerBtn"><span>Daftar Sekarang</span></button>
 
           <div class="auth-footer">
             Sudah punya akun? <a class="auth-link" onclick="switchTab('login')">Masuk</a>
@@ -623,35 +800,304 @@
     </div>
   </div>
 
+  <!-- ==================== APP LAYOUT ==================== -->
+  <div class="app-layout" id="appLayout">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-row">
+        <div class="header-title font-display">cekdulu!</div>
+        <div class="header-user">
+          <div class="user-info">
+            <div class="user-name" id="headerUserName">Demo User</div>
+            <div class="user-balance" id="headerUserBalance">Saldo: Rp 0</div>
+          </div>
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" alt="Avatar" class="user-avatar" id="headerAvatar" onclick="navigateTo('dashboard')">
+        </div>
+      </div>
+      <div class="header-row">
+        <span class="status-badge status-inactive" id="headerStatus">
+          <span class="status-dot"></span>
+          <span id="statusText">Belum Aktif</span>
+        </span>
+        <nav class="nav-menu">
+          <button class="nav-item active" id="navDashboard" onclick="navigateTo('dashboard')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Dashboard
+          </button>
+          <button class="nav-item" id="navContacts" onclick="navigateTo('contacts')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+            Kontak
+          </button>
+          <button class="nav-item" id="navCreate" onclick="navigateTo('create')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Buat Pesan
+          </button>
+          <button class="nav-item" id="navHistory" onclick="navigateTo('history')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Riwayat
+          </button>
+          <button class="nav-item" id="navTopup" onclick="navigateTo('topup')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Top Up
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="app-main">
+      <!-- Dashboard Section -->
+      <div class="section-container active" id="sectionDashboard">
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar-container">
+              <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" alt="Profile" class="profile-avatar" id="profileAvatar">
+              <button class="profile-avatar-edit" onclick="openModal('editAvatar')" title="Ubah foto profil">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              </button>
+            </div>
+            <h2 class="profile-name font-display" id="profileName">Demo User</h2>
+            <p class="profile-email" id="profileEmail">demo@email.com</p>
+          </div>
+
+          <div class="profile-info-grid">
+            <div class="profile-info-item">
+              <div>
+                <div class="profile-info-label">Nomor Telepon</div>
+                <div class="profile-info-value" id="profilePhone">+62 812-xxxx-xxxx</div>
+              </div>
+              <button class="profile-edit-btn" onclick="openModal('editPhone')" title="Ubah nomor telepon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </button>
+            </div>
+
+            <div class="profile-info-item">
+              <div>
+                <div class="profile-info-label">Password</div>
+                <div class="profile-info-value">••••••••</div>
+              </div>
+              <button class="profile-edit-btn" onclick="openModal('editPassword')" title="Ubah password">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon sms">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+            </div>
+            <div class="stat-value" id="statSms">0</div>
+            <div class="stat-label">SMS Terkirim</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon telegram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            </div>
+            <div class="stat-value" id="statTelegram">0</div>
+            <div class="stat-label">Telegram Terkirim</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="stat-value" id="statEmail">0</div>
+            <div class="stat-label">Email Terkirim</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon balance">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div class="stat-value" id="statBalance">Rp 0</div>
+            <div class="stat-label">Saldo Tersedia</div>
+          </div>
+        </div>
+
+        <!-- Activation Notice -->
+        <div class="notification-box warning" id="activationNotice">
+          <div class="notification-content">
+            <div class="notification-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div class="notification-text">
+              <div class="notification-title">Akun Belum Aktif</div>
+              <div class="notification-desc">Silakan hubungi admin untuk mengaktifkan akun Anda dan mulai mengirim pesan.</div>
+              <button class="btn btn-whatsapp" onclick="contactAdminForActivation()">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                Hubungi Admin untuk Aktivasi
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="action-buttons">
+          <button class="action-btn action-btn-primary" id="btnCreateMessage" onclick="navigateTo('create')" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Buat Pesan Baru
+          </button>
+        </div>
+      </div>
+
+      <!-- Placeholder Sections -->
+      <div class="section-container" id="sectionContacts">
+        <div class="profile-card">
+          <h2 class="font-display" style="font-size: 20px; margin-bottom: 16px;">Kontak</h2>
+          <p style="color: var(--text-secondary);">Section Kontak akan dibuat selanjutnya...</p>
+        </div>
+      </div>
+
+      <div class="section-container" id="sectionCreate">
+        <div class="profile-card">
+          <h2 class="font-display" style="font-size: 20px; margin-bottom: 16px;">Buat Pesan Baru</h2>
+          <p style="color: var(--text-secondary);">Section Buat Pesan akan dibuat selanjutnya...</p>
+        </div>
+      </div>
+
+      <div class="section-container" id="sectionHistory">
+        <div class="profile-card">
+          <h2 class="font-display" style="font-size: 20px; margin-bottom: 16px;">Riwayat Pengiriman</h2>
+          <p style="color: var(--text-secondary);">Section Riwayat akan dibuat selanjutnya...</p>
+        </div>
+      </div>
+
+      <div class="section-container" id="sectionTopup">
+        <div class="profile-card">
+          <h2 class="font-display" style="font-size: 20px; margin-bottom: 16px;">Top Up Saldo</h2>
+          <p style="color: var(--text-secondary);">Section Top Up akan dibuat selanjutnya...</p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
   <!-- Forgot Password Modal -->
-  <div class="modal-overlay" id="forgotPasswordModal">
+  <div class="modal-overlay" id="modalForgotPassword">
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title font-display">Lupa Password</h3>
+        <button class="modal-close" onclick="closeModal('forgotPassword')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
       </div>
       <div class="modal-body">
-        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">
-          Masukkan email yang terdaftar. Kami akan mengirimkan link untuk reset password.
-        </p>
+        <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Masukkan email yang terdaftar. Kami akan mengirimkan link untuk reset password.</p>
         <div class="form-group" style="margin-bottom: 0;">
           <label class="form-label" for="forgotEmail">Email</label>
           <input type="email" class="form-input" id="forgotEmail" placeholder="nama@email.com" required>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="closeForgotPassword()">Batal</button>
+        <button class="btn btn-secondary" onclick="closeModal('forgotPassword')">Batal</button>
         <button class="btn btn-primary" id="forgotSubmitBtn" onclick="submitForgotPassword()">Kirim Link</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Phone Modal -->
+  <div class="modal-overlay" id="modalEditPhone">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title font-display">Ubah Nomor Telepon</h3>
+        <button class="modal-close" onclick="closeModal('editPhone')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="newPhone">Nomor Telepon Baru</label>
+          <div class="phone-input-group">
+            <input type="text" class="form-input phone-prefix" value="+62" readonly>
+            <input type="tel" class="form-input" id="newPhone" placeholder="812-xxxx-xxxx">
+          </div>
+          <div class="form-hint">Format: 812-3456-7890 (tanpa +62)</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('editPhone')">Batal</button>
+        <button class="btn btn-primary" id="savePhoneBtn" onclick="savePhone()">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Password Modal -->
+  <div class="modal-overlay" id="modalEditPassword">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title font-display">Ubah Password</h3>
+        <button class="modal-close" onclick="closeModal('editPassword')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="currentPassword">Password Saat Ini</label>
+          <input type="password" class="form-input" id="currentPassword" placeholder="Masukkan password saat ini">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="newPassword">Password Baru</label>
+          <input type="password" class="form-input" id="newPassword" placeholder="Minimal 8 karakter">
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label" for="confirmNewPassword">Konfirmasi Password Baru</label>
+          <input type="password" class="form-input" id="confirmNewPassword" placeholder="Ulangi password baru">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('editPassword')">Batal</button>
+        <button class="btn btn-primary" id="savePasswordBtn" onclick="savePassword()">Simpan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Avatar Modal -->
+  <div class="modal-overlay" id="modalEditAvatar">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title font-display">Ubah Foto Profil</h3>
+        <button class="modal-close" onclick="closeModal('editAvatar')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="text-align: center;">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" alt="Avatar Preview" id="avatarPreview" style="width: 120px; height: 120px; border-radius: 50%; margin-bottom: 16px; border: 3px solid var(--card-border);">
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label" for="avatarSeed">Nama Avatar (akan menghasilkan avatar unik)</label>
+          <input type="text" class="form-input" id="avatarSeed" placeholder="Masukkan nama atau kata unik">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('editAvatar')">Batal</button>
+        <button class="btn btn-primary" id="saveAvatarBtn" onclick="saveAvatar()">Simpan</button>
       </div>
     </div>
   </div>
 
   <script>
     // =============================================
+    // STATE
+    // =============================================
+    var currentUser = {
+      name: 'Demo User',
+      email: 'demo@email.com',
+      phone: '+62 812-xxxx-xxxx',
+      avatarSeed: 'demo',
+      isActive: false,
+      balance: 0
+    };
+
+    // =============================================
     // TAB SWITCHING
     // =============================================
     function switchTab(tab) {
-      console.log('Switching to tab:', tab);
-      
       var tabLogin = document.getElementById('tabLogin');
       var tabRegister = document.getElementById('tabRegister');
       var loginForm = document.getElementById('loginForm');
@@ -680,15 +1126,10 @@
       var btn = document.getElementById(toggleBtnId);
       var input = document.getElementById(inputId);
       
-      if (!btn || !input) {
-        console.error('Element not found:', toggleBtnId, inputId);
-        return;
-      }
+      if (!btn || !input) return;
       
       btn.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('Toggle clicked for:', inputId);
-        
         var isPassword = input.type === 'password';
         input.type = isPassword ? 'text' : 'password';
         
@@ -700,7 +1141,6 @@
       });
     }
 
-    // Setup all password toggles
     setupPasswordToggle('toggleLoginPassword', 'loginPassword');
     setupPasswordToggle('toggleRegisterPassword', 'registerPassword');
     setupPasswordToggle('toggleRegisterPasswordConfirm', 'registerPasswordConfirm');
@@ -710,20 +1150,14 @@
     // =============================================
     function showAlert(type, message) {
       hideAllAlerts();
-      
       var alertId = 'alert' + type.charAt(0).toUpperCase() + type.slice(1);
       var alertEl = document.getElementById(alertId);
-      
       if (!alertEl) return;
       
       var iconSvg = '';
-      if (type === 'error') {
-        iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
-      } else if (type === 'warning') {
-        iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
-      } else if (type === 'success') {
-        iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
-      }
+      if (type === 'error') iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>';
+      else if (type === 'warning') iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>';
+      else if (type === 'success') iconSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>';
       
       alertEl.innerHTML = iconSvg + '<span>' + message + '</span>';
       alertEl.classList.add('show');
@@ -742,104 +1176,220 @@
     function showError(inputId, message) {
       var input = document.getElementById(inputId);
       var errorEl = document.getElementById(inputId + 'Error');
-      
       if (input) input.classList.add('error');
-      if (errorEl) {
-        errorEl.textContent = message;
-        errorEl.classList.add('show');
-      }
+      if (errorEl) { errorEl.textContent = message; errorEl.classList.add('show'); }
     }
 
     function clearError(inputId) {
       var input = document.getElementById(inputId);
       var errorEl = document.getElementById(inputId + 'Error');
-      
       if (input) input.classList.remove('error');
-      if (errorEl) {
-        errorEl.textContent = '';
-        errorEl.classList.remove('show');
-      }
+      if (errorEl) { errorEl.textContent = ''; errorEl.classList.remove('show'); }
     }
 
     function clearAllErrors() {
       var inputs = document.querySelectorAll('.form-input');
       var errors = document.querySelectorAll('.form-error');
-      
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].classList.remove('error');
-      }
-      for (var j = 0; j < errors.length; j++) {
-        errors[j].textContent = '';
-        errors[j].classList.remove('show');
-      }
+      for (var i = 0; i < inputs.length; i++) inputs[i].classList.remove('error');
+      for (var j = 0; j < errors.length; j++) { errors[j].textContent = ''; errors[j].classList.remove('show'); }
     }
 
     // =============================================
     // VALIDATION
     // =============================================
-    function isValidEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-
-    function isValidPhone(phone) {
-      var cleanPhone = phone.replace(/[^0-9]/g, '');
-      return cleanPhone.length >= 9 && cleanPhone.length <= 13;
-    }
+    function isValidEmail(email) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+    function isValidPhone(phone) { var c = phone.replace(/[^0-9]/g, ''); return c.length >= 9 && c.length <= 13; }
+    function formatNumber(num) { return new Intl.NumberFormat('id-ID').format(num); }
 
     // =============================================
     // CONTACT ADMIN
     // =============================================
     function contactAdmin() {
-      var adminPhone = '6285161990373';
-      var message = encodeURIComponent('Halo Admin, saya membutuhkan bantuan terkait akun cekdulu! Platform. Terima kasih.');
-      window.open('https://wa.me/' + adminPhone + '?text=' + message, '_blank');
+      var msg = encodeURIComponent('Halo Admin, saya membutuhkan bantuan terkait akun cekdulu! Platform. Terima kasih.');
+      window.open('https://wa.me/6285161990373?text=' + msg, '_blank');
+    }
+
+    function contactAdminForActivation() {
+      var msg = encodeURIComponent('Halo Admin cekdulu!\n\nSaya ingin mengaktifkan akun:\nNama: ' + currentUser.name + '\nEmail: ' + currentUser.email + '\n\nTerima kasih.');
+      window.open('https://wa.me/6285161990373?text=' + msg, '_blank');
     }
 
     // =============================================
-    // FORGOT PASSWORD MODAL
+    // MODALS
     // =============================================
-    function openForgotPassword() {
-      document.getElementById('forgotPasswordModal').classList.add('active');
-      document.getElementById('forgotEmail').focus();
+    function openModal(name) {
+      var modal = document.getElementById('modal' + name.charAt(0).toUpperCase() + name.slice(1));
+      if (modal) modal.classList.add('active');
     }
 
-    function closeForgotPassword() {
-      document.getElementById('forgotPasswordModal').classList.remove('active');
-      document.getElementById('forgotEmail').value = '';
+    function closeModal(name) {
+      var modal = document.getElementById('modal' + name.charAt(0).toUpperCase() + name.slice(1));
+      if (modal) modal.classList.remove('active');
     }
 
+    // Close modal on overlay click
+    var modals = document.querySelectorAll('.modal-overlay');
+    for (var i = 0; i < modals.length; i++) {
+      modals[i].addEventListener('click', function(e) {
+        if (e.target === this) this.classList.remove('active');
+      });
+    }
+
+    // =============================================
+    // NAVIGATION
+    // =============================================
+    function navigateTo(section) {
+      var navItems = ['Dashboard', 'Contacts', 'Create', 'History', 'Topup'];
+      
+      for (var i = 0; i < navItems.length; i++) {
+        var navBtn = document.getElementById('nav' + navItems[i]);
+        var sectionEl = document.getElementById('section' + navItems[i]);
+        
+        if (navBtn) {
+          if (navItems[i].toLowerCase() === section) navBtn.classList.add('active');
+          else navBtn.classList.remove('active');
+        }
+        if (sectionEl) {
+          if (navItems[i].toLowerCase() === section) sectionEl.classList.add('active');
+          else sectionEl.classList.remove('active');
+        }
+      }
+    }
+
+    // =============================================
+    // SHOW APP
+    // =============================================
+    function showApp() {
+      document.getElementById('authContainer').classList.add('hidden');
+      document.getElementById('appLayout').classList.add('active');
+      updateDashboard();
+    }
+
+    function updateDashboard() {
+      var avatarUrl = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(currentUser.avatarSeed);
+      
+      document.getElementById('headerUserName').textContent = currentUser.name;
+      document.getElementById('headerUserBalance').textContent = 'Saldo: Rp ' + formatNumber(currentUser.balance);
+      document.getElementById('headerAvatar').src = avatarUrl;
+      
+      var statusEl = document.getElementById('headerStatus');
+      var statusText = document.getElementById('statusText');
+      if (currentUser.isActive) {
+        statusEl.className = 'status-badge status-active';
+        statusText.textContent = 'Aktif';
+      } else {
+        statusEl.className = 'status-badge status-inactive';
+        statusText.textContent = 'Belum Aktif';
+      }
+      
+      document.getElementById('profileAvatar').src = avatarUrl;
+      document.getElementById('profileName').textContent = currentUser.name;
+      document.getElementById('profileEmail').textContent = currentUser.email;
+      document.getElementById('profilePhone').textContent = currentUser.phone;
+      document.getElementById('statBalance').textContent = 'Rp ' + formatNumber(currentUser.balance);
+      
+      var activationNotice = document.getElementById('activationNotice');
+      var btnCreate = document.getElementById('btnCreateMessage');
+      
+      if (currentUser.isActive) {
+        activationNotice.style.display = 'none';
+        btnCreate.style.display = 'flex';
+      } else {
+        activationNotice.style.display = 'block';
+        btnCreate.style.display = 'none';
+      }
+    }
+
+    // =============================================
+    // FORGOT PASSWORD
+    // =============================================
     function submitForgotPassword() {
       var email = document.getElementById('forgotEmail').value.trim();
-      
-      if (!email) {
-        alert('Masukkan email Anda');
-        return;
-      }
-      
-      if (!isValidEmail(email)) {
-        alert('Format email tidak valid');
-        return;
-      }
+      if (!email || !isValidEmail(email)) { alert('Masukkan email yang valid'); return; }
       
       var btn = document.getElementById('forgotSubmitBtn');
       btn.disabled = true;
       btn.innerHTML = '<div class="spinner"></div><span>Mengirim...</span>';
       
-      // Simulate sending
       setTimeout(function() {
-        closeForgotPassword();
+        closeModal('forgotPassword');
         showAlert('success', 'Link reset password telah dikirim ke email Anda.');
         btn.disabled = false;
         btn.innerHTML = 'Kirim Link';
+        document.getElementById('forgotEmail').value = '';
       }, 1500);
     }
 
-    // Close modal on overlay click
-    document.getElementById('forgotPasswordModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeForgotPassword();
-      }
-    });
+    // =============================================
+    // SAVE PHONE
+    // =============================================
+    function savePhone() {
+      var phone = document.getElementById('newPhone').value.trim();
+      if (!phone || !isValidPhone(phone)) { alert('Masukkan nomor telepon yang valid'); return; }
+      
+      var btn = document.getElementById('savePhoneBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<div class="spinner"></div><span>Menyimpan...</span>';
+      
+      setTimeout(function() {
+        currentUser.phone = '+62 ' + phone;
+        document.getElementById('profilePhone').textContent = currentUser.phone;
+        closeModal('editPhone');
+        btn.disabled = false;
+        btn.innerHTML = 'Simpan';
+        document.getElementById('newPhone').value = '';
+      }, 1000);
+    }
+
+    // =============================================
+    // SAVE PASSWORD
+    // =============================================
+    function savePassword() {
+      var current = document.getElementById('currentPassword').value;
+      var newPass = document.getElementById('newPassword').value;
+      var confirm = document.getElementById('confirmNewPassword').value;
+      
+      if (!current || !newPass || !confirm) { alert('Semua field wajib diisi'); return; }
+      if (newPass.length < 8) { alert('Password baru minimal 8 karakter'); return; }
+      if (newPass !== confirm) { alert('Konfirmasi password tidak cocok'); return; }
+      
+      var btn = document.getElementById('savePasswordBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<div class="spinner"></div><span>Menyimpan...</span>';
+      
+      setTimeout(function() {
+        alert('Password berhasil diubah');
+        closeModal('editPassword');
+        btn.disabled = false;
+        btn.innerHTML = 'Simpan';
+        document.getElementById('currentPassword').value = '';
+        document.getElementById('newPassword').value = '';
+        document.getElementById('confirmNewPassword').value = '';
+      }, 1000);
+    }
+
+    // =============================================
+    // SAVE AVATAR
+    // =============================================
+    function saveAvatar() {
+      var seed = document.getElementById('avatarSeed').value.trim();
+      if (!seed) { alert('Masukkan nama untuk avatar'); return; }
+      
+      var btn = document.getElementById('saveAvatarBtn');
+      btn.disabled = true;
+      btn.innerHTML = '<div class="spinner"></div><span>Menyimpan...</span>';
+      
+      setTimeout(function() {
+        currentUser.avatarSeed = seed;
+        var avatarUrl = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(seed);
+        document.getElementById('profileAvatar').src = avatarUrl;
+        document.getElementById('headerAvatar').src = avatarUrl;
+        closeModal('editAvatar');
+        btn.disabled = false;
+        btn.innerHTML = 'Simpan';
+        document.getElementById('avatarSeed').value = '';
+      }, 1000);
+    }
 
     // =============================================
     // LOGIN FORM
@@ -854,28 +1404,21 @@
       var btn = document.getElementById('loginBtn');
 
       var hasError = false;
-      
-      if (!email) {
-        showError('loginEmail', 'Email wajib diisi');
-        hasError = true;
-      } else if (!isValidEmail(email)) {
-        showError('loginEmail', 'Format email tidak valid');
-        hasError = true;
-      }
-
-      if (!password) {
-        showError('loginPassword', 'Password wajib diisi');
-        hasError = true;
-      }
+      if (!email) { showError('loginEmail', 'Email wajib diisi'); hasError = true; }
+      else if (!isValidEmail(email)) { showError('loginEmail', 'Format email tidak valid'); hasError = true; }
+      if (!password) { showError('loginPassword', 'Password wajib diisi'); hasError = true; }
 
       if (hasError) return;
 
       btn.disabled = true;
       btn.innerHTML = '<div class="spinner"></div><span>Memproses...</span>';
 
-      // Simulate login
       setTimeout(function() {
-        showAlert('success', 'Login berhasil! (Demo - belum terkoneksi database)');
+        currentUser.email = email;
+        currentUser.name = email.split('@')[0];
+        currentUser.avatarSeed = email.split('@')[0];
+        showAlert('success', 'Login berhasil!');
+        setTimeout(function() { showApp(); }, 500);
         btn.disabled = false;
         btn.innerHTML = '<span>Masuk</span>';
       }, 1000);
@@ -897,62 +1440,32 @@
       var btn = document.getElementById('registerBtn');
 
       var hasError = false;
-
-      if (!name) {
-        showError('registerName', 'Nama lengkap wajib diisi');
-        hasError = true;
-      } else if (name.length < 3) {
-        showError('registerName', 'Nama minimal 3 karakter');
-        hasError = true;
-      }
-
-      if (!email) {
-        showError('registerEmail', 'Email wajib diisi');
-        hasError = true;
-      } else if (!isValidEmail(email)) {
-        showError('registerEmail', 'Format email tidak valid');
-        hasError = true;
-      }
-
-      if (!phone) {
-        showError('registerPhone', 'Nomor telepon wajib diisi');
-        hasError = true;
-      } else if (!isValidPhone(phone)) {
-        showError('registerPhone', 'Format nomor telepon tidak valid');
-        hasError = true;
-      }
-
-      if (!password) {
-        showError('registerPassword', 'Password wajib diisi');
-        hasError = true;
-      } else if (password.length < 8) {
-        showError('registerPassword', 'Password minimal 8 karakter');
-        hasError = true;
-      }
-
-      if (!passwordConfirm) {
-        showError('registerPasswordConfirm', 'Konfirmasi password wajib diisi');
-        hasError = true;
-      } else if (password !== passwordConfirm) {
-        showError('registerPasswordConfirm', 'Password tidak cocok');
-        hasError = true;
-      }
+      if (!name) { showError('registerName', 'Nama lengkap wajib diisi'); hasError = true; }
+      else if (name.length < 3) { showError('registerName', 'Nama minimal 3 karakter'); hasError = true; }
+      if (!email) { showError('registerEmail', 'Email wajib diisi'); hasError = true; }
+      else if (!isValidEmail(email)) { showError('registerEmail', 'Format email tidak valid'); hasError = true; }
+      if (!phone) { showError('registerPhone', 'Nomor telepon wajib diisi'); hasError = true; }
+      else if (!isValidPhone(phone)) { showError('registerPhone', 'Format nomor telepon tidak valid'); hasError = true; }
+      if (!password) { showError('registerPassword', 'Password wajib diisi'); hasError = true; }
+      else if (password.length < 8) { showError('registerPassword', 'Password minimal 8 karakter'); hasError = true; }
+      if (!passwordConfirm) { showError('registerPasswordConfirm', 'Konfirmasi password wajib diisi'); hasError = true; }
+      else if (password !== passwordConfirm) { showError('registerPasswordConfirm', 'Password tidak cocok'); hasError = true; }
 
       if (hasError) return;
 
       btn.disabled = true;
       btn.innerHTML = '<div class="spinner"></div><span>Memproses...</span>';
 
-      // Simulate registration
       setTimeout(function() {
+        currentUser.name = name;
+        currentUser.email = email;
+        currentUser.phone = '+62 ' + phone;
+        currentUser.avatarSeed = name;
         showAlert('success', 'Pendaftaran berhasil! Silakan hubungi admin untuk aktivasi akun.');
         document.getElementById('registerForm').reset();
         btn.disabled = false;
         btn.innerHTML = '<span>Daftar Sekarang</span>';
-        
-        setTimeout(function() {
-          switchTab('login');
-        }, 2000);
+        setTimeout(function() { switchTab('login'); }, 2000);
       }, 1500);
     });
 
@@ -961,28 +1474,32 @@
     // =============================================
     document.getElementById('registerPhone').addEventListener('input', function(e) {
       var value = e.target.value.replace(/[^0-9]/g, '');
-      
-      if (value.length > 12) {
-        value = value.substring(0, 12);
-      }
-      
-      if (value.length > 6) {
-        value = value.substring(0, 3) + '-' + value.substring(3, 7) + '-' + value.substring(7);
-      } else if (value.length > 3) {
-        value = value.substring(0, 3) + '-' + value.substring(3);
-      }
-      
+      if (value.length > 12) value = value.substring(0, 12);
+      if (value.length > 6) value = value.substring(0, 3) + '-' + value.substring(3, 7) + '-' + value.substring(7);
+      else if (value.length > 3) value = value.substring(0, 3) + '-' + value.substring(3);
       e.target.value = value;
     });
 
+    document.getElementById('newPhone').addEventListener('input', function(e) {
+      var value = e.target.value.replace(/[^0-9]/g, '');
+      if (value.length > 12) value = value.substring(0, 12);
+      if (value.length > 6) value = value.substring(0, 3) + '-' + value.substring(3, 7) + '-' + value.substring(7);
+      else if (value.length > 3) value = value.substring(0, 3) + '-' + value.substring(3);
+      e.target.value = value;
+    });
+
+    // Avatar preview
+    document.getElementById('avatarSeed').addEventListener('input', function(e) {
+      var seed = e.target.value || 'demo';
+      document.getElementById('avatarPreview').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(seed);
+    });
+
     // =============================================
-    // CLEAR ERROR ON INPUT FOCUS
+    // CLEAR ERROR ON FOCUS
     // =============================================
     var allInputs = document.querySelectorAll('.form-input');
     for (var i = 0; i < allInputs.length; i++) {
-      allInputs[i].addEventListener('focus', function() {
-        clearError(this.id);
-      });
+      allInputs[i].addEventListener('focus', function() { clearError(this.id); });
     }
 
     // =============================================
@@ -990,7 +1507,8 @@
     // =============================================
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
-        closeForgotPassword();
+        var modals = document.querySelectorAll('.modal-overlay');
+        for (var i = 0; i < modals.length; i++) modals[i].classList.remove('active');
       }
     });
 
