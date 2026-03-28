@@ -4,18 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>cekdulu!</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYSCP8TSTK"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-GYSCP8TSTK');
-  </script>
-  <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2142872369811564');
-    fbq('track', 'PageView');
-  </script>
+  <!-- Tailwind CDN - OK untuk testing, nanti ganti ke production -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
@@ -26,7 +15,6 @@
       --bg-input: #1f1f1f;
       --card-border: rgba(255,255,255,0.08);
       --accent: #00d4aa;
-      --accent-glow: rgba(0,212,170,0.2);
       --text-primary: #ffffff;
       --text-secondary: #b0b0b0;
       --text-muted: #707070;
@@ -42,218 +30,121 @@
 
     .auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
     .auth-container.hidden { display: none; }
-    .auth-card { width: 100%; max-width: 420px; background: var(--bg-card); border-radius: 24px; border: 1px solid var(--card-border); overflow: hidden; }
-    .auth-header { padding: 32px 32px 24px; text-align: center; border-bottom: 1px solid var(--card-border); }
-    .auth-logo { width: 56px; height: 56px; margin: 0 auto 16px; background: linear-gradient(135deg, var(--accent), #00a888); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
-    .auth-title { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-    .auth-subtitle { font-size: 14px; color: var(--text-secondary); }
-    .auth-body { padding: 24px 32px 32px; }
-    .auth-tabs { display: flex; gap: 4px; padding: 4px; background: var(--bg-secondary); border-radius: 12px; margin-bottom: 24px; }
-    .auth-tab { flex: 1; padding: 12px; border: none; background: transparent; color: var(--text-secondary); font-size: 14px; font-weight: 600; cursor: pointer; border-radius: 8px; font-family: inherit; }
-    .auth-tab:hover { color: var(--text-primary); }
+    .auth-card { width: 100%; max-width: 400px; background: var(--bg-card); border-radius: 18px; border: 1px solid var(--card-border); overflow: hidden; }
+    .auth-header { padding: 26px 26px 18px; text-align: center; border-bottom: 1px solid var(--card-border); }
+    .auth-logo { width: 48px; height: 48px; margin: 0 auto 10px; background: linear-gradient(135deg, var(--accent), #00a888); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
+    .auth-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .auth-subtitle { font-size: 12px; color: var(--text-secondary); }
+    .auth-body { padding: 18px 26px 26px; }
+    .auth-tabs { display: flex; gap: 4px; padding: 4px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 18px; }
+    .auth-tab { flex: 1; padding: 10px; border: none; background: transparent; color: var(--text-secondary); font-size: 13px; font-weight: 600; cursor: pointer; border-radius: 8px; }
     .auth-tab.active { background: var(--bg-card); color: var(--accent); }
     .auth-form { display: none; }
     .auth-form.active { display: block; }
 
-    .form-group { margin-bottom: 16px; }
-    .form-label { display: block; font-size: 13px; font-weight: 500; color: var(--text-secondary); margin-bottom: 6px; }
-    .form-input { width: 100%; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; font-family: inherit; }
+    .form-group { margin-bottom: 14px; }
+    .form-label { display: block; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-bottom: 5px; }
+    .form-input { width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; }
     .form-input:focus { outline: none; border-color: var(--accent); }
     .form-input::placeholder { color: var(--text-muted); }
-    .form-error { font-size: 12px; color: var(--danger); margin-top: 4px; display: none; }
+    .form-error { font-size: 11px; color: var(--danger); margin-top: 4px; display: none; }
     .form-error.show { display: block; }
-    .phone-input-group { display: flex; gap: 8px; }
-    .phone-prefix { width: 70px; text-align: center; background: var(--bg-secondary); color: var(--text-secondary); }
+    .phone-input-group { display: flex; gap: 6px; }
+    .phone-prefix { width: 55px; text-align: center; background: var(--bg-secondary); color: var(--text-secondary); }
 
     .password-wrapper { position: relative; }
-    .password-input { padding-right: 44px !important; }
-    .password-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; padding: 4px; font-size: 16px; }
-    .password-toggle:hover { color: var(--text-primary); }
+    .password-input { padding-right: 38px !important; }
+    .password-toggle { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px; }
 
-    .btn { width: 100%; padding: 14px 20px; border-radius: 10px; border: none; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn { width: 100%; padding: 12px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 6px; }
     .btn-primary { background: linear-gradient(135deg, var(--accent), #00a888); color: var(--bg-primary); }
-    .btn-primary:hover { transform: translateY(-2px); }
-    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-    .btn-secondary { background: rgba(255,255,255,0.05); color: var(--text-primary); border: 1px solid var(--card-border); }
+    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
     .btn-whatsapp { background: var(--whatsapp); color: white; }
-    .btn-danger { background: var(--danger); color: white; }
     .btn-admin { background: var(--admin); color: var(--bg-primary); }
-    .btn-sm { padding: 8px 16px; font-size: 12px; width: auto; }
+    .btn-danger { background: var(--danger); color: white; }
+    .btn-sm { padding: 6px 12px; font-size: 11px; width: auto; }
+    .btn-secondary { background: rgba(255,255,255,0.05); color: var(--text-primary); border: 1px solid var(--card-border); }
 
-    .divider { display: flex; align-items: center; gap: 12px; margin: 20px 0; color: var(--text-muted); font-size: 12px; }
+    .divider { display: flex; align-items: center; gap: 10px; margin: 14px 0; color: var(--text-muted); font-size: 11px; }
     .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--card-border); }
-    .auth-footer { text-align: center; padding-top: 16px; }
-    .auth-link { color: var(--accent); text-decoration: none; font-size: 14px; font-weight: 500; cursor: pointer; }
+    .auth-footer { text-align: center; padding-top: 12px; }
+    .auth-link { color: var(--accent); font-size: 12px; font-weight: 500; cursor: pointer; }
 
-    .alert { padding: 12px 16px; border-radius: 10px; font-size: 13px; margin-bottom: 16px; display: none; }
-    .alert.show { display: flex; align-items: center; gap: 10px; }
+    .alert { padding: 10px 12px; border-radius: 8px; font-size: 12px; margin-bottom: 14px; display: none; }
+    .alert.show { display: flex; align-items: center; gap: 8px; }
     .alert-success { background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.2); color: var(--success); }
     .alert-error { background: rgba(255,92,92,0.1); border: 1px solid rgba(255,92,92,0.2); color: var(--danger); }
-    .spinner { width: 20px; height: 20px; border: 2px solid transparent; border-top-color: currentColor; border-radius: 50%; animation: spin 0.8s linear infinite; }
+    .spinner { width: 14px; height: 14px; border: 2px solid transparent; border-top-color: currentColor; border-radius: 50%; animation: spin 0.8s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .app-layout { display: none; min-height: 100vh; flex-direction: column; }
     .app-layout.active { display: flex; }
-    .app-header { background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-    .header-title { font-size: 18px; font-weight: 700; color: var(--cream); }
-    .header-left { display: flex; align-items: center; gap: 12px; }
-    .admin-badge { background: var(--admin); color: var(--bg-primary); padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; }
-    .user-avatar { width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
-    .avatar-dropdown { position: absolute; top: 60px; right: 16px; min-width: 150px; background: var(--bg-card); border: 1px solid var(--card-border); border-radius: 12px; display: none; overflow: hidden; z-index: 200; }
+    .app-header { background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .header-title { font-size: 16px; font-weight: 700; color: var(--cream); }
+    .header-left { display: flex; align-items: center; gap: 10px; }
+    .admin-badge { background: var(--admin); color: var(--bg-primary); padding: 3px 8px; border-radius: 16px; font-size: 10px; font-weight: 700; }
+    .user-avatar { width: 34px; height: 34px; border-radius: 50%; cursor: pointer; }
+    .avatar-dropdown { position: absolute; top: 52px; right: 14px; min-width: 130px; background: var(--bg-card); border: 1px solid var(--card-border); border-radius: 10px; display: none; overflow: hidden; z-index: 200; }
     .avatar-dropdown.active { display: block; }
-    .dropdown-item { padding: 12px 16px; font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    .dropdown-item { padding: 10px 14px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
     .dropdown-item:hover { background: rgba(255,255,255,0.05); }
     .dropdown-item.danger { color: var(--danger); border-top: 1px solid var(--card-border); }
-    .nav-menu { display: flex; gap: 4px; padding: 8px 16px; background: var(--bg-primary); border-bottom: 1px solid var(--card-border); overflow-x: auto; }
-    .nav-item { padding: 8px 16px; border-radius: 8px; background: transparent; border: 1px solid transparent; color: var(--text-secondary); font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap; }
+    .nav-menu { display: flex; gap: 4px; padding: 6px 14px; background: var(--bg-primary); border-bottom: 1px solid var(--card-border); overflow-x: auto; }
+    .nav-item { padding: 6px 12px; border-radius: 6px; background: transparent; border: 1px solid transparent; color: var(--text-secondary); font-size: 12px; font-weight: 500; cursor: pointer; white-space: nowrap; }
     .nav-item.active { background: rgba(212,196,168,0.1); border-color: var(--cream); color: var(--cream); }
     .nav-item.admin-nav.active { background: rgba(255,149,0,0.1); border-color: var(--admin); color: var(--admin); }
-    .app-main { flex: 1; padding: 16px; }
+    .app-main { flex: 1; padding: 14px; }
     .section-container { display: none; }
     .section-container.active { display: block; }
-    .profile-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); padding: 24px; margin-bottom: 16px; }
-    .profile-header { text-align: center; margin-bottom: 24px; }
-    .profile-avatar { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 12px; }
-    .profile-name { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-    .profile-email { font-size: 14px; color: var(--text-secondary); }
-    .status-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid; }
+    .profile-card { background: var(--bg-card); border-radius: 14px; border: 1px solid var(--card-border); padding: 18px; margin-bottom: 14px; }
+    .profile-header { text-align: center; margin-bottom: 16px; }
+    .profile-avatar { width: 64px; height: 64px; border-radius: 50%; margin-bottom: 10px; }
+    .profile-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .profile-email { font-size: 12px; color: var(--text-secondary); }
+    .status-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 16px; font-size: 10px; font-weight: 600; border: 1px solid; }
     .status-active { background: rgba(0,212,170,0.1); border-color: var(--success); color: var(--success); }
     .status-inactive { background: rgba(212,196,168,0.1); border-color: var(--cream); color: var(--cream); }
-    .notification-box { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--cream); padding: 16px; margin-bottom: 16px; }
-    .notification-content { display: flex; align-items: center; gap: 12px; }
-    .notification-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(212,196,168,0.15); color: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 20px; }
-    .notification-text { flex: 1; }
-    .notification-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--cream); }
-    .notification-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
 
-    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
-    .stat-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); padding: 16px; }
-    .stat-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 20px; }
+    .notification-box { background: var(--bg-card); border-radius: 14px; border: 1px solid var(--cream); padding: 14px; margin-bottom: 14px; }
+    .notification-content { display: flex; align-items: center; gap: 10px; }
+    .notification-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(212,196,168,0.15); color: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .notification-text { flex: 1; }
+    .notification-title { font-size: 13px; font-weight: 600; margin-bottom: 3px; color: var(--cream); }
+    .notification-desc { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
+    .stat-card { background: var(--bg-card); border-radius: 12px; border: 1px solid var(--card-border); padding: 14px; }
+    .stat-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-size: 14px; }
     .stat-icon.users { background: rgba(255,149,0,0.15); }
     .stat-icon.pending { background: rgba(255,184,77,0.15); }
     .stat-icon.balance { background: rgba(0,212,170,0.15); }
-    .stat-value { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-    .stat-label { font-size: 12px; color: var(--text-secondary); }
+    .stat-value { font-size: 20px; font-weight: 700; margin-bottom: 2px; }
+    .stat-label { font-size: 10px; color: var(--text-secondary); }
 
-    .user-list { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); overflow: hidden; }
-    .user-list-header { padding: 12px 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
-    .user-list-body { max-height: 500px; overflow-y: auto; }
-    .user-item { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--card-border); }
+    .user-list { background: var(--bg-card); border-radius: 12px; border: 1px solid var(--card-border); overflow: hidden; }
+    .user-list-header { padding: 10px 14px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); font-size: 12px; font-weight: 600; color: var(--cream); }
+    .user-list-body { max-height: 350px; overflow-y: auto; }
+    .user-item { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--card-border); }
     .user-item:last-child { border-bottom: none; }
-    .user-item-avatar { width: 44px; height: 44px; border-radius: 50%; }
+    .user-item-avatar { width: 36px; height: 36px; border-radius: 50%; }
     .user-item-info { flex: 1; min-width: 0; }
-    .user-item-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
-    .user-item-detail { font-size: 12px; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 8px; }
-    .user-item-detail span { display: flex; align-items: center; gap: 4px; }
-    .user-item-actions { display: flex; gap: 8px; }
-    .user-item-date { font-size: 10px; color: var(--text-muted); margin-top: 4px; }
+    .user-item-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+    .user-item-detail { font-size: 11px; color: var(--text-muted); }
+    .user-item-date { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
 
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px; }
     .modal-overlay.active { display: flex; }
-    .modal-content { width: 100%; max-width: 400px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--card-border); max-height: 90vh; overflow-y: auto; }
-    .modal-header { padding: 20px 24px; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; }
-    .modal-title { font-size: 18px; font-weight: 600; color: var(--cream); }
-    .modal-close { width: 32px; height: 32px; border-radius: 50%; background: transparent; border: 1px solid var(--cream); color: var(--cream); cursor: pointer; font-size: 20px; }
-    .modal-body { padding: 20px 24px; }
-    .modal-footer { padding: 16px 24px 24px; display: flex; gap: 10px; }
+    .modal-content { width: 100%; max-width: 340px; background: var(--bg-card); border-radius: 14px; border: 1px solid var(--card-border); max-height: 85vh; overflow-y: auto; }
+    .modal-header { padding: 16px 18px; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; }
+    .modal-title { font-size: 15px; font-weight: 600; color: var(--cream); }
+    .modal-close { width: 26px; height: 26px; border-radius: 50%; background: transparent; border: 1px solid var(--cream); color: var(--cream); cursor: pointer; font-size: 16px; }
+    .modal-body { padding: 16px 18px; }
+    .modal-footer { padding: 12px 18px 18px; display: flex; gap: 8px; }
     .modal-footer .btn { flex: 1; }
-    .avatar-upload-zone { border: 2px dashed var(--card-border); border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; margin-bottom: 16px; }
-    .avatar-upload-zone:hover { border-color: var(--accent); }
-    .avatar-preview-large { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 3px solid var(--cream); margin: 0 auto 16px; display: block; }
-    .contacts-toolbar { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
-    .search-box { flex: 1; min-width: 150px; position: relative; }
-    .search-input { width: 100%; padding: 12px 16px 12px 40px; border-radius: 10px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; }
-    .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
-    .toolbar-btn { padding: 10px 14px; border-radius: 8px; border: 1px solid var(--cream); background: transparent; color: var(--cream); font-size: 12px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 4px; white-space: nowrap; }
-    .toolbar-btn.primary { border-color: var(--accent); color: var(--accent); }
-    .toolbar-btn.hidden { display: none; }
-    .contact-list { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); overflow: hidden; }
-    .contact-list-header { padding: 12px 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; }
-    .contact-count { font-size: 12px; color: var(--text-muted); }
-    .contact-list-body { max-height: 350px; overflow-y: auto; }
-    .contact-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--card-border); cursor: pointer; }
-    .contact-item:hover { background: rgba(255,255,255,0.02); }
-    .contact-avatar { width: 40px; height: 40px; border-radius: 50%; }
-    .contact-info { flex: 1; min-width: 0; }
-    .contact-name { font-size: 14px; font-weight: 600; }
-    .contact-detail { font-size: 12px; color: var(--text-muted); }
-    .contact-actions { display: flex; gap: 4px; opacity: 0; }
-    .contact-item:hover .contact-actions { opacity: 1; }
-    .contact-action-btn { width: 28px; height: 28px; border-radius: 6px; border: 1px solid var(--card-border); background: transparent; color: var(--text-secondary); cursor: pointer; display: flex; align-items: center; justify-content: center; }
-    .contact-action-btn:hover { background: var(--accent); color: var(--bg-primary); }
-    .contact-action-btn.danger:hover { background: var(--danger); color: white; }
-    .empty-state { padding: 40px 20px; text-align: center; color: var(--text-muted); }
-    .empty-state-icon { font-size: 40px; margin-bottom: 12px; opacity: 0.5; }
 
-    .steps-indicator { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 8px; }
-    .step-item { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-    .step-number { width: 24px; height: 24px; border-radius: 50%; background: var(--bg-secondary); border: 2px solid var(--card-border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: var(--text-muted); }
-    .step-item.active .step-number { background: var(--accent); border-color: var(--accent); color: var(--bg-primary); }
-    .step-item.completed .step-number { background: var(--success); border-color: var(--success); color: var(--bg-primary); }
-    .step-label { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
-    .step-item.active .step-label { color: var(--accent); font-weight: 600; }
-    .step-connector { width: 16px; height: 2px; background: var(--card-border); }
-    .source-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-    .source-card { background: var(--bg-secondary); border-radius: 12px; border: 2px solid var(--card-border); padding: 16px; cursor: pointer; text-align: center; }
-    .source-card:hover { border-color: var(--accent); }
-    .source-card.selected { border-color: var(--accent); background: rgba(0,212,170,0.1); }
-    .source-card.disabled { opacity: 0.4; cursor: not-allowed; }
-    .source-icon { width: 40px; height: 40px; border-radius: 10px; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-    .source-icon.manual { background: rgba(0,212,170,0.15); }
-    .source-icon.contact { background: rgba(212,196,168,0.15); }
-    .source-icon.vcf { background: rgba(0,136,204,0.15); }
-    .source-icon.phone { background: rgba(255,149,0,0.15); }
-    .source-name { font-size: 13px; font-weight: 600; }
-    .recipient-section { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); overflow: hidden; margin-top: 12px; }
-    .recipient-header { padding: 12px 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; }
-    .recipient-title { font-size: 13px; font-weight: 600; color: var(--cream); }
-    .recipient-count { font-size: 11px; color: var(--text-muted); }
-    .recipient-body { max-height: 250px; overflow-y: auto; }
-    .recipient-item { display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-bottom: 1px solid var(--card-border); }
-    .recipient-item:last-child { border-bottom: none; }
-    .recipient-avatar { width: 32px; height: 32px; border-radius: 50%; }
-    .recipient-info { flex: 1; min-width: 0; }
-    .recipient-name { font-size: 12px; font-weight: 500; }
-    .recipient-detail { font-size: 10px; color: var(--text-muted); }
-    .recipient-remove { width: 24px; height: 24px; border-radius: 6px; background: rgba(255,92,92,0.1); border: none; color: var(--danger); cursor: pointer; font-size: 14px; }
-    .channel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .channel-card { background: var(--bg-secondary); border-radius: 12px; border: 2px solid var(--card-border); padding: 14px; cursor: pointer; text-align: center; }
-    .channel-card:hover { border-color: var(--accent); }
-    .channel-card.selected { border-color: var(--accent); background: rgba(0,212,170,0.1); }
-    .channel-icon { width: 36px; height: 36px; border-radius: 10px; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-    .channel-icon.sms { background: rgba(255,149,0,0.15); }
-    .channel-icon.telegram { background: rgba(0,136,204,0.15); }
-    .channel-icon.email { background: rgba(234,67,53,0.15); }
-    .channel-name { font-size: 12px; font-weight: 600; }
-    .channel-cost { font-size: 10px; color: var(--text-muted); }
-    .message-textarea { width: 100%; min-height: 120px; padding: 14px; border-radius: 12px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; font-family: inherit; resize: vertical; }
-    .message-textarea:focus { outline: none; border-color: var(--accent); }
-    .char-count { font-size: 11px; color: var(--text-muted); text-align: right; margin-top: 6px; }
-    .media-upload-zone { border: 2px dashed var(--card-border); border-radius: 12px; padding: 20px; text-align: center; cursor: pointer; margin-top: 12px; }
-    .media-upload-zone:hover { border-color: var(--accent); }
-    .media-preview { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
-    .media-preview-item { position: relative; width: 70px; height: 70px; border-radius: 8px; overflow: hidden; border: 2px solid var(--card-border); }
-    .media-preview-item img { width: 100%; height: 100%; object-fit: cover; }
-    .media-remove { position: absolute; top: 2px; right: 2px; width: 18px; height: 18px; border-radius: 50%; background: var(--danger); border: none; color: white; cursor: pointer; font-size: 10px; }
-    .preview-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); overflow: hidden; }
-    .preview-header { padding: 14px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); }
-    .preview-title { font-size: 13px; font-weight: 600; color: var(--cream); }
-    .preview-body { padding: 14px; }
-    .preview-recipient { display: flex; align-items: center; gap: 10px; padding: 10px; background: var(--bg-secondary); border-radius: 8px; margin-bottom: 10px; }
-    .preview-message { padding: 14px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 10px; }
-    .preview-message-text { font-size: 13px; line-height: 1.6; white-space: pre-wrap; }
-    .summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 12px; }
-    .summary-item { background: var(--bg-secondary); border-radius: 8px; padding: 10px 12px; }
-    .summary-label { font-size: 10px; color: var(--text-muted); margin-bottom: 2px; }
-    .summary-value { font-size: 13px; font-weight: 600; }
-    .summary-value.accent { color: var(--accent); }
-    .result-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); padding: 32px; text-align: center; }
-    .result-icon { width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
-    .result-icon.success { background: rgba(0,212,170,0.15); }
-    .result-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-    .result-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 20px; }
-    @media (min-width: 500px) { .source-grid { grid-template-columns: repeat(4, 1fr); } .stats-grid { grid-template-columns: repeat(4, 1fr); } }
-    @media (max-width: 400px) { .auth-header { padding: 24px; } .auth-body { padding: 20px; } .channel-grid { grid-template-columns: 1fr; } }
+    .empty-state { padding: 24px 14px; text-align: center; color: var(--text-muted); font-size: 13px; }
+
+    @media (min-width: 500px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
   </style>
 </head>
 <body>
@@ -267,8 +158,8 @@
       </div>
       <div class="auth-body">
         <div class="auth-tabs">
-          <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Masuk</button>
-          <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Daftar</button>
+          <button class="auth-tab active" onclick="switchTab('login')">Masuk</button>
+          <button class="auth-tab" onclick="switchTab('register')">Daftar</button>
         </div>
         <div class="alert alert-error" id="alertError"></div>
         <div class="alert alert-success" id="alertSuccess"></div>
@@ -277,32 +168,28 @@
           <div class="form-group">
             <label class="form-label">Email</label>
             <input type="email" class="form-input" id="loginEmail" placeholder="nama@email.com" required>
-            <div class="form-error" id="loginEmailError"></div>
           </div>
           <div class="form-group">
             <label class="form-label">Password</label>
             <div class="password-wrapper">
               <input type="password" class="form-input password-input" id="loginPassword" placeholder="Password" required>
-              <button type="button" class="password-toggle" onclick="togglePw('loginPassword', this)">👁</button>
+              <button type="button" class="password-toggle" onclick="togglePw('loginPassword')">👁</button>
             </div>
-            <div class="form-error" id="loginPasswordError"></div>
           </div>
-          <button type="submit" class="btn btn-primary" id="loginBtn"><span>Masuk</span></button>
+          <button type="submit" class="btn btn-primary" id="loginBtn">Masuk</button>
           <div class="divider">atau</div>
           <button type="button" class="btn btn-whatsapp" onclick="contactAdmin()">📞 Hubungi Admin</button>
-          <div class="auth-footer"><a class="auth-link" onclick="openModal('forgotPassword')">Lupa Password?</a></div>
+          <div class="auth-footer"><a class="auth-link" onclick="alert('Hubungi admin untuk reset password')">Lupa Password?</a></div>
         </form>
 
         <form class="auth-form" id="registerForm">
           <div class="form-group">
             <label class="form-label">Nama Lengkap</label>
             <input type="text" class="form-input" id="regName" placeholder="Nama lengkap" required>
-            <div class="form-error" id="regNameError"></div>
           </div>
           <div class="form-group">
             <label class="form-label">Email</label>
             <input type="email" class="form-input" id="regEmail" placeholder="nama@email.com" required>
-            <div class="form-error" id="regEmailError"></div>
           </div>
           <div class="form-group">
             <label class="form-label">Nomor Telepon</label>
@@ -310,25 +197,22 @@
               <input type="text" class="form-input phone-prefix" value="+62" readonly>
               <input type="tel" class="form-input" id="regPhone" placeholder="812-xxxx-xxxx" required>
             </div>
-            <div class="form-error" id="regPhoneError"></div>
           </div>
           <div class="form-group">
             <label class="form-label">Password</label>
             <div class="password-wrapper">
-              <input type="password" class="form-input password-input" id="regPassword" placeholder="Min 8 karakter" required>
-              <button type="button" class="password-toggle" onclick="togglePw('regPassword', this)">👁</button>
+              <input type="password" class="form-input password-input" id="regPassword" placeholder="Minimal 8 karakter" required>
+              <button type="button" class="password-toggle" onclick="togglePw('regPassword')">👁</button>
             </div>
-            <div class="form-error" id="regPasswordError"></div>
           </div>
           <div class="form-group">
             <label class="form-label">Konfirmasi Password</label>
             <div class="password-wrapper">
               <input type="password" class="form-input password-input" id="regPassword2" placeholder="Ulangi password" required>
-              <button type="button" class="password-toggle" onclick="togglePw('regPassword2', this)">👁</button>
+              <button type="button" class="password-toggle" onclick="togglePw('regPassword2')">👁</button>
             </div>
-            <div class="form-error" id="regPassword2Error"></div>
           </div>
-          <button type="submit" class="btn btn-primary" id="regBtn"><span>Daftar Sekarang</span></button>
+          <button type="submit" class="btn btn-primary" id="regBtn">Daftar Sekarang</button>
           <div class="auth-footer">Sudah punya akun? <a class="auth-link" onclick="switchTab('login')">Masuk</a></div>
         </form>
       </div>
@@ -344,7 +228,6 @@
       </div>
       <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" class="user-avatar" id="headerAvatar" onclick="toggleDropdown()">
       <div class="avatar-dropdown" id="dropdown">
-        <div class="dropdown-item" onclick="openModal('editAvatar')">📷 Ubah Foto</div>
         <div class="dropdown-item danger" onclick="logout()">🚪 Logout</div>
       </div>
     </header>
@@ -353,498 +236,365 @@
   </div>
 
   <!-- MODALS -->
-  <div class="modal-overlay" id="modalForgotPassword"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Lupa Password</h3><button class="modal-close" onclick="closeModal('forgotPassword')">×</button></div><div class="modal-body"><p style="margin-bottom:12px;font-size:14px;color:var(--text-secondary)">Masukkan email terdaftar.</p><div class="form-group" style="margin:0"><label class="form-label">Email</label><input type="email" class="form-input" id="forgotEmail" placeholder="nama@email.com"></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('forgotPassword')">Batal</button><button class="btn btn-primary" onclick="submitForgot()">Kirim</button></div></div></div>
-  <div class="modal-overlay" id="modalEditAvatar"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Ubah Foto</h3><button class="modal-close" onclick="closeModal('editAvatar')">×</button></div><div class="modal-body"><img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" class="avatar-preview-large" id="avatarPreview"><div class="avatar-upload-zone" onclick="document.getElementById('avatarFile').click()"><input type="file" id="avatarFile" accept="image/*" style="display:none" onchange="handleAvatar(event)"><div style="color:var(--cream);margin-bottom:4px">📷</div><div style="font-size:12px;color:var(--text-secondary)">Klik untuk upload</div></div><div class="form-group" style="margin:0"><label class="form-label">Atau avatar default</label><input type="text" class="form-input" id="avatarSeed" placeholder="Nama untuk avatar" oninput="updateAvatarPreview()"></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('editAvatar')">Batal</button><button class="btn btn-primary" onclick="saveAvatar()">Simpan</button></div></div></div>
-  <div class="modal-overlay" id="modalLogout"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Logout</h3><button class="modal-close" onclick="closeModal('logout')">×</button></div><div class="modal-body"><p style="font-size:14px;color:var(--text-secondary)">Yakin ingin keluar?</p></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('logout')">Batal</button><button class="btn btn-danger" onclick="doLogout()">Logout</button></div></div></div>
-  <div class="modal-overlay" id="modalAddContact"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Tambah Kontak</h3><button class="modal-close" onclick="closeModal('addContact')">×</button></div><div class="modal-body"><div class="form-group"><label class="form-label">Nama</label><input type="text" class="form-input" id="cName" placeholder="Nama"></div><div class="form-group"><label class="form-label">Telepon</label><div class="phone-input-group"><input type="text" class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="cPhone" placeholder="812-xxxx-xxxx"></div></div><div class="form-group" style="margin:0"><label class="form-label">Email</label><input type="email" class="form-input" id="cEmail" placeholder="email@contoh.com"></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('addContact')">Batal</button><button class="btn btn-primary" onclick="saveContact()">Simpan</button></div></div></div>
-  <div class="modal-overlay" id="modalEditContact"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Edit Kontak</h3><button class="modal-close" onclick="closeModal('editContact')">×</button></div><div class="modal-body"><input type="hidden" id="editCId"><div class="form-group"><label class="form-label">Nama</label><input type="text" class="form-input" id="editCName"></div><div class="form-group"><label class="form-label">Telepon</label><div class="phone-input-group"><input type="text" class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="editCPhone"></div></div><div class="form-group" style="margin:0"><label class="form-label">Email</label><input type="email" class="form-input" id="editCEmail"></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('editContact')">Batal</button><button class="btn btn-primary" onclick="updateContact()">Simpan</button></div></div></div>
-  <div class="modal-overlay" id="modalDelete"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Hapus</h3><button class="modal-close" onclick="closeModal('delete')">×</button></div><div class="modal-body"><p style="font-size:14px;color:var(--text-secondary)">Hapus <strong id="delName"></strong>?</p></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('delete')">Batal</button><button class="btn btn-danger" onclick="confirmDelete()">Hapus</button></div></div></div>
-  <div class="modal-overlay" id="modalVcf"><div class="modal-content" style="max-height:80vh"><div class="modal-header"><h3 class="modal-title">Import VCF</h3><button class="modal-close" onclick="closeModal('vcf')">×</button></div><div class="modal-body" style="flex:1;overflow-y:auto"><div class="vcf-upload-zone" onclick="document.getElementById('vcfFile').click()"><input type="file" id="vcfFile" accept=".vcf" style="display:none" onchange="handleVcf(event)"><div style="color:var(--cream)">📁</div><div style="font-size:12px;color:var(--text-secondary)">Klik atau drag VCF</div></div><div id="vcfPreview" style="display:none"><div style="display:flex;justify-content:space-between;margin-bottom:10px"><span style="font-size:12px;color:var(--text-secondary)"><span id="vcfCount">0</span> kontak</span><button class="toolbar-btn" onclick="toggleAllVcf()" style="padding:4px 8px;font-size:11px">Pilih Semua</button></div><div class="vcf-preview-list" id="vcfList"></div></div></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('vcf')">Batal</button><button class="btn btn-primary" id="btnImport" onclick="importVcf()" disabled>Import</button></div></div></div>
-  <div class="modal-overlay" id="modalActivate"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Aktivasi User</h3><button class="modal-close" onclick="closeModal('activate')">×</button></div><div class="modal-body"><p style="font-size:14px;color:var(--text-secondary)">Aktivasi user <strong id="activateName"></strong>?</p><p style="font-size:12px;color:var(--text-muted);margin-top:8px">User akan bisa login dan mengirim pesan.</p></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('activate')">Batal</button><button class="btn btn-admin" onclick="confirmActivate()">Aktivasi</button></div></div></div>
+  <div class="modal-overlay" id="modalLogout"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Logout</h3><button class="modal-close" onclick="closeModal('logout')">×</button></div><div class="modal-body"><p style="font-size:13px;color:var(--text-secondary)">Yakin ingin keluar?</p></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('logout')">Batal</button><button class="btn btn-danger" onclick="doLogout()">Logout</button></div></div></div>
+  <div class="modal-overlay" id="modalActivate"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Aktivasi User</h3><button class="modal-close" onclick="closeModal('activate')">×</button></div><div class="modal-body"><p style="font-size:13px;color:var(--text-secondary)">Aktivasi <strong id="activateName"></strong>?</p></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('activate')">Batal</button><button class="btn btn-admin" onclick="confirmActivate()">Aktivasi</button></div></div></div>
 
   <script>
-    // ============ CONFIG ============
+    // ===================== CONFIG =====================
     var ADMIN_EMAIL = '14summersun@gmail.com';
     var ADMIN_PASSWORD = '14summersun@4dmin';
+    var STORAGE_KEY = 'cekdulu_users';
+    var SESSION_KEY = 'cekdulu_session';
 
-    // ============ STORAGE KEYS ============
-    var STORAGE_USERS = 'cekdulu_users';
-    var STORAGE_SESSION = 'cekdulu_session';
-
-    // ============ STATE ============
-    var user = { name: '', email: '', phone: '', seed: '', avatar: null, active: false, balance: 0, isAdmin: false };
-    var contacts = [
-      { id: 1, name: 'Budi Santoso', phone: '+62 812-3456-7890', email: 'budi@email.com' },
-      { id: 2, name: 'Siti Rahayu', phone: '+62 813-4567-8901', email: 'siti@email.com' },
-      { id: 3, name: 'Ahmad Wijaya', phone: '+62 814-5678-9012', email: 'ahmad@email.com' },
-      { id: 4, name: 'Dewi Lestari', phone: '+62 815-6789-0123', email: 'dewi@email.com' },
-      { id: 5, name: 'Rudi Hartono', phone: '+62 816-7890-1234', email: '' }
-    ];
-    var vcfData = [];
-    var delId = null;
+    // ===================== STATE =====================
+    var user = { name: '', email: '', isAdmin: false, active: false };
     var activateUserId = null;
-    var cId = 10;
-    var pAvatar = null;
-    var msg = { step: 1, src: null, rec: [], ch: null, subj: '', body: '', result: null };
-    var pMedia = null;
 
-    // ============ STORAGE FUNCTIONS ============
+    // ===================== UTILS =====================
+    function log(msg) { console.log('[cekdulu]', msg); }
+
+    // ===================== STORAGE =====================
     function getUsers() {
-      var data = localStorage.getItem(STORAGE_USERS);
-      if (data) { try { return JSON.parse(data); } catch(e) {} }
-      return [];
+      try {
+        var data = localStorage.getItem(STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+      } catch(e) { return []; }
     }
 
     function saveUsers(users) {
-      localStorage.setItem(STORAGE_USERS, JSON.stringify(users));
-      console.log('Saved users:', users.length);
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(users)); return true; }
+      catch(e) { return false; }
     }
 
-    function addUserToStorage(u) {
-      var users = getUsers();
-      var exists = users.find(function(x) { return x.email === u.email; });
-      if (!exists) {
-        users.push({
-          id: Date.now(),
-          name: u.name,
-          email: u.email,
-          phone: u.phone,
-          seed: u.seed,
-          active: false,
-          balance: 0,
-          createdAt: new Date().toISOString()
-        });
-        saveUsers(users);
-        console.log('User added:', u.email);
-        return true;
-      }
-      console.log('User exists:', u.email);
-      return false;
+    function getSession() {
+      try {
+        var data = localStorage.getItem(SESSION_KEY);
+        return data ? JSON.parse(data) : null;
+      } catch(e) { return null; }
     }
 
-    function activateUserInStorage(email) {
-      var users = getUsers();
-      var u = users.find(function(x) { return x.email === email; });
-      if (u) { u.active = true; saveUsers(users); console.log('Activated:', email); return true; }
-      return false;
-    }
-
-    // ============ SESSION ============
     function saveSession(u) {
-      localStorage.setItem(STORAGE_SESSION, JSON.stringify(u));
-      console.log('Session saved:', u.email);
+      try { localStorage.setItem(SESSION_KEY, JSON.stringify(u)); }
+      catch(e) {}
     }
 
-    function loadSession() {
-      var data = localStorage.getItem(STORAGE_SESSION);
-      if (data) { try { return JSON.parse(data); } catch(e) {} }
-      return null;
-    }
+    function clearSession() { localStorage.removeItem(SESSION_KEY); }
 
-    function clearSession() {
-      localStorage.removeItem(STORAGE_SESSION);
-      console.log('Session cleared');
-    }
-
-    // ============ HELPERS ============
-    function isAndroid() { var u = navigator.userAgent.toLowerCase(); return u.indexOf('android') > -1 && u.indexOf('chrome') > -1; }
-    function validEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
-    function validPhone(p) { var d = p.replace(/[^0-9]/g, ''); return d.length >= 9 && d.length <= 13; }
-    function fmtNum(n) { return new Intl.NumberFormat('id-ID').format(n); }
-    function escapeHtml(str) { var div = document.createElement('div'); div.textContent = str; return div.innerHTML; }
-
-    // ============ INIT ON LOAD ============
-    function initApp() {
-      var session = loadSession();
+    // ===================== INIT =====================
+    function init() {
+      log('Init...');
+      var session = getSession();
       if (session && session.email) {
+        log('Session found: ' + session.email);
         user = session;
-        console.log('Session loaded:', user.email, 'isAdmin:', user.isAdmin);
         showApp();
-      } else {
-        console.log('No session');
       }
     }
+    init();
 
-    // Run init on page load
-    initApp();
-
-    // ============ TABS ============
+    // ===================== AUTH UI =====================
     function switchTab(t) {
-      document.getElementById('tabLogin').classList.toggle('active', t === 'login');
-      document.getElementById('tabRegister').classList.toggle('active', t === 'register');
+      document.querySelectorAll('.auth-tab').forEach(function(b, i) {
+        b.classList.toggle('active', (i === 0 && t === 'login') || (i === 1 && t === 'register'));
+      });
       document.getElementById('loginForm').classList.toggle('active', t === 'login');
       document.getElementById('registerForm').classList.toggle('active', t === 'register');
       hideAlerts();
     }
 
-    function togglePw(inpId, btn) {
-      var inp = document.getElementById(inpId);
-      if (!inp) return;
+    function togglePw(id) {
+      var inp = document.getElementById(id);
       inp.type = inp.type === 'password' ? 'text' : 'password';
-      btn.textContent = inp.type === 'password' ? '👁' : '🙈';
     }
 
-    function toggleDropdown() { document.getElementById('dropdown').classList.toggle('active'); }
-    document.addEventListener('click', function(e) { var d = document.getElementById('dropdown'); if (!d.contains(e.target) && e.target.id !== 'headerAvatar') d.classList.remove('active'); });
-
-    function showAlert(t, m) {
+    function showAlert(type, msg) {
       hideAlerts();
-      var el = document.getElementById('alert' + (t === 'error' ? 'Error' : 'Success'));
-      if (!el) return;
-      el.innerHTML = (t === 'error' ? '❌ ' : '✅ ') + m;
+      var el = document.getElementById('alert' + (type === 'error' ? 'Error' : 'Success'));
+      el.innerHTML = (type === 'error' ? '❌ ' : '✅ ') + msg;
       el.classList.add('show');
     }
+
     function hideAlerts() { document.querySelectorAll('.alert').forEach(function(e) { e.classList.remove('show'); }); }
 
-    function showErr(id, m) {
-      var i = document.getElementById(id);
-      var e = document.getElementById(id + 'Error');
-      if (i) i.style.borderColor = 'var(--danger)';
-      if (e) { e.textContent = m; e.classList.add('show'); }
+    function contactAdmin() { window.open('https://wa.me/6285161990373?text=' + encodeURIComponent('Halo Admin cekdulu!'), '_blank'); }
+
+    // ===================== LOGIN =====================
+    document.getElementById('loginForm').onsubmit = function(e) {
+      e.preventDefault();
+      hideAlerts();
+      
+      var email = document.getElementById('loginEmail').value.trim();
+      var pass = document.getElementById('loginPassword').value;
+      var btn = document.getElementById('loginBtn');
+
+      if (!email || !pass) { showAlert('error', 'Email dan password wajib'); return; }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>';
+
+      setTimeout(function() {
+        // Check Admin
+        if (email === ADMIN_EMAIL && pass === ADMIN_PASSWORD) {
+          log('Login as ADMIN');
+          user = { name: 'Admin', email: email, isAdmin: true, active: true };
+          saveSession(user);
+          showAlert('success', 'Login Admin berhasil!');
+          setTimeout(showApp, 400);
+        } else {
+          // Check User
+          var users = getUsers();
+          var found = null;
+          for (var i = 0; i < users.length; i++) {
+            if (users[i].email === email) { found = users[i]; break; }
+          }
+
+          if (found) {
+            log('User found: ' + found.name + ', active: ' + found.active);
+            if (!found.active) {
+              showAlert('error', 'Akun belum aktif. Hubungi: wa.me/6285161990373');
+            } else {
+              user = { name: found.name, email: found.email, isAdmin: false, active: true };
+              saveSession(user);
+              showAlert('success', 'Login berhasil!');
+              setTimeout(showApp, 400);
+            }
+          } else {
+            log('User NOT found');
+            showAlert('error', 'Email tidak terdaftar. Silakan daftar dulu.');
+          }
+        }
+        btn.disabled = false;
+        btn.innerHTML = 'Masuk';
+      }, 600);
+    };
+
+    // ===================== REGISTER =====================
+    document.getElementById('registerForm').onsubmit = function(e) {
+      e.preventDefault();
+      hideAlerts();
+
+      var name = document.getElementById('regName').value.trim();
+      var email = document.getElementById('regEmail').value.trim();
+      var phone = document.getElementById('regPhone').value.trim();
+      var pass = document.getElementById('regPassword').value;
+      var pass2 = document.getElementById('regPassword2').value;
+      var btn = document.getElementById('regBtn');
+
+      if (!name || name.length < 3) { showAlert('error', 'Nama minimal 3 karakter'); return; }
+      if (!email) { showAlert('error', 'Email wajib'); return; }
+      if (!phone) { showAlert('error', 'Telepon wajib'); return; }
+      if (pass.length < 8) { showAlert('error', 'Password minimal 8 karakter'); return; }
+      if (pass !== pass2) { showAlert('error', 'Password tidak cocok'); return; }
+
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span>';
+
+      setTimeout(function() {
+        var users = getUsers();
+        
+        // Check exists
+        for (var i = 0; i < users.length; i++) {
+          if (users[i].email === email) {
+            showAlert('error', 'Email sudah terdaftar');
+            btn.disabled = false;
+            btn.innerHTML = 'Daftar Sekarang';
+            return;
+          }
+        }
+
+        // Add new
+        var newUser = {
+          id: Date.now(),
+          name: name,
+          email: email,
+          phone: '+62 ' + phone.replace(/[^0-9]/g, ''),
+          active: false,
+          createdAt: new Date().toISOString()
+        };
+
+        users.push(newUser);
+        saveUsers(users);
+        log('Registered: ' + email + '. Total users: ' + users.length);
+
+        showAlert('success', '✅ Berhasil daftar!\n\n📧 ' + email + '\n\n🔔 Aktivasi via:\nwa.me/6285161990373');
+        document.getElementById('registerForm').reset();
+        btn.disabled = false;
+        btn.innerHTML = 'Daftar Sekarang';
+      }, 800);
+    };
+
+    // Phone format
+    document.getElementById('regPhone').oninput = function(e) {
+      var v = e.target.value.replace(/[^0-9]/g, '');
+      if (v.length > 12) v = v.substring(0, 12);
+      e.target.value = v;
+    };
+
+    // ===================== APP =====================
+    function showApp() {
+      log('showApp as Admin: ' + user.isAdmin);
+      document.getElementById('authContainer').classList.add('hidden');
+      document.getElementById('appLayout').classList.add('active');
+      renderNav();
+      renderMain();
     }
 
-    function contactAdmin() { 
-      window.open('https://wa.me/6285161990373?text=' + encodeURIComponent('Halo Admin, butuh bantuan cekdulu!'), '_blank'); 
-    }
-
-    function openModal(n) { var m = document.getElementById('modal' + n.charAt(0).toUpperCase() + n.slice(1)); if (m) m.classList.add('active'); }
-    function closeModal(n) { var m = document.getElementById('modal' + n.charAt(0).toUpperCase() + n.slice(1)); if (m) m.classList.remove('active'); }
-    document.querySelectorAll('.modal-overlay').forEach(function(m) { m.onclick = function(e) { if (e.target === this) this.classList.remove('active'); }; });
-
-    function logout() { closeModal('editAvatar'); openModal('logout'); }
-    function doLogout() { 
-      closeModal('logout'); 
-      clearSession();
-      document.getElementById('appLayout').classList.remove('active'); 
-      document.getElementById('authContainer').classList.remove('hidden'); 
-      user = { name: '', email: '', phone: '', seed: '', avatar: null, active: false, balance: 0, isAdmin: false }; 
-      msg = { step: 1, src: null, rec: [], ch: null, subj: '', body: '', result: null }; 
-    }
-
-    // ============ NAVIGATION ============
     function renderNav() {
       var nav = document.getElementById('navMenu');
       if (user.isAdmin) {
         nav.innerHTML = 
-          '<button class="nav-item admin-nav active" onclick="nav(\'dashboard\')">📊 Dashboard</button>' +
-          '<button class="nav-item admin-nav" onclick="nav(\'users\')">👥 Users</button>' +
-          '<button class="nav-item admin-nav" onclick="nav(\'contacts\')">📇 Kontak</button>' +
-          '<button class="nav-item admin-nav" onclick="nav(\'history\')">📜 Riwayat</button>';
+          '<button class="nav-item admin-nav active" data-sec="dashboard">📊 Dashboard</button>' +
+          '<button class="nav-item admin-nav" data-sec="users">👥 Users</button>';
       } else {
         nav.innerHTML = 
-          '<button class="nav-item active" onclick="nav(\'dashboard\')">Dashboard</button>' +
-          '<button class="nav-item" onclick="nav(\'contacts\')">Kontak</button>' +
-          '<button class="nav-item" onclick="nav(\'create\')">Buat Pesan</button>' +
-          '<button class="nav-item" onclick="nav(\'history\')">Riwayat</button>' +
-          '<button class="nav-item" onclick="nav(\'topup\')">Top Up</button>';
+          '<button class="nav-item active" data-sec="dashboard">Dashboard</button>' +
+          '<button class="nav-item" data-sec="contacts">Kontak</button>' +
+          '<button class="nav-item" data-sec="create">Buat Pesan</button>';
       }
-    }
-
-    function nav(s) {
-      var sections = user.isAdmin 
-        ? ['Dashboard', 'Users', 'Contacts', 'History']
-        : ['Dashboard', 'Contacts', 'Create', 'History', 'Topup'];
       
-      sections.forEach(function(n) {
-        var sec = document.getElementById('sec' + n);
-        if (sec) sec.classList.toggle('active', n.toLowerCase() === s);
+      // Add click handlers
+      document.querySelectorAll('.nav-item').forEach(function(btn) {
+        btn.onclick = function() { nav(this.getAttribute('data-sec')); };
       });
-
-      var btns = document.querySelectorAll('.nav-item');
-      btns.forEach(function(b) { b.classList.remove('active'); });
-      
-      var idx = sections.map(function(x) { return x.toLowerCase(); }).indexOf(s);
-      if (idx >= 0 && btns[idx]) btns[idx].classList.add('active');
-
-      if (s === 'contacts') renderContacts();
-      if (s === 'users') renderUsers();
-      if (s === 'create') renderCreate();
     }
 
-    function showApp() { 
-      document.getElementById('authContainer').classList.add('hidden'); 
-      document.getElementById('appLayout').classList.add('active'); 
-      renderNav();
-      updateDash(); 
+    function nav(sec) {
+      document.querySelectorAll('.nav-item').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelector('.nav-item[data-sec="' + sec + '"]').classList.add('active');
+      
+      document.querySelectorAll('.section-container').forEach(function(s) { s.classList.remove('active'); });
+      document.getElementById('sec' + sec.charAt(0).toUpperCase() + sec.slice(1)).classList.add('active');
     }
 
-    function updateDash() {
-      var u = user.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(user.seed || 'demo');
-      document.getElementById('headerAvatar').src = u;
-      document.getElementById('adminBadge').style.display = user.isAdmin ? 'inline-flex' : 'none';
-      
+    function renderMain() {
       var main = document.getElementById('appMain');
+      log('renderMain - isAdmin: ' + user.isAdmin);
       
       if (user.isAdmin) {
         main.innerHTML = 
-          '<div class="section-container active" id="secDashboard">' + renderAdminDashboard() + '</div>' +
-          '<div class="section-container" id="secUsers">' + renderUsersSection() + '</div>' +
-          '<div class="section-container" id="secContacts">' + renderContactsSection() + '</div>' +
-          '<div class="section-container" id="secHistory"><div class="profile-card"><h2 style="color:var(--cream)">📜 Riwayat</h2><p style="color:var(--text-secondary);margin-top:8px">Coming soon...</p></div></div>';
+          '<div class="section-container active" id="secDashboard">' + renderAdminDash() + '</div>' +
+          '<div class="section-container" id="secUsers">' + renderUsers() + '</div>';
       } else {
         main.innerHTML = 
-          '<div class="section-container active" id="secDashboard">' + renderUserDashboard() + '</div>' +
-          '<div class="section-container" id="secContacts">' + renderContactsSection() + '</div>' +
-          '<div class="section-container" id="secCreate"><div class="steps-indicator" id="steps"></div><div id="createContent"></div></div>' +
-          '<div class="section-container" id="secHistory"><div class="profile-card"><h2 style="color:var(--cream)">📜 Riwayat</h2><p style="color:var(--text-secondary);margin-top:8px">Coming soon...</p></div></div>' +
-          '<div class="section-container" id="secTopup"><div class="profile-card"><h2 style="color:var(--cream)">💰 Top Up</h2><p style="color:var(--text-secondary);margin-top:8px">Coming soon...</p></div></div>';
+          '<div class="section-container active" id="secDashboard">' + renderUserDash() + '</div>' +
+          '<div class="section-container" id="secContacts"><div class="profile-card"><h3 style="color:var(--cream)">📇 Kontak</h3><p style="color:var(--text-secondary);margin-top:8px;font-size:13px">5 kontak contoh tersedia</p></div></div>' +
+          '<div class="section-container" id="secCreate"><div class="profile-card"><h3 style="color:var(--cream)">✉️ Buat Pesan</h3><p style="color:var(--text-secondary);margin-top:8px;font-size:13px">Fitur coming soon...</p></div></div>';
       }
+
+      document.getElementById('headerAvatar').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(user.name || 'demo');
+      document.getElementById('adminBadge').style.display = user.isAdmin ? 'inline-flex' : 'none';
     }
 
-    function renderAdminDashboard() {
+    function renderAdminDash() {
       var users = getUsers();
-      var pending = users.filter(function(u) { return !u.active; }).length;
       var total = users.length;
-      var active = users.filter(function(u) { return u.active; }).length;
-      var totalBalance = users.reduce(function(sum, u) { return sum + (u.balance || 0); }, 0);
+      var pending = 0, active = 0;
       
-      console.log('Dashboard - Total:', total, 'Pending:', pending, 'Active:', active);
-      
+      for (var i = 0; i < users.length; i++) {
+        if (users[i].active) active++; else pending++;
+      }
+
+      log('AdminDash - Total: ' + total + ', Pending: ' + pending);
+
       return '<div class="stats-grid">' +
         '<div class="stat-card"><div class="stat-icon users">👥</div><div class="stat-value">' + total + '</div><div class="stat-label">Total User</div></div>' +
-        '<div class="stat-card"><div class="stat-icon pending">⏳</div><div class="stat-value">' + pending + '</div><div class="stat-label">Menunggu Aktivasi</div></div>' +
-        '<div class="stat-card"><div class="stat-icon balance">✅</div><div class="stat-value">' + active + '</div><div class="stat-label">User Aktif</div></div>' +
-        '<div class="stat-card"><div class="stat-icon balance">💰</div><div class="stat-value">Rp ' + fmtNum(totalBalance) + '</div><div class="stat-label">Total Saldo</div></div>' +
+        '<div class="stat-card"><div class="stat-icon pending">⏳</div><div class="stat-value">' + pending + '</div><div class="stat-label">Pending</div></div>' +
+        '<div class="stat-card"><div class="stat-icon balance">✅</div><div class="stat-value">' + active + '</div><div class="stat-label">Aktif</div></div>' +
+        '<div class="stat-card"><div class="stat-icon balance">💰</div><div class="stat-value">Rp 0</div><div class="stat-label">Saldo</div></div>' +
       '</div>' +
-      '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">⏳ User Menunggu Aktivasi</h3>' + renderPendingUsers() + '</div>';
+      '<div class="profile-card"><h3 style="font-size:14px;margin-bottom:10px;color:var(--cream)">⏳ Menunggu Aktivasi</h3>' + renderPending() + '</div>';
     }
 
-    function renderPendingUsers() {
+    function renderPending() {
       var users = getUsers();
-      var pending = users.filter(function(u) { return !u.active; });
-      if (pending.length === 0) return '<p style="color:var(--text-secondary);font-size:13px">✅ Tidak ada user menunggu aktivasi.</p>';
-      
-      return pending.map(function(u) {
-        var date = u.createdAt ? new Date(u.createdAt).toLocaleDateString('id-ID') : '-';
-        return '<div class="user-item"><img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.seed || u.name) + '"><div class="user-item-info"><div class="user-item-name">' + escapeHtml(u.name) + '</div><div class="user-item-detail"><span>📧 ' + escapeHtml(u.email) + '</span><span>📱 ' + (u.phone || '-') + '</span></div><div class="user-item-date">📅 Daftar: ' + date + '</div></div><button class="btn btn-admin btn-sm" onclick="activateUser(' + u.id + ')">✓ Aktivasi</button></div>';
-      }).join('');
-    }
-
-    function renderUsersSection() {
-      return '<div class="profile-card"><h2 style="font-size:18px;margin-bottom:16px;color:var(--cream)">👥 Daftar Lengkap User</h2>' + renderAllUsers() + '</div>';
-    }
-
-    function renderAllUsers() {
-      var users = getUsers();
-      if (users.length === 0) return '<div class="empty-state"><div class="empty-state-icon">📭</div><p>Belum ada user terdaftar</p></div>';
-      
-      return '<div class="user-list"><div class="user-list-header"><span style="font-size:13px;font-weight:600;color:var(--cream)">📋 Daftar User (' + users.length + ')</span></div><div class="user-list-body">' + 
-        users.map(function(u) {
-          var date = u.createdAt ? new Date(u.createdAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }) : '-';
-          return '<div class="user-item"><img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.seed || u.name) + '"><div class="user-item-info"><div class="user-item-name">' + escapeHtml(u.name) + '</div><div class="user-item-detail"><span>📧 ' + escapeHtml(u.email) + '</span><span>📱 ' + (u.phone || '-') + '</span><span>💰 Rp ' + fmtNum(u.balance || 0) + '</span></div><div class="user-item-date">📅 ' + date + '</div></div>' + 
-            (u.active ? '<span class="status-badge status-active"><span class="status-dot"></span>Aktif</span>' : '<span class="status-badge status-inactive"><span class="status-dot"></span>Pending</span>') +
+      var list = '';
+      for (var i = 0; i < users.length; i++) {
+        if (!users[i].active) {
+          var u = users[i];
+          var date = u.createdAt ? new Date(u.createdAt).toLocaleDateString('id-ID') : '-';
+          list += '<div class="user-item">' +
+            '<img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.name) + '">' +
+            '<div class="user-item-info">' +
+              '<div class="user-item-name">' + u.name + '</div>' +
+              '<div class="user-item-detail">📧 ' + u.email + ' | 📱 ' + (u.phone || '-') + '</div>' +
+              '<div class="user-item-date">📅 ' + date + '</div>' +
+            '</div>' +
+            '<button class="btn btn-admin btn-sm" onclick="activateUser(' + u.id + ')">✓ Aktivasi</button>' +
           '</div>';
-        }).join('') + '</div></div>';
+        }
+      }
+      return list || '<p style="color:var(--text-secondary);font-size:12px">✅ Tidak ada user menunggu.</p>';
+    }
+
+    function renderUsers() {
+      var users = getUsers();
+      if (users.length === 0) return '<div class="profile-card"><div class="empty-state">📭 Belum ada user</div></div>';
+
+      var html = '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:10px;color:var(--cream)">👥 Daftar User (' + users.length + ')</h3><div class="user-list"><div class="user-list-header">Semua User</div><div class="user-list-body">';
+      
+      for (var i = 0; i < users.length; i++) {
+        var u = users[i];
+        var date = u.createdAt ? new Date(u.createdAt).toLocaleDateString('id-ID') : '-';
+        var status = u.active ? '<span class="status-badge status-active">Aktif</span>' : '<span class="status-badge status-inactive">Pending</span>';
+        html += '<div class="user-item">' +
+          '<img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.name) + '">' +
+          '<div class="user-item-info">' +
+            '<div class="user-item-name">' + u.name + '</div>' +
+            '<div class="user-item-detail">📧 ' + u.email + ' | 📱 ' + (u.phone || '-') + '</div>' +
+            '<div class="user-item-date">📅 ' + date + '</div>' +
+          '</div>' + status +
+        '</div>';
+      }
+      return html + '</div></div></div>';
+    }
+
+    function renderUserDash() {
+      var status = user.active ? '<span class="status-badge status-active" style="margin-top:8px">Aktif</span>' : '';
+      var notice = user.active ? '' : '<div class="notification-box"><div class="notification-content"><div class="notification-icon">⚠️</div><div class="notification-text"><div class="notification-title">Akun Belum Aktif</div><div class="notification-desc">Hubungi admin untuk aktivasi.</div><button class="btn btn-whatsapp btn-sm" onclick="contactAdmin()">📞 Hubungi Admin</button></div></div></div>';
+      
+      return '<div class="profile-card">' +
+        '<div class="profile-header">' +
+          '<img src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(user.name) + '" class="profile-avatar">' +
+          '<h2 class="profile-name font-display">' + user.name + '</h2>' +
+          '<p class="profile-email">' + user.email + '</p>' + status +
+        '</div>' +
+      '</div>' + notice;
     }
 
     function activateUser(id) {
       activateUserId = id;
       var users = getUsers();
-      var u = users.find(function(x) { return x.id === id; });
-      if (u) document.getElementById('activateName').textContent = u.name;
+      for (var i = 0; i < users.length; i++) {
+        if (users[i].id === id) { document.getElementById('activateName').textContent = users[i].name; break; }
+      }
       openModal('activate');
     }
 
     function confirmActivate() {
-      if (activateUserId) {
-        var users = getUsers();
-        var u = users.find(function(x) { return x.id === activateUserId; });
-        if (u) {
-          u.active = true;
-          saveUsers(users);
-          console.log('User activated:', u.email);
-        }
-        activateUserId = null;
+      if (!activateUserId) return;
+      var users = getUsers();
+      for (var i = 0; i < users.length; i++) {
+        if (users[i].id === activateUserId) { users[i].active = true; log('Activated: ' + users[i].email); break; }
       }
+      saveUsers(users);
+      activateUserId = null;
       closeModal('activate');
-      updateDash();
+      renderMain(); // Re-render to update counts
     }
 
-    function renderUserDashboard() {
-      return '<div class="profile-card">' +
-        '<div class="profile-header">' +
-          '<img src="' + (user.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(user.seed || 'demo')) + '" class="profile-avatar" id="profileAvatar">' +
-          '<h2 class="profile-name font-display">' + escapeHtml(user.name) + '</h2>' +
-          '<p class="profile-email">' + escapeHtml(user.email) + '</p>' +
-          (user.active ? '<span class="status-badge status-active" style="margin-top:8px"><span class="status-dot"></span>Aktif</span>' : '') +
-        '</div>' +
-      '</div>' +
-      (user.active ? '' : '<div class="notification-box"><div class="notification-content"><div class="notification-icon">⚠️</div><div class="notification-text"><div class="notification-title">Akun Belum Aktif</div><div class="notification-desc">Hubungi admin untuk aktivasi.</div><button class="btn btn-whatsapp" onclick="contactAdmin()">📞 Hubungi Admin</button></div></div></div>');
-    }
+    // ===================== MODALS =====================
+    function openModal(n) { var m = document.getElementById('modal' + n.charAt(0).toUpperCase() + n.slice(1)); if (m) m.classList.add('active'); }
+    function closeModal(n) { var m = document.getElementById('modal' + n.charAt(0).toUpperCase() + n.slice(1)); if (m) m.classList.remove('active'); }
 
-    function renderContactsSection() {
-      return '<div class="contacts-toolbar">' +
-        '<div class="search-box"><span class="search-icon">🔍</span><input type="text" class="search-input" id="searchInput" placeholder="Cari..." oninput="filterContacts()"></div>' +
-        '<button class="toolbar-btn primary" onclick="openModal(\'addContact\')">+ Tambah</button>' +
-        '<button class="toolbar-btn hidden" id="btnPickContact" onclick="pickContact()">📱 Ponsel</button>' +
-        '<button class="toolbar-btn" onclick="openModal(\'vcf\')">📁 Import</button>' +
-      '</div>' +
-      '<div class="contact-list"><div class="contact-list-header"><span style="font-size:13px;color:var(--cream)">Kontak</span><span class="contact-count" id="contactCount">0</span></div><div class="contact-list-body" id="contactBody"></div></div>';
-    }
+    // ===================== DROPDOWN =====================
+    function toggleDropdown() { document.getElementById('dropdown').classList.toggle('active'); }
+    document.addEventListener('click', function(e) { var d = document.getElementById('dropdown'); if (!d.contains(e.target) && e.target.id !== 'headerAvatar') d.classList.remove('active'); });
 
-    // ============ CONTACTS ============
-    function renderContacts() {
-      var b = document.getElementById('contactBody');
-      if (!b) return;
-      var q = document.getElementById('searchInput') ? document.getElementById('searchInput').value.toLowerCase() : '';
-      var f = contacts.filter(function(c) { return c.name.toLowerCase().indexOf(q) !== -1 || c.phone.indexOf(q) !== -1 || (c.email && c.email.toLowerCase().indexOf(q) !== -1); });
-      var countEl = document.getElementById('contactCount');
-      if (countEl) countEl.textContent = f.length;
-      if (!f.length) { b.innerHTML = '<div class="empty-state"><p>Tidak ada kontak</p></div>'; return; }
-      b.innerHTML = f.map(function(c) {
-        return '<div class="contact-item" onclick="openEdit(' + c.id + ')"><img class="contact-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(c.name) + '"><div class="contact-info"><div class="contact-name">' + escapeHtml(c.name) + '</div><div class="contact-detail">' + c.phone + '</div></div><div class="contact-actions" onclick="event.stopPropagation()"><button class="contact-action-btn" onclick="openEdit(' + c.id + ')">✏️</button><button class="contact-action-btn danger" onclick="openDel(' + c.id + ')">🗑</button></div></div>';
-      }).join('');
-    }
-    function filterContacts() { renderContacts(); }
-    function saveContact() { var n = document.getElementById('cName').value.trim(), p = document.getElementById('cPhone').value.trim(), e = document.getElementById('cEmail').value.trim(); if (!n || !p) { alert('Nama dan telepon wajib'); return; } contacts.push({ id: cId++, name: n, phone: '+62 ' + p.replace(/[^0-9]/g, ''), email: e }); closeModal('addContact'); document.getElementById('cName').value = ''; document.getElementById('cPhone').value = ''; document.getElementById('cEmail').value = ''; renderContacts(); }
-    function openEdit(id) { var c = contacts.find(function(x) { return x.id === id; }); if (!c) return; document.getElementById('editCId').value = id; document.getElementById('editCName').value = c.name; document.getElementById('editCPhone').value = c.phone.replace('+62 ', ''); document.getElementById('editCEmail').value = c.email || ''; openModal('editContact'); }
-    function updateContact() { var id = parseInt(document.getElementById('editCId').value), c = contacts.find(function(x) { return x.id === id; }); if (!c) return; c.name = document.getElementById('editCName').value.trim(); c.phone = '+62 ' + document.getElementById('editCPhone').value.replace(/[^0-9]/g, ''); c.email = document.getElementById('editCEmail').value.trim(); closeModal('editContact'); renderContacts(); }
-    function openDel(id) { var c = contacts.find(function(x) { return x.id === id; }); if (!c) return; delId = id; document.getElementById('delName').textContent = c.name; openModal('delete'); }
-    function confirmDelete() { if (delId) contacts = contacts.filter(function(x) { return x.id !== delId; }); delId = null; closeModal('delete'); renderContacts(); }
-    function handleVcf(ev) { var f = ev.target.files[0]; if (!f) return; var r = new FileReader(); r.onload = function(e) { vcfData = []; var ls = e.target.result.split('\n'), cur = null; for (var i = 0; i < ls.length; i++) { var l = ls[i].trim(); if (l === 'BEGIN:VCARD') cur = { name: '', phone: '', email: '' }; else if (l === 'END:VCARD' && cur) { if (cur.name || cur.phone) vcfData.push(cur); cur = null; } else if (cur) { if (l.indexOf('FN:') === 0) cur.name = l.substring(3); else if (l.indexOf('TEL') === 0) { var p = l.split(':'); cur.phone = p.length > 1 ? p[p.length - 1].replace(/[^0-9+]/g, '') : ''; } else if (l.indexOf('EMAIL') === 0) { var em = l.split(':'); cur.email = em.length > 1 ? em[em.length - 1] : ''; } } } renderVcfPreview(); }; r.readAsText(f); }
-    function renderVcfPreview() { var c = document.getElementById('vcfPreview'), l = document.getElementById('vcfList'); document.getElementById('vcfCount').textContent = vcfData.length; if (!vcfData.length) { c.style.display = 'none'; document.getElementById('btnImport').disabled = true; return; } c.style.display = 'block'; document.getElementById('btnImport').disabled = false; l.innerHTML = vcfData.map(function(v, i) { return '<div class="vcf-preview-item"><div class="vcf-checkbox checked" id="vcf' + i + '" onclick="this.classList.toggle(\'checked\')">✓</div><div class="vcf-preview-info"><div class="vcf-preview-name">' + (v.name || 'Unknown') + '</div><div class="vcf-preview-detail">' + (v.phone || '-') + '</div></div></div>'; }).join(''); }
-    function toggleAllVcf() { var all = document.querySelectorAll('[id^="vcf"]'), allChk = Array.from(all).every(function(c) { return c.classList.contains('checked'); }); all.forEach(function(c) { c.classList.toggle('checked', !allChk); }); }
-    function importVcf() { var sel = []; document.querySelectorAll('[id^="vcf"]').forEach(function(ch, i) { if (ch.classList.contains('checked') && vcfData[i]) sel.push({ id: cId++, name: vcfData[i].name || 'Unknown', phone: vcfData[i].phone || '', email: vcfData[i].email || '' }); }); contacts = contacts.concat(sel); closeModal('vcf'); vcfData = []; document.getElementById('vcfPreview').style.display = 'none'; document.getElementById('vcfFile').value = ''; renderContacts(); }
-    function handleAvatar(ev) { var f = ev.target.files[0]; if (!f) return; if (f.size > 700000) { var r = new FileReader(); r.onload = function(e) { var img = new Image(); img.onload = function() { var cv = document.createElement('canvas'), ctx = cv.getContext('2d'), max = 300, w = img.width, h = img.height; if (w > h) { if (w > max) { h = h * max / w; w = max; } } else { if (h > max) { w = w * max / h; h = max; } } cv.width = w; cv.height = h; ctx.drawImage(img, 0, 0, w, h); var q = 0.9, u = cv.toDataURL('image/jpeg', q); while (u.length > 700000 * 1.37 && q > 0.1) { q -= 0.1; u = cv.toDataURL('image/jpeg', q); } pAvatar = u; document.getElementById('avatarPreview').src = u; document.getElementById('avatarSeed').value = ''; }; img.src = e.target.result; }; r.readAsDataURL(f); } else { var r2 = new FileReader(); r2.onload = function(e) { pAvatar = e.target.result; document.getElementById('avatarPreview').src = e.target.result; document.getElementById('avatarSeed').value = ''; }; r2.readAsDataURL(f); } }
-    function updateAvatarPreview() { pAvatar = null; document.getElementById('avatarPreview').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(document.getElementById('avatarSeed').value || 'demo'); }
-    function saveAvatar() { var s = document.getElementById('avatarSeed').value.trim(); if (pAvatar) { user.avatar = pAvatar; user.seed = s || 'custom'; } else if (s) { user.avatar = null; user.seed = s; } else { alert('Pilih foto atau nama'); return; } saveSession(user); updateDash(); closeModal('editAvatar'); pAvatar = null; document.getElementById('avatarSeed').value = ''; }
+    // ===================== LOGOUT =====================
+    function logout() { openModal('logout'); }
+    function doLogout() { closeModal('logout'); clearSession(); user = { name: '', email: '', isAdmin: false, active: false }; document.getElementById('appLayout').classList.remove('active'); document.getElementById('authContainer').classList.remove('hidden'); }
 
-    // ============ CREATE MESSAGE ============
-    function renderCreate() { if (!user.active) { document.getElementById('steps').innerHTML = ''; document.getElementById('createContent').innerHTML = '<div class="notification-box"><div class="notification-content"><div class="notification-icon">⚠️</div><div class="notification-text"><div class="notification-title">Akun Belum Aktif</div><div class="notification-desc">Aktifkan akun untuk kirim pesan.</div><button class="btn btn-whatsapp" onclick="contactAdmin()">Hubungi Admin</button></div></div></div>'; return; } renderSteps(); renderStep(); }
-    function renderSteps() { var st = [{ n: 1, l: 'Sumber' }, { n: 2, l: 'Penerima' }, { n: 3, l: 'Pesan' }, { n: 4, l: 'Preview' }, { n: 5, l: 'Kirim' }]; document.getElementById('steps').innerHTML = st.map(function(s, i) { var a = msg.step === s.n, c = msg.step > s.n; return '<div class="step-item' + (a ? ' active' : '') + (c ? ' completed' : '') + '"><div class="step-number">' + (c ? '✓' : s.n) + '</div><span class="step-label">' + s.l + '</span></div>' + (i < 4 ? '<div class="step-connector"></div>' : ''); }).join(''); }
-    function renderStep() { var h = ''; if (msg.step === 1) h = renderSrc(); else if (msg.step === 2) h = renderRec(); else if (msg.step === 3) h = renderComp(); else if (msg.step === 4) h = renderPrev(); else if (msg.step === 5) h = renderRes(); document.getElementById('createContent').innerHTML = h; }
-    function renderSrc() { return '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">Pilih Sumber</h3><div class="source-grid"><div class="source-card' + (msg.src === 'manual' ? ' selected' : '') + '" onclick="setSrc(\'manual\')"><div class="source-icon manual">✏️</div><div class="source-name">Manual</div></div><div class="source-card' + (msg.src === 'contacts' ? ' selected' : '') + '" onclick="setSrc(\'contacts\')"><div class="source-icon contact">👥</div><div class="source-name">Kontak</div></div><div class="source-card' + (msg.src === 'vcf' ? ' selected' : '') + '" onclick="setSrc(\'vcf\')"><div class="source-icon vcf">📁</div><div class="source-name">Import</div></div><div class="source-card ' + (isAndroid() ? '' : 'disabled') + (msg.src === 'phone' ? ' selected' : '') + '" onclick="' + (isAndroid() ? 'setSrc(\'phone\')' : '') + '"><div class="source-icon phone">📱</div><div class="source-name">Ponsel</div></div></div><div style="text-align:right;margin-top:16px"><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="nextStep()" ' + (!msg.src ? 'disabled' : '') + '>Lanjut</button></div></div>'; }
-    function setSrc(s) { msg.src = s; msg.rec = []; renderSteps(); renderStep(); }
-    function nextStep() { if (msg.step === 2 && !msg.rec.length) { alert('Tambah penerima'); return; } if (msg.step === 3 && (!msg.ch || !msg.body.trim())) { alert('Pilih channel dan tulis pesan'); return; } msg.step++; renderSteps(); renderStep(); }
-    function prevStep() { msg.step--; renderSteps(); renderStep(); }
-    function renderRec() { var add = ''; if (msg.src === 'manual') add = '<div style="display:grid;gap:10px;margin-bottom:12px"><input type="text" class="form-input" id="mn" placeholder="Nama"><div class="phone-input-group"><input class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="mp" placeholder="812-xxxx-xxxx"></div><input type="email" class="form-input" id="me" placeholder="Email"></div><button class="btn btn-secondary" onclick="addMan()">Tambah</button>'; else if (msg.src === 'contacts') add = '<div style="max-height:120px;overflow-y:auto;margin-bottom:12px">' + contacts.map(function(c) { var sel = msg.rec.some(function(r) { return r.id === c.id; }); return '<div class="contact-item" onclick="togRec(' + c.id + ')" style="background:' + (sel ? 'rgba(0,212,170,0.1)' : '') + '"><img class="contact-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(c.name) + '"><div class="contact-info"><div class="contact-name">' + escapeHtml(c.name) + '</div><div class="contact-detail">' + c.phone + '</div></div><div class="vcf-checkbox ' + (sel ? 'checked' : '') + '">✓</div></div>'; }).join('') + '</div>'; else if (msg.src === 'phone') add = '<div style="text-align:center;padding:16px"><button class="btn btn-primary" style="width:auto;padding:12px 24px" onclick="pickForMsg()">Ambil dari Ponsel</button></div>'; else if (msg.src === 'vcf') add = '<div class="vcf-upload-zone" onclick="document.getElementById(\'mv\').click()"><input type="file" id="mv" accept=".vcf" style="display:none" onchange="handleMsgVcf(event)"><div style="color:var(--cream)">📁</div><div style="font-size:11px;color:var(--text-secondary)">Upload VCF</div></div><div id="ml"></div>'; return '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">Penerima</h3>' + add + '<div class="recipient-section"><div class="recipient-header"><span class="recipient-title">Daftar</span><span class="recipient-count">' + msg.rec.length + '</span></div><div class="recipient-body">' + (msg.rec.length ? msg.rec.map(function(r) { return '<div class="recipient-item"><img class="recipient-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(r.name) + '"><div class="recipient-info"><div class="recipient-name">' + escapeHtml(r.name) + '</div><div class="recipient-detail">' + r.phone + '</div></div><button class="recipient-remove" onclick="rmRec(' + r.id + ')">×</button></div>'; }).join('') : '<div class="empty-state" style="padding:20px">Belum ada</div>') + '</div></div><div style="display:flex;justify-content:space-between;margin-top:16px"><button class="btn btn-secondary" style="width:auto;padding:10px 20px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="nextStep()">Lanjut</button></div></div>'; }
-    function addMan() { var n = document.getElementById('mn').value.trim(), p = document.getElementById('mp').value.trim(), e = document.getElementById('me').value.trim(); if (!n || !p) { alert('Nama dan telepon wajib'); return; } msg.rec.push({ id: Date.now(), name: n, phone: '+62' + p.replace(/[^0-9]/g, ''), email: e }); renderStep(); }
-    function togRec(id) { var c = contacts.find(function(x) { return x.id === id; }); if (!c) return; var idx = msg.rec.findIndex(function(r) { return r.id === id; }); if (idx >= 0) msg.rec.splice(idx, 1); else msg.rec.push({ id: c.id, name: c.name, phone: c.phone, email: c.email }); renderStep(); }
-    async function pickForMsg() { if (!('contacts' in navigator)) return; try { var s = await navigator.contacts.select(['name', 'tel', 'email'], { multiple: true }); s.forEach(function(c) { msg.rec.push({ id: Date.now() + Math.random(), name: c.name ? c.name.join(' ') : 'Unknown', phone: c.tel ? c.tel[0] : '', email: c.email ? c.email[0] : '' }); }); renderStep(); } catch (e) {} }
-    function handleMsgVcf(ev) { var f = ev.target.files[0]; if (!f) return; var r = new FileReader(); r.onload = function(e) { var ls = e.target.result.split('\n'), cur = null, psd = []; for (var i = 0; i < ls.length; i++) { var l = ls[i].trim(); if (l === 'BEGIN:VCARD') cur = { name: '', phone: '' }; else if (l === 'END:VCARD' && cur) { if (cur.name || cur.phone) psd.push(cur); cur = null; } else if (cur) { if (l.indexOf('FN:') === 0) cur.name = l.substring(3); else if (l.indexOf('TEL') === 0) { var p = l.split(':'); cur.phone = p.length > 1 ? p[p.length - 1].replace(/[^0-9+]/g, '') : ''; } } } document.getElementById('ml').innerHTML = '<div style="margin-top:10px">' + psd.map(function(c) { return '<div class="contact-item" onclick="addV(\'' + encodeURIComponent(c.name || '') + '\',\'' + c.phone + '\')"><img class="contact-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(c.name || 'x') + '"><div class="contact-info"><div class="contact-name">' + (c.name || 'Unknown') + '</div><div class="contact-detail">' + c.phone + '</div></div><span style="color:var(--accent)">+</span></div>'; }).join('') + '</div>'; }; r.readAsText(f); }
-    function addV(n, p) { msg.rec.push({ id: Date.now(), name: decodeURIComponent(n), phone: p, email: '' }); renderStep(); }
-    function rmRec(id) { msg.rec = msg.rec.filter(function(r) { return r.id !== id; }); renderStep(); }
-    function renderComp() { return '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">Tulis Pesan</h3><div class="channel-grid"><div class="channel-card' + (msg.ch === 'sms' ? ' selected' : '') + '" onclick="setCh(\'sms\')"><div class="channel-icon sms">💬</div><div class="channel-name">SMS</div><div class="channel-cost">Rp 500</div></div><div class="channel-card' + (msg.ch === 'telegram' ? ' selected' : '') + '" onclick="setCh(\'telegram\')"><div class="channel-icon telegram">✈️</div><div class="channel-name">Telegram</div><div class="channel-cost">Rp 200</div></div><div class="channel-card' + (msg.ch === 'email' ? ' selected' : '') + '" onclick="setCh(\'email\')"><div class="channel-icon email">📧</div><div class="channel-name">Email</div><div class="channel-cost">Rp 100</div></div></div>' + (msg.ch === 'email' ? '<div class="form-group" style="margin-top:12px"><label class="form-label">Subjek</label><input type="text" class="form-input" id="subj" value="' + (msg.subj || '') + '"></div>' : '') + '<div class="form-group" style="margin-top:12px"><label class="form-label">Pesan</label><textarea class="message-textarea" id="body" placeholder="Tulis pesan..." oninput="msg.body=this.value">' + (msg.body || '') + '</textarea><div class="char-count">' + (msg.body ? msg.body.length : 0) + ' karakter</div></div><div class="media-upload-zone" onclick="document.getElementById(\'mf\').click()"><input type="file" id="mf" accept="image/*,video/*" style="display:none" onchange="handleMed(event)"><div style="color:var(--cream)">🖼️</div><div style="font-size:10px;color:var(--text-secondary)">Gambar 1MB, Video 5MB</div></div><div class="media-preview" id="mp"></div><div style="display:flex;justify-content:space-between;margin-top:16px"><button class="btn btn-secondary" style="width:auto;padding:10px 20px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="nextStep()">Lanjut</button></div></div>'; }
-    function setCh(c) { msg.ch = c; renderStep(); }
-    function handleMed(ev) { var f = ev.target.files[0]; if (!f) return; var isImg = f.type.startsWith('image/'), max = isImg ? 1000000 : 5000000; if (f.size > max) { if (isImg) { var r = new FileReader(); r.onload = function(e) { var img = new Image(); img.onload = function() { var cv = document.createElement('canvas'), ctx = cv.getContext('2d'), m = 1280, w = img.width, h = img.height; if (w > h) { if (w > m) { h = h * m / w; w = m; } } else { if (h > m) { w = w * m / h; h = m; } } cv.width = w; cv.height = h; ctx.drawImage(img, 0, 0, w, h); var q = 0.9, u = cv.toDataURL('image/jpeg', q); while (u.length > 1000000 * 1.37 && q > 0.1) { q -= 0.1; u = cv.toDataURL('image/jpeg', q); } pMedia = u; document.getElementById('mp').innerHTML = '<div class="media-preview-item"><img src="' + u + '"><button class="media-remove" onclick="rmMed()">×</button></div>'; }; img.src = e.target.result; }; r.readAsDataURL(f); } else { alert('Video maksimal 5MB'); return; } } else { var r2 = new FileReader(); r2.onload = function(e) { pMedia = e.target.result; var t = f.type.startsWith('video/') ? 'video' : 'img'; document.getElementById('mp').innerHTML = '<div class="media-preview-item">' + (t === 'video' ? '<video src="' + pMedia + '" style="width:100%;height:100%;object-fit:cover"></video>' : '<img src="' + pMedia + '">') + '<button class="media-remove" onclick="rmMed()">×</button></div>'; }; r2.readAsDataURL(f); } }
-    function rmMed() { pMedia = null; document.getElementById('mp').innerHTML = ''; }
-    function renderPrev() { if (msg.ch === 'email') msg.subj = document.getElementById('subj').value; var cost = msg.ch === 'sms' ? 500 : msg.ch === 'telegram' ? 200 : 100; return '<div class="preview-card"><div class="preview-header"><span class="preview-title">Preview</span></div><div class="preview-body">' + msg.rec.map(function(r) { return '<div class="preview-recipient"><img class="recipient-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(r.name) + '"><div class="recipient-info"><div class="recipient-name">' + escapeHtml(r.name) + '</div><div class="recipient-detail">' + r.phone + '</div></div></div>'; }).join('') + '<div class="preview-message"><div class="preview-message-text">' + (msg.ch === 'email' ? '<strong>Subjek:</strong> ' + (msg.subj || '-') + '<br><br>' : '') + escapeHtml(msg.body) + '</div></div>' + (pMedia ? '<div><img src="' + pMedia + '" style="max-width:100%;border-radius:8px"></div>' : '') + '<div class="summary-grid"><div class="summary-item"><div class="summary-label">Channel</div><div class="summary-value accent">' + (msg.ch === 'sms' ? 'SMS' : msg.ch === 'telegram' ? 'Telegram' : 'Email') + '</div></div><div class="summary-item"><div class="summary-label">Penerima</div><div class="summary-value">' + msg.rec.length + '</div></div><div class="summary-item"><div class="summary-label">Biaya</div><div class="summary-value accent">Rp ' + fmtNum(cost * msg.rec.length) + '</div></div><div class="summary-item"><div class="summary-label">Estimasi</div><div class="summary-value">Segera</div></div></div></div></div><div style="display:flex;justify-content:space-between;margin-top:12px"><button class="btn btn-secondary" style="width:auto;padding:10px 20px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="sendMsg()">Kirim</button></div>'; }
-    function sendMsg() { msg.step = 5; renderSteps(); document.getElementById('createContent').innerHTML = '<div class="result-card"><div class="result-icon success">✓</div><h3 class="result-title">Mengirim...</h3></div>'; setTimeout(function() { msg.result = { ok: true }; renderStep(); }, 2000); }
-    function renderRes() { if (!msg.result) return '<div class="result-card"><div class="result-icon success">✓</div><h3 class="result-title">Mengirim...</h3></div>'; return '<div class="result-card"><div class="result-icon success">✓</div><h3 class="result-title">Terkirim!</h3><p class="result-desc">Pesan berhasil dikirim ke ' + msg.rec.length + ' penerima via ' + (msg.ch === 'sms' ? 'SMS' : msg.ch === 'telegram' ? 'Telegram' : 'Email') + '</p><button class="btn btn-primary" style="width:auto;padding:12px 24px" onclick="resetMsg()">Buat Pesan Baru</button></div>'; }
-    function resetMsg() { msg = { step: 1, src: null, rec: [], ch: null, subj: '', body: '', result: null }; pMedia = null; renderSteps(); renderStep(); }
-
-    // ============ FORM SUBMISSION ============
-    document.getElementById('loginForm').onsubmit = function(e) {
-      e.preventDefault();
-      hideAlerts();
-      var em = document.getElementById('loginEmail').value.trim();
-      var pw = document.getElementById('loginPassword').value;
-      var btn = document.getElementById('loginBtn');
-
-      if (!em) { showErr('loginEmail', 'Wajib'); return; }
-      if (!validEmail(em)) { showErr('loginEmail', 'Format salah'); return; }
-      if (!pw) { showErr('loginPassword', 'Wajib'); return; }
-
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span>';
-
-      setTimeout(function() {
-        // Check admin
-        if (em === ADMIN_EMAIL && pw === ADMIN_PASSWORD) {
-          user.email = em;
-          user.name = 'Admin';
-          user.seed = 'admin';
-          user.isAdmin = true;
-          user.active = true;
-          saveSession(user);
-          showAlert('success', 'Login Admin berhasil!');
-          setTimeout(showApp, 500);
-        } else {
-          // Check regular user
-          var users = getUsers();
-          var foundUser = users.find(function(u) { return u.email === em; });
-          
-          console.log('Looking for:', em, 'Found:', foundUser ? foundUser.name : 'Not found');
-          
-          if (foundUser) {
-            if (!foundUser.active) {
-              showAlert('error', 'Akun belum aktif. Hubungi admin: wa.me/6285161990373');
-              btn.disabled = false;
-              btn.innerHTML = '<span>Masuk</span>';
-              return;
-            }
-            user.email = foundUser.email;
-            user.name = foundUser.name;
-            user.seed = foundUser.seed || foundUser.name;
-            user.active = foundUser.active;
-            user.balance = foundUser.balance || 0;
-            saveSession(user);
-            showAlert('success', 'Login berhasil!');
-            setTimeout(showApp, 500);
-          } else {
-            showAlert('error', 'Email tidak terdaftar. Silakan daftar dulu.');
-            btn.disabled = false;
-            btn.innerHTML = '<span>Masuk</span>';
-            return;
-          }
-        }
-        btn.disabled = false;
-        btn.innerHTML = '<span>Masuk</span>';
-      }, 1000);
-    };
-
-    document.getElementById('registerForm').onsubmit = function(e) {
-      e.preventDefault();
-      hideAlerts();
-      var n = document.getElementById('regName').value.trim();
-      var em = document.getElementById('regEmail').value.trim();
-      var ph = document.getElementById('regPhone').value.trim();
-      var pw = document.getElementById('regPassword').value;
-      var pw2 = document.getElementById('regPassword2').value;
-      var btn = document.getElementById('regBtn');
-
-      if (!n || n.length < 3) { showErr('regName', 'Min 3 karakter'); return; }
-      if (!em || !validEmail(em)) { showErr('regEmail', 'Email tidak valid'); return; }
-      if (!ph || !validPhone(ph)) { showErr('regPhone', 'Tidak valid'); return; }
-      if (!pw || pw.length < 8) { showErr('regPassword', 'Min 8 karakter'); return; }
-      if (pw !== pw2) { showErr('regPassword2', 'Tidak cocok'); return; }
-
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span>';
-
-      setTimeout(function() {
-        var added = addUserToStorage({
-          name: n,
-          email: em,
-          phone: '+62 ' + ph.replace(/[^0-9]/g, ''),
-          seed: n
-        });
-        
-        if (added) {
-          showAlert('success', '✅ Pendaftaran berhasil!\n\n📧 Email: ' + em + '\n\n🔔 Hubungi admin untuk aktivasi:\nwa.me/6285161990373');
-          document.getElementById('registerForm').reset();
-          setTimeout(switchTab, 3000, 'login');
-        } else {
-          showAlert('error', 'Email sudah terdaftar. Silakan login.');
-          setTimeout(switchTab, 2000, 'login');
-        }
-        btn.disabled = false;
-        btn.innerHTML = '<span>Daftar</span>';
-      }, 1500);
-    };
-
-    function fmtPh(e) { var v = e.target.value.replace(/[^0-9]/g, ''); if (v.length > 12) v = v.substring(0, 12); if (v.length > 6) v = v.substring(0, 3) + '-' + v.substring(3, 7) + '-' + v.substring(7); else if (v.length > 3) v = v.substring(0, 3) + '-' + v.substring(3); e.target.value = v; }
-    document.getElementById('regPhone').oninput = fmtPh;
-    document.getElementById('cPhone').oninput = fmtPh;
-    document.getElementById('editCPhone').oninput = fmtPh;
-
-    function submitForgot() { var em = document.getElementById('forgotEmail').value.trim(); if (!em || !validEmail(em)) { alert('Email valid wajib'); return; } closeModal('forgotPassword'); showAlert('success', 'Link reset terkirim ke ' + em); document.getElementById('forgotEmail').value = ''; }
-    document.querySelectorAll('.form-input').forEach(function(i) { i.onfocus = function() { this.style.borderColor = ''; var e = document.getElementById(this.id + 'Error'); if (e) { e.textContent = ''; e.classList.remove('show'); } }; });
-    document.onkeydown = function(e) { if (e.key === 'Escape') { document.querySelectorAll('.modal-overlay').forEach(function(m) { m.classList.remove('active'); }); document.getElementById('dropdown').classList.remove('active'); } };
-    if (isAndroid()) { var pickBtn = document.getElementById('btnPickContact'); if (pickBtn) pickBtn.classList.remove('hidden'); }
-    async function pickContact() { if (!('contacts' in navigator)) return; try { var s = await navigator.contacts.select(['name', 'tel', 'email'], { multiple: false }); if (s && s[0]) { document.getElementById('cName').value = s[0].name ? s[0].name.join(' ') : ''; document.getElementById('cPhone').value = s[0].tel ? s[0].tel[0].replace(/[^0-9]/g, '').substring(0, 12) : ''; document.getElementById('cEmail').value = s[0].email ? s[0].email[0] : ''; openModal('addContact'); } } catch (e) {} }
-
-    console.log('cekdulu! loaded - Session persist enabled');
+    log('Script ready');
   </script>
 </body>
 </html>
