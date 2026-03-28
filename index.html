@@ -4,597 +4,602 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>cekdulu!</title>
-  <!-- Tailwind CDN - OK untuk testing, nanti ganti ke production -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-primary: #1a1a1a;
-      --bg-secondary: #242424;
-      --bg-card: #2d2d2d;
-      --bg-input: #1f1f1f;
-      --card-border: rgba(255,255,255,0.08);
+      --bg: #1a1a1a;
+      --card: #2d2d2d;
+      --border: rgba(255,255,255,0.1);
       --accent: #00d4aa;
-      --text-primary: #ffffff;
-      --text-secondary: #b0b0b0;
-      --text-muted: #707070;
-      --danger: #ff5c5c;
-      --success: #00d4aa;
-      --whatsapp: #25d366;
-      --cream: #d4c4a8;
-      --admin: #ff9500;
+      --text: #ffffff;
+      --muted: #888;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg-primary); min-height: 100vh; color: var(--text-primary); }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
     .font-display { font-family: 'Space Grotesk', sans-serif; }
-
-    .auth-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-    .auth-container.hidden { display: none; }
-    .auth-card { width: 100%; max-width: 400px; background: var(--bg-card); border-radius: 18px; border: 1px solid var(--card-border); overflow: hidden; }
-    .auth-header { padding: 26px 26px 18px; text-align: center; border-bottom: 1px solid var(--card-border); }
-    .auth-logo { width: 48px; height: 48px; margin: 0 auto 10px; background: linear-gradient(135deg, var(--accent), #00a888); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; }
-    .auth-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-    .auth-subtitle { font-size: 12px; color: var(--text-secondary); }
-    .auth-body { padding: 18px 26px 26px; }
-    .auth-tabs { display: flex; gap: 4px; padding: 4px; background: var(--bg-secondary); border-radius: 10px; margin-bottom: 18px; }
-    .auth-tab { flex: 1; padding: 10px; border: none; background: transparent; color: var(--text-secondary); font-size: 13px; font-weight: 600; cursor: pointer; border-radius: 8px; }
-    .auth-tab.active { background: var(--bg-card); color: var(--accent); }
-    .auth-form { display: none; }
-    .auth-form.active { display: block; }
-
-    .form-group { margin-bottom: 14px; }
-    .form-label { display: block; font-size: 12px; font-weight: 500; color: var(--text-secondary); margin-bottom: 5px; }
-    .form-input { width: 100%; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--bg-input); color: var(--text-primary); font-size: 14px; }
-    .form-input:focus { outline: none; border-color: var(--accent); }
-    .form-input::placeholder { color: var(--text-muted); }
-    .form-error { font-size: 11px; color: var(--danger); margin-top: 4px; display: none; }
-    .form-error.show { display: block; }
-    .phone-input-group { display: flex; gap: 6px; }
-    .phone-prefix { width: 55px; text-align: center; background: var(--bg-secondary); color: var(--text-secondary); }
-
-    .password-wrapper { position: relative; }
-    .password-input { padding-right: 38px !important; }
-    .password-toggle { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 14px; }
-
-    .btn { width: 100%; padding: 12px 16px; border-radius: 8px; border: none; font-size: 14px; font-weight: 600; cursor: pointer; font-family: inherit; display: flex; align-items: center; justify-content: center; gap: 6px; }
-    .btn-primary { background: linear-gradient(135deg, var(--accent), #00a888); color: var(--bg-primary); }
-    .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
-    .btn-whatsapp { background: var(--whatsapp); color: white; }
-    .btn-admin { background: var(--admin); color: var(--bg-primary); }
-    .btn-danger { background: var(--danger); color: white; }
-    .btn-sm { padding: 6px 12px; font-size: 11px; width: auto; }
-    .btn-secondary { background: rgba(255,255,255,0.05); color: var(--text-primary); border: 1px solid var(--card-border); }
-
-    .divider { display: flex; align-items: center; gap: 10px; margin: 14px 0; color: var(--text-muted); font-size: 11px; }
-    .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--card-border); }
-    .auth-footer { text-align: center; padding-top: 12px; }
-    .auth-link { color: var(--accent); font-size: 12px; font-weight: 500; cursor: pointer; }
-
-    .alert { padding: 10px 12px; border-radius: 8px; font-size: 12px; margin-bottom: 14px; display: none; }
-    .alert.show { display: flex; align-items: center; gap: 8px; }
-    .alert-success { background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.2); color: var(--success); }
-    .alert-error { background: rgba(255,92,92,0.1); border: 1px solid rgba(255,92,92,0.2); color: var(--danger); }
-    .spinner { width: 14px; height: 14px; border: 2px solid transparent; border-top-color: currentColor; border-radius: 50%; animation: spin 0.8s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .app-layout { display: none; min-height: 100vh; flex-direction: column; }
-    .app-layout.active { display: flex; }
-    .app-header { background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-    .header-title { font-size: 16px; font-weight: 700; color: var(--cream); }
-    .header-left { display: flex; align-items: center; gap: 10px; }
-    .admin-badge { background: var(--admin); color: var(--bg-primary); padding: 3px 8px; border-radius: 16px; font-size: 10px; font-weight: 700; }
-    .user-avatar { width: 34px; height: 34px; border-radius: 50%; cursor: pointer; }
-    .avatar-dropdown { position: absolute; top: 52px; right: 14px; min-width: 130px; background: var(--bg-card); border: 1px solid var(--card-border); border-radius: 10px; display: none; overflow: hidden; z-index: 200; }
-    .avatar-dropdown.active { display: block; }
-    .dropdown-item { padding: 10px 14px; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    
+    /* Auth */
+    .auth-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .auth-box { width: 100%; max-width: 380px; background: var(--card); border-radius: 16px; border: 1px solid var(--border); padding: 24px; }
+    .auth-logo { width: 48px; height: 48px; background: var(--accent); border-radius: 12px; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+    .auth-title { text-align: center; font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+    .tabs { display: flex; gap: 4px; background: #1f1f1f; padding: 4px; border-radius: 8px; margin-bottom: 16px; }
+    .tab { flex: 1; padding: 10px; border: none; background: transparent; color: var(--muted); border-radius: 6px; cursor: pointer; font-weight: 600; }
+    .tab.active { background: var(--card); color: var(--accent); }
+    .form { display: none; }
+    .form.active { display: block; }
+    .input { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border); background: #1f1f1f; color: var(--text); margin-bottom: 12px; font-size: 14px; }
+    .input:focus { outline: none; border-color: var(--accent); }
+    .btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-bottom: 10px; }
+    .btn-main { background: var(--accent); color: #000; }
+    .btn-wa { background: #25d366; color: #fff; }
+    .btn-orange { background: #ff9500; color: #000; }
+    .btn-red { background: #ff5c5c; color: #fff; }
+    .alert { padding: 10px 12px; border-radius: 6px; margin-bottom: 12px; font-size: 13px; display: none; }
+    .alert.show { display: block; }
+    .alert-ok { background: rgba(0,212,170,0.15); color: var(--accent); }
+    .alert-err { background: rgba(255,92,92,0.15); color: #ff5c5c; }
+    .phone-row { display: flex; gap: 6px; }
+    .phone-pre { width: 55px; text-align: center; background: #242424; color: var(--muted); }
+    .link { color: var(--accent); cursor: pointer; font-size: 13px; }
+    .divider { text-align: center; color: var(--muted); font-size: 12px; margin: 12px 0; position: relative; }
+    .divider::before, .divider::after { content: ''; position: absolute; top: 50%; width: 40%; height: 1px; background: var(--border); }
+    .divider::before { left: 0; }
+    .divider::after { right: 0; }
+    
+    /* App */
+    .app-page { display: none; min-height: 100vh; }
+    .app-page.show { display: block; }
+    .header { background: #242424; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); position: sticky; top: 0; }
+    .header-title { font-weight: 700; color: #d4c4a8; }
+    .badge { background: #ff9500; color: #000; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; margin-left: 8px; }
+    .avatar { width: 34px; height: 34px; border-radius: 50%; cursor: pointer; }
+    .dropdown { position: absolute; top: 50px; right: 14px; background: var(--card); border: 1px solid var(--border); border-radius: 8px; display: none; min-width: 120px; }
+    .dropdown.open { display: block; }
+    .dropdown-item { padding: 10px 14px; cursor: pointer; font-size: 13px; }
     .dropdown-item:hover { background: rgba(255,255,255,0.05); }
-    .dropdown-item.danger { color: var(--danger); border-top: 1px solid var(--card-border); }
-    .nav-menu { display: flex; gap: 4px; padding: 6px 14px; background: var(--bg-primary); border-bottom: 1px solid var(--card-border); overflow-x: auto; }
-    .nav-item { padding: 6px 12px; border-radius: 6px; background: transparent; border: 1px solid transparent; color: var(--text-secondary); font-size: 12px; font-weight: 500; cursor: pointer; white-space: nowrap; }
-    .nav-item.active { background: rgba(212,196,168,0.1); border-color: var(--cream); color: var(--cream); }
-    .nav-item.admin-nav.active { background: rgba(255,149,0,0.1); border-color: var(--admin); color: var(--admin); }
-    .app-main { flex: 1; padding: 14px; }
-    .section-container { display: none; }
-    .section-container.active { display: block; }
-    .profile-card { background: var(--bg-card); border-radius: 14px; border: 1px solid var(--card-border); padding: 18px; margin-bottom: 14px; }
-    .profile-header { text-align: center; margin-bottom: 16px; }
-    .profile-avatar { width: 64px; height: 64px; border-radius: 50%; margin-bottom: 10px; }
-    .profile-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
-    .profile-email { font-size: 12px; color: var(--text-secondary); }
-    .status-badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 8px; border-radius: 16px; font-size: 10px; font-weight: 600; border: 1px solid; }
-    .status-active { background: rgba(0,212,170,0.1); border-color: var(--success); color: var(--success); }
-    .status-inactive { background: rgba(212,196,168,0.1); border-color: var(--cream); color: var(--cream); }
-
-    .notification-box { background: var(--bg-card); border-radius: 14px; border: 1px solid var(--cream); padding: 14px; margin-bottom: 14px; }
-    .notification-content { display: flex; align-items: center; gap: 10px; }
-    .notification-icon { width: 34px; height: 34px; border-radius: 8px; background: rgba(212,196,168,0.15); color: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 16px; }
-    .notification-text { flex: 1; }
-    .notification-title { font-size: 13px; font-weight: 600; margin-bottom: 3px; color: var(--cream); }
-    .notification-desc { font-size: 12px; color: var(--text-secondary); margin-bottom: 10px; }
-
-    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 14px; }
-    .stat-card { background: var(--bg-card); border-radius: 12px; border: 1px solid var(--card-border); padding: 14px; }
-    .stat-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; font-size: 14px; }
-    .stat-icon.users { background: rgba(255,149,0,0.15); }
-    .stat-icon.pending { background: rgba(255,184,77,0.15); }
-    .stat-icon.balance { background: rgba(0,212,170,0.15); }
-    .stat-value { font-size: 20px; font-weight: 700; margin-bottom: 2px; }
-    .stat-label { font-size: 10px; color: var(--text-secondary); }
-
-    .user-list { background: var(--bg-card); border-radius: 12px; border: 1px solid var(--card-border); overflow: hidden; }
-    .user-list-header { padding: 10px 14px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); font-size: 12px; font-weight: 600; color: var(--cream); }
-    .user-list-body { max-height: 350px; overflow-y: auto; }
-    .user-item { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--card-border); }
-    .user-item:last-child { border-bottom: none; }
-    .user-item-avatar { width: 36px; height: 36px; border-radius: 50%; }
-    .user-item-info { flex: 1; min-width: 0; }
-    .user-item-name { font-size: 13px; font-weight: 600; margin-bottom: 2px; }
-    .user-item-detail { font-size: 11px; color: var(--text-muted); }
-    .user-item-date { font-size: 10px; color: var(--text-muted); margin-top: 2px; }
-
-    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 1000; padding: 16px; }
-    .modal-overlay.active { display: flex; }
-    .modal-content { width: 100%; max-width: 340px; background: var(--bg-card); border-radius: 14px; border: 1px solid var(--card-border); max-height: 85vh; overflow-y: auto; }
-    .modal-header { padding: 16px 18px; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; justify-content: space-between; }
-    .modal-title { font-size: 15px; font-weight: 600; color: var(--cream); }
-    .modal-close { width: 26px; height: 26px; border-radius: 50%; background: transparent; border: 1px solid var(--cream); color: var(--cream); cursor: pointer; font-size: 16px; }
-    .modal-body { padding: 16px 18px; }
-    .modal-footer { padding: 12px 18px 18px; display: flex; gap: 8px; }
-    .modal-footer .btn { flex: 1; }
-
-    .empty-state { padding: 24px 14px; text-align: center; color: var(--text-muted); font-size: 13px; }
-
-    @media (min-width: 500px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+    .nav { display: flex; gap: 4px; padding: 8px 14px; background: var(--bg); border-bottom: 1px solid var(--border); }
+    .nav-btn { padding: 6px 12px; border-radius: 6px; border: 1px solid transparent; background: transparent; color: var(--muted); cursor: pointer; font-size: 12px; }
+    .nav-btn.on { background: rgba(212,196,168,0.1); border-color: #d4c4a8; color: #d4c4a8; }
+    .main { padding: 14px; }
+    .card { background: var(--card); border-radius: 12px; border: 1px solid var(--border); padding: 16px; margin-bottom: 12px; }
+    .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 12px; }
+    .stat { background: var(--card); border-radius: 10px; border: 1px solid var(--border); padding: 14px; }
+    .stat-num { font-size: 22px; font-weight: 700; }
+    .stat-label { font-size: 11px; color: var(--muted); }
+    .user-row { display: flex; align-items: center; gap: 10px; padding: 12px; border-bottom: 1px solid var(--border); }
+    .user-row:last-child { border-bottom: none; }
+    .user-avatar { width: 36px; height: 36px; border-radius: 50%; }
+    .user-info { flex: 1; }
+    .user-name { font-weight: 600; font-size: 13px; }
+    .user-detail { font-size: 11px; color: var(--muted); }
+    .status { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+    .status-pending { background: rgba(212,196,168,0.15); color: #d4c4a8; }
+    .status-active { background: rgba(0,212,170,0.15); color: var(--accent); }
+    .notice { background: var(--card); border: 1px solid #d4c4a8; border-radius: 10px; padding: 14px; }
+    .notice-title { font-weight: 600; color: #d4c4a8; margin-bottom: 4px; }
+    .notice-text { font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+    .section { display: none; }
+    .section.show { display: block; }
+    
+    /* Modal */
+    .modal-bg { position: fixed; inset: 0; background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center; z-index: 999; padding: 20px; }
+    .modal-bg.open { display: flex; }
+    .modal-box { background: var(--card); border-radius: 12px; padding: 20px; max-width: 320px; width: 100%; }
+    .modal-title { font-weight: 600; margin-bottom: 10px; color: #d4c4a8; }
+    .modal-text { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+    .modal-btns { display: flex; gap: 8px; }
+    .modal-btns .btn { flex: 1; margin: 0; }
+    
+    @media (min-width: 500px) { .stats { grid-template-columns: repeat(4, 1fr); } }
   </style>
 </head>
 <body>
-  <!-- AUTH -->
-  <div class="auth-container" id="authContainer">
-    <div class="auth-card">
-      <div class="auth-header">
-        <div class="auth-logo">✈️</div>
-        <h1 class="auth-title font-display">cekdulu!</h1>
-        <p class="auth-subtitle">Kirim pesan ke Telegram, Email & SMS</p>
-      </div>
-      <div class="auth-body">
-        <div class="auth-tabs">
-          <button class="auth-tab active" onclick="switchTab('login')">Masuk</button>
-          <button class="auth-tab" onclick="switchTab('register')">Daftar</button>
-        </div>
-        <div class="alert alert-error" id="alertError"></div>
-        <div class="alert alert-success" id="alertSuccess"></div>
 
-        <form class="auth-form active" id="loginForm">
-          <div class="form-group">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-input" id="loginEmail" placeholder="nama@email.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Password</label>
-            <div class="password-wrapper">
-              <input type="password" class="form-input password-input" id="loginPassword" placeholder="Password" required>
-              <button type="button" class="password-toggle" onclick="togglePw('loginPassword')">👁</button>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary" id="loginBtn">Masuk</button>
-          <div class="divider">atau</div>
-          <button type="button" class="btn btn-whatsapp" onclick="contactAdmin()">📞 Hubungi Admin</button>
-          <div class="auth-footer"><a class="auth-link" onclick="alert('Hubungi admin untuk reset password')">Lupa Password?</a></div>
-        </form>
-
-        <form class="auth-form" id="registerForm">
-          <div class="form-group">
-            <label class="form-label">Nama Lengkap</label>
-            <input type="text" class="form-input" id="regName" placeholder="Nama lengkap" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-input" id="regEmail" placeholder="nama@email.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Nomor Telepon</label>
-            <div class="phone-input-group">
-              <input type="text" class="form-input phone-prefix" value="+62" readonly>
-              <input type="tel" class="form-input" id="regPhone" placeholder="812-xxxx-xxxx" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Password</label>
-            <div class="password-wrapper">
-              <input type="password" class="form-input password-input" id="regPassword" placeholder="Minimal 8 karakter" required>
-              <button type="button" class="password-toggle" onclick="togglePw('regPassword')">👁</button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Konfirmasi Password</label>
-            <div class="password-wrapper">
-              <input type="password" class="form-input password-input" id="regPassword2" placeholder="Ulangi password" required>
-              <button type="button" class="password-toggle" onclick="togglePw('regPassword2')">👁</button>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-primary" id="regBtn">Daftar Sekarang</button>
-          <div class="auth-footer">Sudah punya akun? <a class="auth-link" onclick="switchTab('login')">Masuk</a></div>
-        </form>
+<!-- AUTH PAGE -->
+<div class="auth-page" id="authPage">
+  <div class="auth-box">
+    <div class="auth-logo">✈️</div>
+    <h1 class="auth-title font-display">cekdulu!</h1>
+    
+    <div class="tabs">
+      <button class="tab active" id="tabLogin">Masuk</button>
+      <button class="tab" id="tabReg">Daftar</button>
+    </div>
+    
+    <div class="alert alert-err" id="err"></div>
+    <div class="alert alert-ok" id="ok"></div>
+    
+    <!-- LOGIN FORM -->
+    <form class="form active" id="loginForm">
+      <input type="email" class="input" id="loginEmail" placeholder="Email" required>
+      <input type="password" class="input" id="loginPass" placeholder="Password" required>
+      <button class="btn btn-main" type="submit">Masuk</button>
+      <div class="divider">atau</div>
+      <button class="btn btn-wa" type="button" onclick="openWa()">📞 Hubungi Admin</button>
+    </form>
+    
+    <!-- REGISTER FORM -->
+    <form class="form" id="regForm">
+      <input type="text" class="input" id="regName" placeholder="Nama Lengkap" required>
+      <input type="email" class="input" id="regEmail" placeholder="Email" required>
+      <div class="phone-row">
+        <input class="input phone-pre" value="+62" readonly>
+        <input type="tel" class="input" id="regPhone" placeholder="812-xxxx-xxxx" required>
       </div>
+      <input type="password" class="input" id="regPass" placeholder="Password (min 8 karakter)" required>
+      <input type="password" class="input" id="regPass2" placeholder="Ulangi Password" required>
+      <button class="btn btn-main" type="submit">Daftar</button>
+    </form>
+  </div>
+</div>
+
+<!-- APP PAGE -->
+<div class="app-page" id="appPage">
+  <div class="header">
+    <div style="display:flex;align-items:center">
+      <span class="header-title font-display">cekdulu!</span>
+      <span class="badge" id="adminBadge" style="display:none">ADMIN</span>
+    </div>
+    <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=u" class="avatar" id="avatarImg" onclick="toggleDrop()">
+    <div class="dropdown" id="drop">
+      <div class="dropdown-item" onclick="doLogout()">🚪 Logout</div>
     </div>
   </div>
+  
+  <div class="nav" id="nav"></div>
+  
+  <div class="main" id="main"></div>
+</div>
 
-  <!-- APP -->
-  <div class="app-layout" id="appLayout">
-    <header class="app-header">
-      <div class="header-left">
-        <div class="header-title font-display">cekdulu!</div>
-        <div class="admin-badge" id="adminBadge" style="display:none">ADMIN</div>
-      </div>
-      <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=demo" class="user-avatar" id="headerAvatar" onclick="toggleDropdown()">
-      <div class="avatar-dropdown" id="dropdown">
-        <div class="dropdown-item danger" onclick="logout()">🚪 Logout</div>
-      </div>
-    </header>
-    <nav class="nav-menu" id="navMenu"></nav>
-    <main class="app-main" id="appMain"></main>
+<!-- LOGOUT MODAL -->
+<div class="modal-bg" id="logoutModal">
+  <div class="modal-box">
+    <div class="modal-title">Logout</div>
+    <div class="modal-text">Yakin ingin keluar?</div>
+    <div class="modal-btns">
+      <button class="btn" style="background:#333" onclick="closeModal('logoutModal')">Batal</button>
+      <button class="btn btn-red" onclick="confirmLogout()">Logout</button>
+    </div>
   </div>
+</div>
 
-  <!-- MODALS -->
-  <div class="modal-overlay" id="modalLogout"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Logout</h3><button class="modal-close" onclick="closeModal('logout')">×</button></div><div class="modal-body"><p style="font-size:13px;color:var(--text-secondary)">Yakin ingin keluar?</p></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('logout')">Batal</button><button class="btn btn-danger" onclick="doLogout()">Logout</button></div></div></div>
-  <div class="modal-overlay" id="modalActivate"><div class="modal-content"><div class="modal-header"><h3 class="modal-title">Aktivasi User</h3><button class="modal-close" onclick="closeModal('activate')">×</button></div><div class="modal-body"><p style="font-size:13px;color:var(--text-secondary)">Aktivasi <strong id="activateName"></strong>?</p></div><div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('activate')">Batal</button><button class="btn btn-admin" onclick="confirmActivate()">Aktivasi</button></div></div></div>
+<!-- ACTIVATE MODAL -->
+<div class="modal-bg" id="activateModal">
+  <div class="modal-box">
+    <div class="modal-title">Aktivasi User</div>
+    <div class="modal-text">Aktivasi <b id="activateName"></b>?</div>
+    <div class="modal-btns">
+      <button class="btn" style="background:#333" onclick="closeModal('activateModal')">Batal</button>
+      <button class="btn btn-orange" onclick="doActivate()">Aktivasi</button>
+    </div>
+  </div>
+</div>
 
-  <script>
-    // ===================== CONFIG =====================
-    var ADMIN_EMAIL = '14summersun@gmail.com';
-    var ADMIN_PASSWORD = '14summersun@4dmin';
-    var STORAGE_KEY = 'cekdulu_users';
-    var SESSION_KEY = 'cekdulu_session';
+<script>
+// ========== CONFIG ==========
+var ADMIN_EMAIL = '14summersun@gmail.com';
+var ADMIN_PASS = '14summersun@4dmin';
+var USERS_KEY = 'cekdulu_users';
+var SESS_KEY = 'cekdulu_session';
 
-    // ===================== STATE =====================
-    var user = { name: '', email: '', isAdmin: false, active: false };
-    var activateUserId = null;
+// ========== GLOBALS ==========
+var me = null; // current logged in user
+var activateId = null;
 
-    // ===================== UTILS =====================
-    function log(msg) { console.log('[cekdulu]', msg); }
+// ========== HELPERS ==========
+function $(id) { return document.getElementById(id); }
 
-    // ===================== STORAGE =====================
-    function getUsers() {
-      try {
-        var data = localStorage.getItem(STORAGE_KEY);
-        return data ? JSON.parse(data) : [];
-      } catch(e) { return []; }
+function show(id) { $(id).style.display = 'block'; }
+function hide(id) { $(id).style.display = 'none'; }
+
+function err(msg) { var e=$('err'); e.textContent=msg; e.classList.add('show'); }
+function ok(msg) { var o=$('ok'); o.textContent=msg; o.classList.add('show'); }
+function clearMsg() { $('err').classList.remove('show'); $('ok').classList.remove('show'); }
+
+function getUsers() {
+  try {
+    var d = localStorage.getItem(USERS_KEY);
+    return d ? JSON.parse(d) : [];
+  } catch(e) {
+    console.error('getUsers error:', e);
+    return [];
+  }
+}
+
+function saveUsers(arr) {
+  try {
+    localStorage.setItem(USERS_KEY, JSON.stringify(arr));
+    console.log('Saved', arr.length, 'users');
+    return true;
+  } catch(e) {
+    console.error('saveUsers error:', e);
+    return false;
+  }
+}
+
+function getSess() {
+  try {
+    var d = localStorage.getItem(SESS_KEY);
+    return d ? JSON.parse(d) : null;
+  } catch(e) { return null; }
+}
+
+function saveSess(u) {
+  try { localStorage.setItem(SESS_KEY, JSON.stringify(u)); } catch(e) {}
+}
+
+function clearSess() {
+  localStorage.removeItem(SESS_KEY);
+}
+
+function openWa() {
+  window.open('https://wa.me/6285161990373?text=' + encodeURIComponent('Halo Admin cekdulu!'), '_blank');
+}
+
+function closeModal(id) {
+  $(id).classList.remove('open');
+}
+
+function toggleDrop() {
+  $('drop').classList.toggle('open');
+}
+
+// ========== INIT ==========
+function init() {
+  console.log('=== INIT ===');
+  console.log('Users in storage:', getUsers());
+  
+  // Check session
+  var s = getSess();
+  if (s && s.email) {
+    console.log('Session found:', s.email);
+    me = s;
+    showApp();
+    return;
+  }
+  
+  // No session - show auth
+  console.log('No session, showing auth');
+  $('authPage').style.display = 'flex';
+}
+
+// ========== AUTH TABS ==========
+ $('tabLogin').onclick = function() {
+  this.classList.add('active');
+  $('tabReg').classList.remove('active');
+  $('loginForm').classList.add('active');
+  $('regForm').classList.remove('active');
+  clearMsg();
+};
+
+ $('tabReg').onclick = function() {
+  this.classList.add('active');
+  $('tabLogin').classList.remove('active');
+  $('regForm').classList.add('active');
+  $('loginForm').classList.remove('active');
+  clearMsg();
+};
+
+// ========== LOGIN ==========
+ $('loginForm').onsubmit = function(e) {
+  e.preventDefault();
+  clearMsg();
+  
+  var email = $('loginEmail').value.trim();
+  var pass = $('loginPass').value;
+  
+  if (!email || !pass) { err('Email dan password wajib'); return; }
+  
+  console.log('Login attempt:', email);
+  
+  // Check admin
+  if (email === ADMIN_EMAIL && pass === ADMIN_PASS) {
+    console.log('ADMIN LOGIN');
+    me = { name: 'Admin', email: email, isAdmin: true, active: true };
+    saveSess(me);
+    ok('Login Admin berhasil!');
+    setTimeout(showApp, 500);
+    return;
+  }
+  
+  // Check user
+  var users = getUsers();
+  var found = null;
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].email === email) {
+      found = users[i];
+      break;
     }
-
-    function saveUsers(users) {
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(users)); return true; }
-      catch(e) { return false; }
+  }
+  
+  if (found) {
+    console.log('User found:', found.name, 'active:', found.active);
+    if (!found.active) {
+      err('❌ Akun belum aktif.\n\nHubungi Admin:\nwa.me/6285161990373');
+    } else {
+      me = { name: found.name, email: found.email, isAdmin: false, active: true };
+      saveSess(me);
+      ok('Login berhasil!');
+      setTimeout(showApp, 500);
     }
+  } else {
+    console.log('User NOT found');
+    err('❌ Email tidak terdaftar.\n\nSilakan daftar dulu.');
+  }
+};
 
-    function getSession() {
-      try {
-        var data = localStorage.getItem(SESSION_KEY);
-        return data ? JSON.parse(data) : null;
-      } catch(e) { return null; }
+// ========== REGISTER ==========
+ $('regForm').onsubmit = function(e) {
+  e.preventDefault();
+  clearMsg();
+  
+  var name = $('regName').value.trim();
+  var email = $('regEmail').value.trim();
+  var phone = $('regPhone').value.trim();
+  var pass = $('regPass').value;
+  var pass2 = $('regPass2').value;
+  
+  if (!name || name.length < 3) { err('Nama minimal 3 karakter'); return; }
+  if (!email) { err('Email wajib'); return; }
+  if (!phone) { err('Telepon wajib'); return; }
+  if (pass.length < 8) { err('Password minimal 8 karakter'); return; }
+  if (pass !== pass2) { err('Password tidak cocok'); return; }
+  
+  var users = getUsers();
+  
+  // Check exists
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].email === email) {
+      err('Email sudah terdaftar. Silakan login.');
+      return;
     }
+  }
+  
+  // Add
+  var newUser = {
+    id: Date.now(),
+    name: name,
+    email: email,
+    phone: '+62' + phone.replace(/[^0-9]/g, ''),
+    active: false,
+    created: new Date().toISOString()
+  };
+  
+  users.push(newUser);
+  var saved = saveUsers(users);
+  
+  console.log('=== REGISTER ===');
+  console.log('New user:', newUser);
+  console.log('Total users:', users.length);
+  console.log('Storage saved:', saved);
+  
+  if (saved) {
+    ok('✅ BERHASIL DAFTAR!\n\n📧 Email: ' + email + '\n\n🔔 Aktivasi via:\nwa.me/6285161990373');
+    $('regForm').reset();
+  } else {
+    err('Gagal menyimpan data');
+  }
+};
 
-    function saveSession(u) {
-      try { localStorage.setItem(SESSION_KEY, JSON.stringify(u)); }
-      catch(e) {}
-    }
+// Phone format
+ $('regPhone').oninput = function(e) {
+  var v = e.target.value.replace(/[^0-9]/g, '');
+  if (v.length > 12) v = v.substring(0,12);
+  e.target.value = v;
+};
 
-    function clearSession() { localStorage.removeItem(SESSION_KEY); }
+// ========== SHOW APP ==========
+function showApp() {
+  console.log('=== SHOW APP ===');
+  console.log('me:', me);
+  
+  hide('authPage');
+  $('appPage').classList.add('show');
+  
+  // Avatar
+  $('avatarImg').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(me.name || 'x');
+  
+  // Admin badge
+  $('adminBadge').style.display = me.isAdmin ? 'inline' : 'none';
+  
+  // Render nav & content
+  renderNav();
+  renderContent();
+}
 
-    // ===================== INIT =====================
-    function init() {
-      log('Init...');
-      var session = getSession();
-      if (session && session.email) {
-        log('Session found: ' + session.email);
-        user = session;
-        showApp();
-      }
-    }
-    init();
+function renderNav() {
+  var nav = $('nav');
+  
+  if (me.isAdmin) {
+    nav.innerHTML = 
+      '<button class="nav-btn on" onclick="showSection(\'dash\')">📊 Dashboard</button>' +
+      '<button class="nav-btn" onclick="showSection(\'users\')">👥 Users</button>';
+  } else {
+    nav.innerHTML = 
+      '<button class="nav-btn on" onclick="showSection(\'dash\')">Dashboard</button>' +
+      '<button class="nav-btn" onclick="showSection(\'contacts\')">Kontak</button>' +
+      '<button class="nav-btn" onclick="showSection(\'create\')">Buat Pesan</button>';
+  }
+}
 
-    // ===================== AUTH UI =====================
-    function switchTab(t) {
-      document.querySelectorAll('.auth-tab').forEach(function(b, i) {
-        b.classList.toggle('active', (i === 0 && t === 'login') || (i === 1 && t === 'register'));
-      });
-      document.getElementById('loginForm').classList.toggle('active', t === 'login');
-      document.getElementById('registerForm').classList.toggle('active', t === 'register');
-      hideAlerts();
-    }
+function showSection(name) {
+  // Update nav buttons
+  var btns = document.querySelectorAll('.nav-btn');
+  btns.forEach(function(b) { b.classList.remove('on'); });
+  event.target.classList.add('on');
+  
+  // Show section
+  document.querySelectorAll('.section').forEach(function(s) { s.classList.remove('show'); });
+  var sec = $(name + 'Sec');
+  if (sec) sec.classList.add('show');
+}
 
-    function togglePw(id) {
-      var inp = document.getElementById(id);
-      inp.type = inp.type === 'password' ? 'text' : 'password';
-    }
+function renderContent() {
+  var main = $('main');
+  
+  if (me.isAdmin) {
+    main.innerHTML = 
+      '<div class="section show" id="dashSec">' + renderDash() + '</div>' +
+      '<div class="section" id="usersSec">' + renderUsers() + '</div>';
+  } else {
+    main.innerHTML = 
+      '<div class="section show" id="dashSec">' + renderUserDash() + '</div>' +
+      '<div class="section" id="contactsSec"><div class="card"><h3 style="color:#d4c4a8">📇 Kontak</h3><p style="color:var(--muted);margin-top:8px;font-size:13px">5 kontak contoh</p></div></div>' +
+      '<div class="section" id="createSec"><div class="card"><h3 style="color:#d4c4a8">✉️ Buat Pesan</h3><p style="color:var(--muted);margin-top:8px;font-size:13px">Coming soon</p></div></div>';
+  }
+}
 
-    function showAlert(type, msg) {
-      hideAlerts();
-      var el = document.getElementById('alert' + (type === 'error' ? 'Error' : 'Success'));
-      el.innerHTML = (type === 'error' ? '❌ ' : '✅ ') + msg;
-      el.classList.add('show');
-    }
-
-    function hideAlerts() { document.querySelectorAll('.alert').forEach(function(e) { e.classList.remove('show'); }); }
-
-    function contactAdmin() { window.open('https://wa.me/6285161990373?text=' + encodeURIComponent('Halo Admin cekdulu!'), '_blank'); }
-
-    // ===================== LOGIN =====================
-    document.getElementById('loginForm').onsubmit = function(e) {
-      e.preventDefault();
-      hideAlerts();
-      
-      var email = document.getElementById('loginEmail').value.trim();
-      var pass = document.getElementById('loginPassword').value;
-      var btn = document.getElementById('loginBtn');
-
-      if (!email || !pass) { showAlert('error', 'Email dan password wajib'); return; }
-
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span>';
-
-      setTimeout(function() {
-        // Check Admin
-        if (email === ADMIN_EMAIL && pass === ADMIN_PASSWORD) {
-          log('Login as ADMIN');
-          user = { name: 'Admin', email: email, isAdmin: true, active: true };
-          saveSession(user);
-          showAlert('success', 'Login Admin berhasil!');
-          setTimeout(showApp, 400);
-        } else {
-          // Check User
-          var users = getUsers();
-          var found = null;
-          for (var i = 0; i < users.length; i++) {
-            if (users[i].email === email) { found = users[i]; break; }
-          }
-
-          if (found) {
-            log('User found: ' + found.name + ', active: ' + found.active);
-            if (!found.active) {
-              showAlert('error', 'Akun belum aktif. Hubungi: wa.me/6285161990373');
-            } else {
-              user = { name: found.name, email: found.email, isAdmin: false, active: true };
-              saveSession(user);
-              showAlert('success', 'Login berhasil!');
-              setTimeout(showApp, 400);
-            }
-          } else {
-            log('User NOT found');
-            showAlert('error', 'Email tidak terdaftar. Silakan daftar dulu.');
-          }
-        }
-        btn.disabled = false;
-        btn.innerHTML = 'Masuk';
-      }, 600);
-    };
-
-    // ===================== REGISTER =====================
-    document.getElementById('registerForm').onsubmit = function(e) {
-      e.preventDefault();
-      hideAlerts();
-
-      var name = document.getElementById('regName').value.trim();
-      var email = document.getElementById('regEmail').value.trim();
-      var phone = document.getElementById('regPhone').value.trim();
-      var pass = document.getElementById('regPassword').value;
-      var pass2 = document.getElementById('regPassword2').value;
-      var btn = document.getElementById('regBtn');
-
-      if (!name || name.length < 3) { showAlert('error', 'Nama minimal 3 karakter'); return; }
-      if (!email) { showAlert('error', 'Email wajib'); return; }
-      if (!phone) { showAlert('error', 'Telepon wajib'); return; }
-      if (pass.length < 8) { showAlert('error', 'Password minimal 8 karakter'); return; }
-      if (pass !== pass2) { showAlert('error', 'Password tidak cocok'); return; }
-
-      btn.disabled = true;
-      btn.innerHTML = '<span class="spinner"></span>';
-
-      setTimeout(function() {
-        var users = getUsers();
-        
-        // Check exists
-        for (var i = 0; i < users.length; i++) {
-          if (users[i].email === email) {
-            showAlert('error', 'Email sudah terdaftar');
-            btn.disabled = false;
-            btn.innerHTML = 'Daftar Sekarang';
-            return;
-          }
-        }
-
-        // Add new
-        var newUser = {
-          id: Date.now(),
-          name: name,
-          email: email,
-          phone: '+62 ' + phone.replace(/[^0-9]/g, ''),
-          active: false,
-          createdAt: new Date().toISOString()
-        };
-
-        users.push(newUser);
-        saveUsers(users);
-        log('Registered: ' + email + '. Total users: ' + users.length);
-
-        showAlert('success', '✅ Berhasil daftar!\n\n📧 ' + email + '\n\n🔔 Aktivasi via:\nwa.me/6285161990373');
-        document.getElementById('registerForm').reset();
-        btn.disabled = false;
-        btn.innerHTML = 'Daftar Sekarang';
-      }, 800);
-    };
-
-    // Phone format
-    document.getElementById('regPhone').oninput = function(e) {
-      var v = e.target.value.replace(/[^0-9]/g, '');
-      if (v.length > 12) v = v.substring(0, 12);
-      e.target.value = v;
-    };
-
-    // ===================== APP =====================
-    function showApp() {
-      log('showApp as Admin: ' + user.isAdmin);
-      document.getElementById('authContainer').classList.add('hidden');
-      document.getElementById('appLayout').classList.add('active');
-      renderNav();
-      renderMain();
-    }
-
-    function renderNav() {
-      var nav = document.getElementById('navMenu');
-      if (user.isAdmin) {
-        nav.innerHTML = 
-          '<button class="nav-item admin-nav active" data-sec="dashboard">📊 Dashboard</button>' +
-          '<button class="nav-item admin-nav" data-sec="users">👥 Users</button>';
-      } else {
-        nav.innerHTML = 
-          '<button class="nav-item active" data-sec="dashboard">Dashboard</button>' +
-          '<button class="nav-item" data-sec="contacts">Kontak</button>' +
-          '<button class="nav-item" data-sec="create">Buat Pesan</button>';
-      }
-      
-      // Add click handlers
-      document.querySelectorAll('.nav-item').forEach(function(btn) {
-        btn.onclick = function() { nav(this.getAttribute('data-sec')); };
-      });
-    }
-
-    function nav(sec) {
-      document.querySelectorAll('.nav-item').forEach(function(b) { b.classList.remove('active'); });
-      document.querySelector('.nav-item[data-sec="' + sec + '"]').classList.add('active');
-      
-      document.querySelectorAll('.section-container').forEach(function(s) { s.classList.remove('active'); });
-      document.getElementById('sec' + sec.charAt(0).toUpperCase() + sec.slice(1)).classList.add('active');
-    }
-
-    function renderMain() {
-      var main = document.getElementById('appMain');
-      log('renderMain - isAdmin: ' + user.isAdmin);
-      
-      if (user.isAdmin) {
-        main.innerHTML = 
-          '<div class="section-container active" id="secDashboard">' + renderAdminDash() + '</div>' +
-          '<div class="section-container" id="secUsers">' + renderUsers() + '</div>';
-      } else {
-        main.innerHTML = 
-          '<div class="section-container active" id="secDashboard">' + renderUserDash() + '</div>' +
-          '<div class="section-container" id="secContacts"><div class="profile-card"><h3 style="color:var(--cream)">📇 Kontak</h3><p style="color:var(--text-secondary);margin-top:8px;font-size:13px">5 kontak contoh tersedia</p></div></div>' +
-          '<div class="section-container" id="secCreate"><div class="profile-card"><h3 style="color:var(--cream)">✉️ Buat Pesan</h3><p style="color:var(--text-secondary);margin-top:8px;font-size:13px">Fitur coming soon...</p></div></div>';
-      }
-
-      document.getElementById('headerAvatar').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(user.name || 'demo');
-      document.getElementById('adminBadge').style.display = user.isAdmin ? 'inline-flex' : 'none';
-    }
-
-    function renderAdminDash() {
-      var users = getUsers();
-      var total = users.length;
-      var pending = 0, active = 0;
-      
-      for (var i = 0; i < users.length; i++) {
-        if (users[i].active) active++; else pending++;
-      }
-
-      log('AdminDash - Total: ' + total + ', Pending: ' + pending);
-
-      return '<div class="stats-grid">' +
-        '<div class="stat-card"><div class="stat-icon users">👥</div><div class="stat-value">' + total + '</div><div class="stat-label">Total User</div></div>' +
-        '<div class="stat-card"><div class="stat-icon pending">⏳</div><div class="stat-value">' + pending + '</div><div class="stat-label">Pending</div></div>' +
-        '<div class="stat-card"><div class="stat-icon balance">✅</div><div class="stat-value">' + active + '</div><div class="stat-label">Aktif</div></div>' +
-        '<div class="stat-card"><div class="stat-icon balance">💰</div><div class="stat-value">Rp 0</div><div class="stat-label">Saldo</div></div>' +
-      '</div>' +
-      '<div class="profile-card"><h3 style="font-size:14px;margin-bottom:10px;color:var(--cream)">⏳ Menunggu Aktivasi</h3>' + renderPending() + '</div>';
-    }
-
-    function renderPending() {
-      var users = getUsers();
-      var list = '';
-      for (var i = 0; i < users.length; i++) {
-        if (!users[i].active) {
-          var u = users[i];
-          var date = u.createdAt ? new Date(u.createdAt).toLocaleDateString('id-ID') : '-';
-          list += '<div class="user-item">' +
-            '<img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.name) + '">' +
-            '<div class="user-item-info">' +
-              '<div class="user-item-name">' + u.name + '</div>' +
-              '<div class="user-item-detail">📧 ' + u.email + ' | 📱 ' + (u.phone || '-') + '</div>' +
-              '<div class="user-item-date">📅 ' + date + '</div>' +
-            '</div>' +
-            '<button class="btn btn-admin btn-sm" onclick="activateUser(' + u.id + ')">✓ Aktivasi</button>' +
-          '</div>';
-        }
-      }
-      return list || '<p style="color:var(--text-secondary);font-size:12px">✅ Tidak ada user menunggu.</p>';
-    }
-
-    function renderUsers() {
-      var users = getUsers();
-      if (users.length === 0) return '<div class="profile-card"><div class="empty-state">📭 Belum ada user</div></div>';
-
-      var html = '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:10px;color:var(--cream)">👥 Daftar User (' + users.length + ')</h3><div class="user-list"><div class="user-list-header">Semua User</div><div class="user-list-body">';
-      
-      for (var i = 0; i < users.length; i++) {
-        var u = users[i];
-        var date = u.createdAt ? new Date(u.createdAt).toLocaleDateString('id-ID') : '-';
-        var status = u.active ? '<span class="status-badge status-active">Aktif</span>' : '<span class="status-badge status-inactive">Pending</span>';
-        html += '<div class="user-item">' +
-          '<img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.name) + '">' +
-          '<div class="user-item-info">' +
-            '<div class="user-item-name">' + u.name + '</div>' +
-            '<div class="user-item-detail">📧 ' + u.email + ' | 📱 ' + (u.phone || '-') + '</div>' +
-            '<div class="user-item-date">📅 ' + date + '</div>' +
-          '</div>' + status +
+function renderDash() {
+  var users = getUsers();
+  var total = users.length;
+  var pending = 0;
+  var active = 0;
+  
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].active) active++; else pending++;
+  }
+  
+  console.log('Dashboard - Total:', total, 'Pending:', pending, 'Active:', active);
+  
+  var pendingList = '';
+  for (var i = 0; i < users.length; i++) {
+    if (!users[i].active) {
+      var u = users[i];
+      var dt = u.created ? new Date(u.created).toLocaleDateString('id-ID') : '-';
+      pendingList += 
+        '<div class="user-row">' +
+          '<img class="user-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.name) + '">' +
+          '<div class="user-info">' +
+            '<div class="user-name">' + u.name + '</div>' +
+            '<div class="user-detail">📧 ' + u.email + ' | 📱 ' + (u.phone || '-') + ' | 📅 ' + dt + '</div>' +
+          '</div>' +
+          '<button class="btn btn-orange" style="width:auto;padding:6px 12px;font-size:11px" onclick="activate(' + u.id + ')">✓ Aktivasi</button>' +
         '</div>';
-      }
-      return html + '</div></div></div>';
     }
+  }
+  
+  if (!pendingList) pendingList = '<p style="color:var(--muted);font-size:12px">✅ Tidak ada user menunggu.</p>';
+  
+  return 
+    '<div class="stats">' +
+      '<div class="stat"><div class="stat-num">' + total + '</div><div class="stat-label">👥 Total User</div></div>' +
+      '<div class="stat"><div class="stat-num">' + pending + '</div><div class="stat-label">⏳ Pending</div></div>' +
+      '<div class="stat"><div class="stat-num">' + active + '</div><div class="stat-label">✅ Aktif</div></div>' +
+      '<div class="stat"><div class="stat-num">Rp 0</div><div class="stat-label">💰 Saldo</div></div>' +
+    '</div>' +
+    '<div class="card">' +
+      '<h3 style="font-size:14px;margin-bottom:10px;color:#d4c4a8">⏳ Menunggu Aktivasi</h3>' +
+      pendingList +
+    '</div>';
+}
 
-    function renderUserDash() {
-      var status = user.active ? '<span class="status-badge status-active" style="margin-top:8px">Aktif</span>' : '';
-      var notice = user.active ? '' : '<div class="notification-box"><div class="notification-content"><div class="notification-icon">⚠️</div><div class="notification-text"><div class="notification-title">Akun Belum Aktif</div><div class="notification-desc">Hubungi admin untuk aktivasi.</div><button class="btn btn-whatsapp btn-sm" onclick="contactAdmin()">📞 Hubungi Admin</button></div></div></div>';
-      
-      return '<div class="profile-card">' +
-        '<div class="profile-header">' +
-          '<img src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(user.name) + '" class="profile-avatar">' +
-          '<h2 class="profile-name font-display">' + user.name + '</h2>' +
-          '<p class="profile-email">' + user.email + '</p>' + status +
-        '</div>' +
-      '</div>' + notice;
+function renderUsers() {
+  var users = getUsers();
+  
+  if (users.length === 0) {
+    return '<div class="card"><p style="color:var(--muted)">📭 Belum ada user terdaftar</p></div>';
+  }
+  
+  var list = '';
+  for (var i = 0; i < users.length; i++) {
+    var u = users[i];
+    var dt = u.created ? new Date(u.created).toLocaleDateString('id-ID') : '-';
+    var st = u.active ? '<span class="status status-active">Aktif</span>' : '<span class="status status-pending">Pending</span>';
+    
+    list += 
+      '<div class="user-row">' +
+        '<img class="user-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.name) + '">' +
+        '<div class="user-info">' +
+          '<div class="user-name">' + u.name + '</div>' +
+          '<div class="user-detail">📧 ' + u.email + ' | 📱 ' + (u.phone || '-') + ' | 📅 ' + dt + '</div>' +
+        '</div>' + st +
+      '</div>';
+  }
+  
+  return 
+    '<div class="card">' +
+      '<h3 style="font-size:15px;margin-bottom:10px;color:#d4c4a8">👥 Daftar User (' + users.length + ')</h3>' +
+      '<div style="border:1px solid var(--border);border-radius:8px;overflow:hidden">' + list + '</div>' +
+    '</div>';
+}
+
+function renderUserDash() {
+  var status = me.active ? '<span class="status status-active">Aktif</span>' : '';
+  var notice = me.active ? '' : 
+    '<div class="notice">' +
+      '<div class="notice-title">⚠️ Akun Belum Aktif</div>' +
+      '<div class="notice-text">Hubungi admin untuk aktivasi.</div>' +
+      '<button class="btn btn-wa" style="width:auto" onclick="openWa()">📞 Hubungi Admin</button>' +
+    '</div>';
+  
+  return 
+    '<div class="card" style="text-align:center">' +
+      '<img src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(me.name) + '" style="width:64px;height:64px;border-radius:50%;margin-bottom:10px">' +
+      '<h2 style="font-size:18px;margin-bottom:4px">' + me.name + '</h2>' +
+      '<p style="color:var(--muted);font-size:13px">' + me.email + '</p>' +
+      status +
+    '</div>' + notice;
+}
+
+// ========== ACTIVATE ==========
+function activate(id) {
+  activateId = id;
+  var users = getUsers();
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].id === id) {
+      $('activateName').textContent = users[i].name;
+      break;
     }
+  }
+  $('activateModal').classList.add('open');
+}
 
-    function activateUser(id) {
-      activateUserId = id;
-      var users = getUsers();
-      for (var i = 0; i < users.length; i++) {
-        if (users[i].id === id) { document.getElementById('activateName').textContent = users[i].name; break; }
-      }
-      openModal('activate');
+function doActivate() {
+  if (!activateId) return;
+  
+  var users = getUsers();
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].id === activateId) {
+      users[i].active = true;
+      console.log('Activated:', users[i].email);
+      break;
     }
+  }
+  saveUsers(users);
+  activateId = null;
+  closeModal('activateModal');
+  renderContent();
+}
 
-    function confirmActivate() {
-      if (!activateUserId) return;
-      var users = getUsers();
-      for (var i = 0; i < users.length; i++) {
-        if (users[i].id === activateUserId) { users[i].active = true; log('Activated: ' + users[i].email); break; }
-      }
-      saveUsers(users);
-      activateUserId = null;
-      closeModal('activate');
-      renderMain(); // Re-render to update counts
-    }
+// ========== LOGOUT ==========
+function doLogout() {
+  $('logoutModal').classList.add('open');
+}
 
-    // ===================== MODALS =====================
-    function openModal(n) { var m = document.getElementById('modal' + n.charAt(0).toUpperCase() + n.slice(1)); if (m) m.classList.add('active'); }
-    function closeModal(n) { var m = document.getElementById('modal' + n.charAt(0).toUpperCase() + n.slice(1)); if (m) m.classList.remove('active'); }
+function confirmLogout() {
+  closeModal('logoutModal');
+  clearSess();
+  me = null;
+  $('appPage').classList.remove('show');
+  $('authPage').style.display = 'flex';
+  $('drop').classList.remove('open');
+}
 
-    // ===================== DROPDOWN =====================
-    function toggleDropdown() { document.getElementById('dropdown').classList.toggle('active'); }
-    document.addEventListener('click', function(e) { var d = document.getElementById('dropdown'); if (!d.contains(e.target) && e.target.id !== 'headerAvatar') d.classList.remove('active'); });
+// Close dropdown on outside click
+document.onclick = function(e) {
+  if (!e.target.closest('.avatar') && !e.target.closest('.dropdown')) {
+    $('drop').classList.remove('open');
+  }
+};
 
-    // ===================== LOGOUT =====================
-    function logout() { openModal('logout'); }
-    function doLogout() { closeModal('logout'); clearSession(); user = { name: '', email: '', isAdmin: false, active: false }; document.getElementById('appLayout').classList.remove('active'); document.getElementById('authContainer').classList.remove('hidden'); }
+// Run init
+init();
 
-    log('Script ready');
-  </script>
+console.log('=== SCRIPT LOADED ===');
+console.log('To check users, type: localStorage.getItem("cekdulu_users")');
+</script>
+
 </body>
 </html>
