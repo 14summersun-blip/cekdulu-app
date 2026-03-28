@@ -44,7 +44,7 @@
     .auth-container.hidden { display: none; }
     .auth-card { width: 100%; max-width: 420px; background: var(--bg-card); border-radius: 24px; border: 1px solid var(--card-border); overflow: hidden; }
     .auth-header { padding: 32px 32px 24px; text-align: center; border-bottom: 1px solid var(--card-border); }
-    .auth-logo { width: 56px; height: 56px; margin: 0 auto 16px; background: linear-gradient(135deg, var(--accent), #00a888); border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+    .auth-logo { width: 56px; height: 56px; margin: 0 auto 16px; background: linear-gradient(135deg, var(--accent), #00a888); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
     .auth-title { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
     .auth-subtitle { font-size: 14px; color: var(--text-secondary); }
     .auth-body { padding: 24px 32px 32px; }
@@ -126,7 +126,6 @@
     .notification-title { font-size: 14px; font-weight: 600; margin-bottom: 4px; color: var(--cream); }
     .notification-desc { font-size: 13px; color: var(--text-secondary); margin-bottom: 12px; }
 
-    /* Stats Grid */
     .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px; }
     .stat-card { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); padding: 16px; }
     .stat-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 20px; }
@@ -139,7 +138,6 @@
     .stat-value { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
     .stat-label { font-size: 12px; color: var(--text-secondary); }
 
-    /* User List for Admin */
     .user-list { background: var(--bg-card); border-radius: 16px; border: 1px solid var(--card-border); overflow: hidden; }
     .user-list-header { padding: 12px 16px; background: var(--bg-secondary); border-bottom: 1px solid var(--card-border); display: flex; justify-content: space-between; align-items: center; }
     .user-list-body { max-height: 400px; overflow-y: auto; }
@@ -196,7 +194,6 @@
     .vcf-preview-name { font-size: 13px; font-weight: 500; }
     .vcf-preview-detail { font-size: 11px; color: var(--text-muted); }
 
-    /* Create Message */
     .steps-indicator { display: flex; gap: 8px; margin-bottom: 16px; overflow-x: auto; padding-bottom: 8px; }
     .step-item { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
     .step-number { width: 24px; height: 24px; border-radius: 50%; background: var(--bg-secondary); border: 2px solid var(--card-border); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: var(--text-muted); }
@@ -295,7 +292,7 @@
             <label class="form-label">Password</label>
             <div class="password-wrapper">
               <input type="password" class="form-input password-input" id="loginPassword" placeholder="Password" required>
-              <button type="button" class="password-toggle" id="toggleLoginPw" onclick="togglePw('loginPassword', this)">👁</button>
+              <button type="button" class="password-toggle" onclick="togglePw('loginPassword', this)">👁</button>
             </div>
             <div class="form-error" id="loginPasswordError"></div>
           </div>
@@ -471,7 +468,7 @@
       <div class="modal-header"><h3 class="modal-title">Aktivasi User</h3><button class="modal-close" onclick="closeModal('activate')">×</button></div>
       <div class="modal-body">
         <p style="font-size:14px;color:var(--text-secondary)">Aktivasi user <strong id="activateName"></strong>?</p>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:8px">User akan bisa mengirim pesan setelah diaktivasi.</p>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:8px">User akan bisa login dan mengirim pesan.</p>
       </div>
       <div class="modal-footer"><button class="btn btn-secondary" onclick="closeModal('activate')">Batal</button><button class="btn btn-admin" onclick="confirmActivate()">Aktivasi</button></div>
     </div>
@@ -482,17 +479,11 @@
     var ADMIN_EMAIL = '14summersun@gmail.com';
     var ADMIN_PASSWORD = '14summersun@4dmin';
 
+    // ============ STORAGE KEYS ============
+    var STORAGE_KEY = 'cekdulu_users';
+
     // ============ STATE ============
     var user = { name: '', email: '', phone: '', seed: '', avatar: null, active: false, balance: 0, isAdmin: false };
-    
-    // Simulated registered users (untuk admin manage)
-    var registeredUsers = [
-      { id: 1, name: 'Budi Santoso', email: 'budi@email.com', phone: '+62 812-3456-7890', seed: 'budi', active: false, balance: 0, createdAt: '2024-01-15' },
-      { id: 2, name: 'Siti Rahayu', email: 'siti@email.com', phone: '+62 813-4567-8901', seed: 'siti', active: true, balance: 50000, createdAt: '2024-01-14' },
-      { id: 3, name: 'Ahmad Wijaya', email: 'ahmad@email.com', phone: '+62 814-5678-9012', seed: 'ahmad', active: false, balance: 0, createdAt: '2024-01-13' },
-      { id: 4, name: 'Dewi Lestari', email: 'dewi@email.com', phone: '+62 815-6789-0123', seed: 'dewi', active: true, balance: 100000, createdAt: '2024-01-12' }
-    ];
-
     var contacts = [
       { id: 1, name: 'Budi Santoso', phone: '+62 812-3456-7890', email: 'budi@email.com' },
       { id: 2, name: 'Siti Rahayu', phone: '+62 813-4567-8901', email: 'siti@email.com' },
@@ -500,7 +491,6 @@
       { id: 4, name: 'Dewi Lestari', phone: '+62 815-6789-0123', email: 'dewi@email.com' },
       { id: 5, name: 'Rudi Hartono', phone: '+62 816-7890-1234', email: '' }
     ];
-
     var vcfData = [];
     var delId = null;
     var activateUserId = null;
@@ -508,6 +498,48 @@
     var pAvatar = null;
     var msg = { step: 1, src: null, rec: [], ch: null, subj: '', body: '', result: null };
     var pMedia = null;
+
+    // ============ STORAGE FUNCTIONS ============
+    function getUsers() {
+      var data = localStorage.getItem(STORAGE_KEY);
+      if (data) {
+        try { return JSON.parse(data); } catch(e) { return []; }
+      }
+      return [];
+    }
+
+    function saveUsers(users) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(users));
+    }
+
+    function addUserToStorage(userData) {
+      var users = getUsers();
+      var exists = users.find(function(u) { return u.email === userData.email; });
+      if (!exists) {
+        users.push({
+          id: Date.now(),
+          name: userData.name,
+          email: userData.email,
+          phone: userData.phone,
+          seed: userData.seed,
+          active: false,
+          balance: 0,
+          createdAt: new Date().toISOString()
+        });
+        saveUsers(users);
+      }
+      return users;
+    }
+
+    function activateUserInStorage(email) {
+      var users = getUsers();
+      var u = users.find(function(x) { return x.email === email; });
+      if (u) {
+        u.active = true;
+        saveUsers(users);
+      }
+      return users;
+    }
 
     // ============ HELPERS ============
     function isAndroid() { var u = navigator.userAgent.toLowerCase(); return u.indexOf('android') > -1 && u.indexOf('chrome') > -1; }
@@ -638,7 +670,7 @@
           '<div class="section-container active" id="secDashboard">' + renderAdminDashboard() + '</div>' +
           '<div class="section-container" id="secUsers">' + renderUsersSection() + '</div>' +
           '<div class="section-container" id="secContacts">' + renderContactsSection() + '</div>' +
-          '<div class="section-container" id="secHistory"><div class="profile-card"><h2 style="color:var(--cream)">📜 Riwayat Pengiriman</h2><p style="color:var(--text-secondary);margin-top:8px">Coming soon...</p></div></div>';
+          '<div class="section-container" id="secHistory"><div class="profile-card"><h2 style="color:var(--cream)">📜 Riwayat</h2><p style="color:var(--text-secondary);margin-top:8px">Coming soon...</p></div></div>';
       } else {
         main.innerHTML = 
           '<div class="section-container active" id="secDashboard">' + renderUserDashboard() + '</div>' +
@@ -650,10 +682,11 @@
     }
 
     function renderAdminDashboard() {
-      var pending = registeredUsers.filter(function(u) { return !u.active; }).length;
-      var total = registeredUsers.length;
-      var active = registeredUsers.filter(function(u) { return u.active; }).length;
-      var totalBalance = registeredUsers.reduce(function(sum, u) { return sum + u.balance; }, 0);
+      var users = getUsers();
+      var pending = users.filter(function(u) { return !u.active; }).length;
+      var total = users.length;
+      var active = users.filter(function(u) { return u.active; }).length;
+      var totalBalance = users.reduce(function(sum, u) { return sum + (u.balance || 0); }, 0);
       
       return '<div class="stats-grid">' +
         '<div class="stat-card"><div class="stat-icon users">👥</div><div class="stat-value">' + total + '</div><div class="stat-label">Total User</div></div>' +
@@ -661,26 +694,30 @@
         '<div class="stat-card"><div class="stat-icon balance">✅</div><div class="stat-value">' + active + '</div><div class="stat-label">User Aktif</div></div>' +
         '<div class="stat-card"><div class="stat-icon balance">💰</div><div class="stat-value">Rp ' + fmtNum(totalBalance) + '</div><div class="stat-label">Total Saldo</div></div>' +
       '</div>' +
-      '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">User Menunggu Aktivasi</h3>' + renderPendingUsers() + '</div>';
+      '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">⏳ User Menunggu Aktivasi</h3>' + renderPendingUsers() + '</div>';
     }
 
     function renderPendingUsers() {
-      var pending = registeredUsers.filter(function(u) { return !u.active; });
+      var users = getUsers();
+      var pending = users.filter(function(u) { return !u.active; });
       if (pending.length === 0) return '<p style="color:var(--text-secondary);font-size:13px">Tidak ada user menunggu aktivasi.</p>';
       
       return pending.map(function(u) {
-        return '<div class="user-item"><img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.seed) + '"><div class="user-item-info"><div class="user-item-name">' + escapeHtml(u.name) + '</div><div class="user-item-detail">' + escapeHtml(u.email) + ' | ' + u.phone + '</div></div><button class="btn btn-admin btn-sm" onclick="activateUser(' + u.id + ')">Aktivasi</button></div>';
+        return '<div class="user-item"><img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.seed || u.name) + '"><div class="user-item-info"><div class="user-item-name">' + escapeHtml(u.name) + '</div><div class="user-item-detail">' + escapeHtml(u.email) + ' | ' + (u.phone || '-') + '</div></div><button class="btn btn-admin btn-sm" onclick="activateUser(' + u.id + ')">Aktivasi</button></div>';
       }).join('');
     }
 
     function renderUsersSection() {
-      return '<div class="profile-card"><h2 style="font-size:18px;margin-bottom:16px;color:var(--cream)">👥 Daftar User</h2>' + renderAllUsers() + '</div>';
+      return '<div class="profile-card"><h2 style="font-size:18px;margin-bottom:16px;color:var(--cream)">👥 Daftar User Terdaftar</h2>' + renderAllUsers() + '</div>';
     }
 
     function renderAllUsers() {
-      return '<div class="user-list"><div class="user-list-header"><span style="font-size:13px;font-weight:600;color:var(--cream)">Nama</span><span style="font-size:12px;color:var(--text-muted)">Status</span></div><div class="user-list-body>' + 
-        registeredUsers.map(function(u) {
-          return '<div class="user-item"><img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.seed) + '"><div class="user-item-info"><div class="user-item-name">' + escapeHtml(u.name) + '</div><div class="user-item-detail">' + escapeHtml(u.email) + '</div></div>' + 
+      var users = getUsers();
+      if (users.length === 0) return '<p style="color:var(--text-secondary);font-size:13px">Belum ada user terdaftar.</p>';
+      
+      return '<div class="user-list"><div class="user-list-header"><span style="font-size:13px;font-weight:600;color:var(--cream)">User</span><span style="font-size:12px;color:var(--text-muted)">Status</span></div><div class="user-list-body">' + 
+        users.map(function(u) {
+          return '<div class="user-item"><img class="user-item-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(u.seed || u.name) + '"><div class="user-item-info"><div class="user-item-name">' + escapeHtml(u.name) + '</div><div class="user-item-detail">' + escapeHtml(u.email) + '</div></div>' + 
             (u.active ? '<span class="status-badge status-active"><span class="status-dot"></span>Aktif</span>' : '<span class="status-badge status-inactive"><span class="status-dot"></span>Pending</span>') +
           '</div>';
         }).join('') + '</div></div>';
@@ -688,15 +725,20 @@
 
     function activateUser(id) {
       activateUserId = id;
-      var u = registeredUsers.find(function(x) { return x.id === id; });
+      var users = getUsers();
+      var u = users.find(function(x) { return x.id === id; });
       if (u) document.getElementById('activateName').textContent = u.name;
       openModal('activate');
     }
 
     function confirmActivate() {
       if (activateUserId) {
-        var u = registeredUsers.find(function(x) { return x.id === activateUserId; });
-        if (u) u.active = true;
+        var users = getUsers();
+        var u = users.find(function(x) { return x.id === activateUserId; });
+        if (u) {
+          u.active = true;
+          saveUsers(users);
+        }
         activateUserId = null;
       }
       closeModal('activate');
@@ -709,9 +751,10 @@
           '<img src="' + (user.avatar || 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(user.seed || 'demo')) + '" class="profile-avatar" id="profileAvatar">' +
           '<h2 class="profile-name font-display">' + escapeHtml(user.name) + '</h2>' +
           '<p class="profile-email">' + escapeHtml(user.email) + '</p>' +
+          (user.active ? '<span class="status-badge status-active" style="margin-top:8px"><span class="status-dot"></span>Aktif</span>' : '') +
         '</div>' +
       '</div>' +
-      '<div class="notification-box" id="activationNotice">' +
+      (user.active ? '' : '<div class="notification-box" id="activationNotice">' +
         '<div class="notification-content">' +
           '<div class="notification-icon">⚠️</div>' +
           '<div class="notification-text">' +
@@ -720,7 +763,7 @@
             '<button class="btn btn-whatsapp" onclick="contactAdmin()">Hubungi Admin</button>' +
           '</div>' +
         '</div>' +
-      '</div>';
+      '</div>');
     }
 
     function renderContactsSection() {
@@ -748,7 +791,6 @@
     }
 
     function filterContacts() { renderContacts(); }
-
     function saveContact() {
       var n = document.getElementById('cName').value.trim();
       var p = document.getElementById('cPhone').value.trim();
@@ -756,12 +798,9 @@
       if (!n || !p) { alert('Nama dan telepon wajib'); return; }
       contacts.push({ id: cId++, name: n, phone: '+62 ' + p.replace(/[^0-9]/g, ''), email: e });
       closeModal('addContact');
-      document.getElementById('cName').value = '';
-      document.getElementById('cPhone').value = '';
-      document.getElementById('cEmail').value = '';
+      document.getElementById('cName').value = ''; document.getElementById('cPhone').value = ''; document.getElementById('cEmail').value = '';
       renderContacts();
     }
-
     function openEdit(id) {
       var c = contacts.find(function(x) { return x.id === id; });
       if (!c) return;
@@ -771,7 +810,6 @@
       document.getElementById('editCEmail').value = c.email || '';
       openModal('editContact');
     }
-
     function updateContact() {
       var id = parseInt(document.getElementById('editCId').value);
       var c = contacts.find(function(x) { return x.id === id; });
@@ -782,7 +820,6 @@
       closeModal('editContact');
       renderContacts();
     }
-
     function openDel(id) {
       var c = contacts.find(function(x) { return x.id === id; });
       if (!c) return;
@@ -790,7 +827,6 @@
       document.getElementById('delName').textContent = c.name;
       openModal('delete');
     }
-
     function confirmDelete() {
       if (delId) contacts = contacts.filter(function(x) { return x.id !== delId; });
       delId = null;
@@ -819,7 +855,6 @@
       };
       r.readAsText(f);
     }
-
     function renderVcfPreview() {
       var c = document.getElementById('vcfPreview');
       var l = document.getElementById('vcfList');
@@ -831,13 +866,11 @@
         return '<div class="vcf-preview-item"><div class="vcf-checkbox checked" id="vcf' + i + '" onclick="this.classList.toggle(\'checked\')">✓</div><div class="vcf-preview-info"><div class="vcf-preview-name">' + (v.name || 'Unknown') + '</div><div class="vcf-preview-detail">' + (v.phone || '-') + '</div></div></div>';
       }).join('');
     }
-
     function toggleAllVcf() {
       var all = document.querySelectorAll('[id^="vcf"]');
       var allChk = Array.from(all).every(function(c) { return c.classList.contains('checked'); });
       all.forEach(function(c) { c.classList.toggle('checked', !allChk); });
     }
-
     function importVcf() {
       var sel = [];
       document.querySelectorAll('[id^="vcf"]').forEach(function(ch, i) {
@@ -877,12 +910,10 @@
         r2.readAsDataURL(f);
       }
     }
-
     function updateAvatarPreview() {
       pAvatar = null;
       document.getElementById('avatarPreview').src = 'https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(document.getElementById('avatarSeed').value || 'demo');
     }
-
     function saveAvatar() {
       var s = document.getElementById('avatarSeed').value.trim();
       if (pAvatar) { user.avatar = pAvatar; user.seed = s || 'custom'; }
@@ -901,10 +932,8 @@
         document.getElementById('createContent').innerHTML = '<div class="notification-box"><div class="notification-content"><div class="notification-icon">⚠️</div><div class="notification-text"><div class="notification-title">Akun Belum Aktif</div><div class="notification-desc">Aktifkan akun untuk kirim pesan.</div><button class="btn btn-whatsapp" onclick="contactAdmin()">Hubungi Admin</button></div></div></div>';
         return;
       }
-      renderSteps();
-      renderStep();
+      renderSteps(); renderStep();
     }
-
     function renderSteps() {
       var st = [{ n: 1, l: 'Sumber' }, { n: 2, l: 'Penerima' }, { n: 3, l: 'Pesan' }, { n: 4, l: 'Preview' }, { n: 5, l: 'Kirim' }];
       document.getElementById('steps').innerHTML = st.map(function(s, i) {
@@ -912,7 +941,6 @@
         return '<div class="step-item' + (a ? ' active' : '') + (c ? ' completed' : '') + '"><div class="step-number">' + (c ? '✓' : s.n) + '</div><span class="step-label">' + s.l + '</span></div>' + (i < 4 ? '<div class="step-connector"></div>' : '');
       }).join('');
     }
-
     function renderStep() {
       var h = '';
       if (msg.step === 1) h = renderSrc();
@@ -922,21 +950,16 @@
       else if (msg.step === 5) h = renderRes();
       document.getElementById('createContent').innerHTML = h;
     }
-
     function renderSrc() {
       return '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">Pilih Sumber</h3><div class="source-grid"><div class="source-card' + (msg.src === 'manual' ? ' selected' : '') + '" onclick="setSrc(\'manual\')"><div class="source-icon manual">✏️</div><div class="source-name">Manual</div></div><div class="source-card' + (msg.src === 'contacts' ? ' selected' : '') + '" onclick="setSrc(\'contacts\')"><div class="source-icon contact">👥</div><div class="source-name">Kontak</div></div><div class="source-card' + (msg.src === 'vcf' ? ' selected' : '') + '" onclick="setSrc(\'vcf\')"><div class="source-icon vcf">📁</div><div class="source-name">Import</div></div><div class="source-card ' + (isAndroid() ? '' : 'disabled') + (msg.src === 'phone' ? ' selected' : '') + '" onclick="' + (isAndroid() ? 'setSrc(\'phone\')' : '') + '"><div class="source-icon phone">📱</div><div class="source-name">Ponsel</div></div></div><div style="text-align:right;margin-top:16px"><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="nextStep()" ' + (!msg.src ? 'disabled' : '') + '>Lanjut</button></div></div>';
     }
-
     function setSrc(s) { msg.src = s; msg.rec = []; renderSteps(); renderStep(); }
-
     function nextStep() {
       if (msg.step === 2 && !msg.rec.length) { alert('Tambah penerima'); return; }
       if (msg.step === 3 && (!msg.ch || !msg.body.trim())) { alert('Pilih channel dan tulis pesan'); return; }
       msg.step++; renderSteps(); renderStep();
     }
-
     function prevStep() { msg.step--; renderSteps(); renderStep(); }
-
     function renderRec() {
       var add = '';
       if (msg.src === 'manual') add = '<div style="display:grid;gap:10px;margin-bottom:12px"><input type="text" class="form-input" id="mn" placeholder="Nama"><div class="phone-input-group"><input class="form-input phone-prefix" value="+62" readonly><input type="tel" class="form-input" id="mp" placeholder="812-xxxx-xxxx"></div><input type="email" class="form-input" id="me" placeholder="Email"></div><button class="btn btn-secondary" onclick="addMan()">Tambah</button>';
@@ -945,11 +968,9 @@
       else if (msg.src === 'vcf') add = '<div class="vcf-upload-zone" onclick="document.getElementById(\'mv\').click()"><input type="file" id="mv" accept=".vcf" style="display:none" onchange="handleMsgVcf(event)"><div style="color:var(--cream)">📁</div><div style="font-size:11px;color:var(--text-secondary)">Upload VCF</div></div><div id="ml"></div>';
       return '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">Penerima</h3>' + add + '<div class="recipient-section"><div class="recipient-header"><span class="recipient-title">Daftar</span><span class="recipient-count">' + msg.rec.length + '</span></div><div class="recipient-body">' + (msg.rec.length ? msg.rec.map(function(r) { return '<div class="recipient-item"><img class="recipient-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(r.name) + '"><div class="recipient-info"><div class="recipient-name">' + escapeHtml(r.name) + '</div><div class="recipient-detail">' + r.phone + '</div></div><button class="recipient-remove" onclick="rmRec(' + r.id + ')">×</button></div>'; }).join('') : '<div class="empty-state" style="padding:20px">Belum ada</div>') + '</div></div><div style="display:flex;justify-content:space-between;margin-top:16px"><button class="btn btn-secondary" style="width:auto;padding:10px 20px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="nextStep()">Lanjut</button></div></div>';
     }
-
     function addMan() { var n = document.getElementById('mn').value.trim(), p = document.getElementById('mp').value.trim(), e = document.getElementById('me').value.trim(); if (!n || !p) { alert('Nama dan telepon wajib'); return; } msg.rec.push({ id: Date.now(), name: n, phone: '+62' + p.replace(/[^0-9]/g, ''), email: e }); renderStep(); }
     function togRec(id) { var c = contacts.find(function(x) { return x.id === id; }); if (!c) return; var idx = msg.rec.findIndex(function(r) { return r.id === id; }); if (idx >= 0) msg.rec.splice(idx, 1); else msg.rec.push({ id: c.id, name: c.name, phone: c.phone, email: c.email }); renderStep(); }
     async function pickForMsg() { if (!('contacts' in navigator)) return; try { var s = await navigator.contacts.select(['name', 'tel', 'email'], { multiple: true }); s.forEach(function(c) { msg.rec.push({ id: Date.now() + Math.random(), name: c.name ? c.name.join(' ') : 'Unknown', phone: c.tel ? c.tel[0] : '', email: c.email ? c.email[0] : '' }); }); renderStep(); } catch (e) {} }
-
     function handleMsgVcf(ev) {
       var f = ev.target.files[0]; if (!f) return;
       var r = new FileReader();
@@ -965,16 +986,12 @@
       };
       r.readAsText(f);
     }
-
     function addV(n, p) { msg.rec.push({ id: Date.now(), name: decodeURIComponent(n), phone: p, email: '' }); renderStep(); }
     function rmRec(id) { msg.rec = msg.rec.filter(function(r) { return r.id !== id; }); renderStep(); }
-
     function renderComp() {
       return '<div class="profile-card"><h3 style="font-size:15px;margin-bottom:12px;color:var(--cream)">Tulis Pesan</h3><div class="channel-grid"><div class="channel-card' + (msg.ch === 'sms' ? ' selected' : '') + '" onclick="setCh(\'sms\')"><div class="channel-icon sms">💬</div><div class="channel-name">SMS</div><div class="channel-cost">Rp 500</div></div><div class="channel-card' + (msg.ch === 'telegram' ? ' selected' : '') + '" onclick="setCh(\'telegram\')"><div class="channel-icon telegram">✈️</div><div class="channel-name">Telegram</div><div class="channel-cost">Rp 200</div></div><div class="channel-card' + (msg.ch === 'email' ? ' selected' : '') + '" onclick="setCh(\'email\')"><div class="channel-icon email">📧</div><div class="channel-name">Email</div><div class="channel-cost">Rp 100</div></div></div>' + (msg.ch === 'email' ? '<div class="form-group" style="margin-top:12px"><label class="form-label">Subjek</label><input type="text" class="form-input" id="subj" value="' + (msg.subj || '') + '"></div>' : '') + '<div class="form-group" style="margin-top:12px"><label class="form-label">Pesan</label><textarea class="message-textarea" id="body" placeholder="Tulis pesan..." oninput="msg.body=this.value">' + (msg.body || '') + '</textarea><div class="char-count">' + (msg.body ? msg.body.length : 0) + ' karakter</div></div><div class="media-upload-zone" onclick="document.getElementById(\'mf\').click()"><input type="file" id="mf" accept="image/*,video/*" style="display:none" onchange="handleMed(event)"><div style="color:var(--cream)">🖼️</div><div style="font-size:10px;color:var(--text-secondary)">Gambar 1MB, Video 5MB</div></div><div class="media-preview" id="mp"></div><div style="display:flex;justify-content:space-between;margin-top:16px"><button class="btn btn-secondary" style="width:auto;padding:10px 20px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="nextStep()">Lanjut</button></div></div>';
     }
-
     function setCh(c) { msg.ch = c; renderStep(); }
-
     function handleMed(ev) {
       var f = ev.target.files[0]; if (!f) return;
       var isImg = f.type.startsWith('image/'), max = isImg ? 1000000 : 5000000;
@@ -1006,26 +1023,21 @@
         r2.readAsDataURL(f);
       }
     }
-
     function rmMed() { pMedia = null; document.getElementById('mp').innerHTML = ''; }
-
     function renderPrev() {
       if (msg.ch === 'email') msg.subj = document.getElementById('subj').value;
       var cost = msg.ch === 'sms' ? 500 : msg.ch === 'telegram' ? 200 : 100;
       return '<div class="preview-card"><div class="preview-header"><span class="preview-title">Preview</span></div><div class="preview-body">' + msg.rec.map(function(r) { return '<div class="preview-recipient"><img class="recipient-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=' + encodeURIComponent(r.name) + '"><div class="recipient-info"><div class="recipient-name">' + escapeHtml(r.name) + '</div><div class="recipient-detail">' + r.phone + '</div></div></div>'; }).join('') + '<div class="preview-message"><div class="preview-message-text">' + (msg.ch === 'email' ? '<strong>Subjek:</strong> ' + (msg.subj || '-') + '<br><br>' : '') + escapeHtml(msg.body) + '</div></div>' + (pMedia ? '<div><img src="' + pMedia + '" style="max-width:100%;border-radius:8px"></div>' : '') + '<div class="summary-grid"><div class="summary-item"><div class="summary-label">Channel</div><div class="summary-value accent">' + (msg.ch === 'sms' ? 'SMS' : msg.ch === 'telegram' ? 'Telegram' : 'Email') + '</div></div><div class="summary-item"><div class="summary-label">Penerima</div><div class="summary-value">' + msg.rec.length + '</div></div><div class="summary-item"><div class="summary-label">Biaya</div><div class="summary-value accent">Rp ' + fmtNum(cost * msg.rec.length) + '</div></div><div class="summary-item"><div class="summary-label">Estimasi</div><div class="summary-value">Segera</div></div></div></div></div><div style="display:flex;justify-content:space-between;margin-top:12px"><button class="btn btn-secondary" style="width:auto;padding:10px 20px" onclick="prevStep()">Kembali</button><button class="btn btn-primary" style="width:auto;padding:10px 24px" onclick="sendMsg()">Kirim</button></div>';
     }
-
     function sendMsg() {
       msg.step = 5; renderSteps();
       document.getElementById('createContent').innerHTML = '<div class="result-card"><div class="result-icon success">✓</div><h3 class="result-title">Mengirim...</h3></div>';
       setTimeout(function() { msg.result = { ok: true }; renderStep(); }, 2000);
     }
-
     function renderRes() {
       if (!msg.result) return '<div class="result-card"><div class="result-icon success">✓</div><h3 class="result-title">Mengirim...</h3></div>';
       return '<div class="result-card"><div class="result-icon success">✓</div><h3 class="result-title">Terkirim!</h3><p class="result-desc">Pesan berhasil dikirim ke ' + msg.rec.length + ' penerima via ' + (msg.ch === 'sms' ? 'SMS' : msg.ch === 'telegram' ? 'Telegram' : 'Email') + '</p><button class="btn btn-primary" style="width:auto;padding:12px 24px" onclick="resetMsg()">Buat Pesan Baru</button></div>';
     }
-
     function resetMsg() { msg = { step: 1, src: null, rec: [], ch: null, subj: '', body: '', result: null }; pMedia = null; renderSteps(); renderStep(); }
 
     // ============ FORM SUBMISSION ============
@@ -1054,11 +1066,30 @@
           showAlert('success', 'Login Admin berhasil!');
           setTimeout(showApp, 500);
         } else {
-          user.email = em;
-          user.name = em.split('@')[0];
-          user.seed = em.split('@')[0];
-          showAlert('success', 'Login berhasil!');
-          setTimeout(showApp, 500);
+          // Check regular user from storage
+          var users = getUsers();
+          var foundUser = users.find(function(u) { return u.email === em; });
+          
+          if (foundUser) {
+            if (!foundUser.active) {
+              showAlert('error', 'Akun belum aktif. Hubungi admin.');
+              btn.disabled = false;
+              btn.innerHTML = '<span>Masuk</span>';
+              return;
+            }
+            user.email = foundUser.email;
+            user.name = foundUser.name;
+            user.seed = foundUser.seed || foundUser.name;
+            user.active = foundUser.active;
+            user.balance = foundUser.balance || 0;
+            showAlert('success', 'Login berhasil!');
+            setTimeout(showApp, 500);
+          } else {
+            showAlert('error', 'Email tidak terdaftar.');
+            btn.disabled = false;
+            btn.innerHTML = '<span>Masuk</span>';
+            return;
+          }
         }
         btn.disabled = false;
         btn.innerHTML = '<span>Masuk</span>';
@@ -1085,15 +1116,25 @@
       btn.innerHTML = '<span class="spinner"></span>';
 
       setTimeout(function() {
+        // Save to localStorage
+        addUserToStorage({
+          name: n,
+          email: em,
+          phone: '+62 ' + ph.replace(/[^0-9]/g, ''),
+          seed: n
+        });
+        
         user.name = n;
         user.email = em;
         user.phone = '+62 ' + ph.replace(/[^0-9]/g, '');
         user.seed = n;
-        showAlert('success', 'Daftar berhasil! Hubungi admin untuk aktivasi.');
+        user.active = false;
+        
+        showAlert('success', 'Pendaftaran berhasil! Hubungi admin untuk aktivasi: wa.me/6285161990373');
         document.getElementById('registerForm').reset();
         btn.disabled = false;
         btn.innerHTML = '<span>Daftar</span>';
-        setTimeout(switchTab, 2000, 'login');
+        setTimeout(switchTab, 3000, 'login');
       }, 1500);
     };
 
@@ -1142,7 +1183,7 @@
       } catch (e) {}
     }
 
-    console.log('App loaded');
+    console.log('cekdulu! loaded');
   </script>
 </body>
 </html>
